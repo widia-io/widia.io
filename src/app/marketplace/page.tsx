@@ -12,87 +12,87 @@ export default function Marketplace() {
     {
       category: 'Vendas',
       price: 'R$ 5.200,00',
-      name: 'Agente SDR com CRM Integrado',
-      description: 'Solução ideal para automatizar a qualificação de leads e o agendamento de vendas. Integra de forma inteligente com seus potenciais clientes no WhatsApp e Instagram.',
+      name: 'Assistente de Vendas Inteligente',
+      description: 'Transforme sua prospecção em um processo automatizado e eficiente. Este assistente qualifica leads, agenda reuniões e mantém seu pipeline sempre organizado.',
       features: [
-        'Qualificação automática de leads via chat',
-        'Envio automático de links para agendamento',
-        'Registro detalhado dos leads no CRM',
-        'Envio do lead qualificado para o Closer',
-        '1 Painel CRM Interativo'
+        'Conversas inteligentes que qualificam prospects',
+        'Agendamento automático sem fricção',
+        'Base de dados sempre atualizada e organizada',
+        'Transferência inteligente para fechamento',
+        'Dashboard completo de vendas'
       ],
       additional: 'Possível adicionar funcionalidades: A orçar'
     },
     {
       category: 'Suporte',
       price: 'R$ 6.800,00',
-      name: 'Agente de Suporte (1 Canal)',
-      description: 'Ideal para e-commerce, cursos ou negócios com alto volume de dúvidas. Responde automaticamente a perguntas frequentes via WhatsApp, Instagram e e-mail.',
+      name: 'Central de Atendimento Automatizada',
+      description: 'Ofereça suporte excepcional 24/7. Sistema inteligente que resolve dúvidas, gerencia tickets e mantém seus clientes sempre satisfeitos.',
       features: [
-        'Atendimento automático 24/7',
-        'Gestão centralizada de tickets e histórico',
-        'Integração entre WhatsApp, Instagram, e-mail e planilha de controle'
+        'Suporte ininterrupto todos os dias',
+        'Central unificada de atendimentos',
+        'Conexão total com seus canais de comunicação'
       ],
       additional: 'Adicional por Canal: R$ 990,00'
     },
     {
       category: 'Atendimento',
       price: 'R$ 5.500,00',
-      name: 'Agente de Atendimento + Agenda',
-      description: 'Simplifique o agendamento de serviços para seus clientes. Seja pelo WhatsApp ou Instagram, este agente guia o cliente para marcar compromissos.',
+      name: 'Recepcionista Virtual com Agenda',
+      description: 'Elimine a complexidade do agendamento manual. Seu assistente pessoal gerencia horários, confirma compromissos e otimiza sua agenda automaticamente.',
       features: [
-        'Agendamento via conversa automatizada',
-        'Sincronização com Google Calendar, Outlook, Calendly ou Cal.com',
-        'Registro de atendimentos para controle e análise'
+        'Marcação de horários por conversa natural',
+        'Integração com suas agendas favoritas',
+        'Histórico completo de agendamentos'
       ],
       additional: 'Possível adicionar funcionalidades: A orçar'
     },
     {
       category: 'Produtividade',
       price: 'R$ 4.800,00',
-      name: 'Agente de Produtividade',
-      description: 'Organize tarefas, hábitos e compromissos com lembretes automáticos enviados via WhatsApp, mantendo você sempre focado. Ideal para controlar múltiplos projetos.',
+      name: 'Gestor de Produtividade Pessoal',
+      description: 'Maximize seu desempenho diário. Receba lembretes inteligentes, acompanhe metas e mantenha o foco no que realmente importa para seu crescimento.',
       features: [
-        'Envio de lembretes diários e semanais',
-        'Controle de hábitos e ciclos produtivos',
-        'Integração com ferramentas populares: Notion, ClickUp, Trello, Google Calendar'
+        'Notificações personalizadas no momento certo',
+        'Acompanhamento de rotinas e objetivos',
+        'Conecta com suas ferramentas favoritas'
       ],
       additional: 'Adicional Upgrade Multiusuário: R$6.600,00'
     },
     {
       category: 'Vendas',
       price: 'R$ 6.200,00',
-      name: 'Agente de Prospecção Ativa',
-      description: 'Automatize a busca por potenciais clientes no Google Maps, envie mensagens personalizadas e acompanhe todo o processo de follow-up.',
+      name: 'Hunter de Clientes Automatizado',
+      description: 'Descubra e conquiste novos clientes no piloto automático. Identifica oportunidades, inicia conversas e nutre relacionamentos comerciais estratégicos.',
       features: [
-        'Pesquisa de leads com Google Maps e API HasData',
-        'Envio e gestão de mensagens via WhatsApp',
-        'Registro e acompanhamento de leads no CRM'
+        'Mineração inteligente de potenciais clientes',
+        'Comunicação personalizada em massa',
+        'Pipeline de vendas sempre atualizado'
       ],
       additional: 'Adicionais: Agente de Atendimento: R$3.500,00 - Agente SDR: R$2.200,00'
     },
     {
       category: 'Financeiro',
       price: 'R$ 6.500,00',
-      name: 'Agente Financeiro Inteligente',
-      description: 'Tenha seu fluxo de caixa sempre atualizado, com resumos e lembretes enviados diretamente para o seu WhatsApp. Organize entradas, saídas e pagamentos de forma simples.',
+      name: 'Controlador Financeiro Digital',
+      description: 'Mantenha suas finanças sob controle total. Monitore fluxo de caixa, receba alertas importantes e tome decisões financeiras mais inteligentes.',
       features: [
-        'Registros financeiros centralizados',
-        'Envio de resumos e alertas via WhatsApp',
-        'Dashboard financeiro integrado para visualização clara'
+        'Controle unificado de todas as finanças',
+        'Relatórios e alertas automáticos',
+        'Visão clara da saúde financeira'
       ],
       additional: 'Adicional Upgrade Multiusuário: R$4.600,00'
     },
     {
       category: 'Produtividade',
       price: 'R$ 7.800,00',
-      name: 'Assistente Pessoal Freelancer',
-      description: 'Tenha sua rotina otimizada, com gerenciamento de tarefas diárias, lembretes e organização pessoal, além de poder gerar contratos de forma rápida e prática.',
+      name: 'Parceiro Virtual para Freelancers',
+      description: 'O braço direito que todo profissional autônomo precisa. Organiza projetos, cria contratos profissionais e mantém sua vida freelancer impecável.',
       features: [
-        'Gerenciamento centralizado de tarefas e compromissos',
-        'Envio de lembretes e alertas automáticos via WhatsApp',
-        'Geração rápida e personalizável de contratos',
-        'Organização pessoal e profissional em um só lugar'
+        'Gestão completa de projetos e prazos',
+        'Sistema inteligente de notificações',
+        'Criação profissional de documentos',
+        'Vida organizada, negócios prósperos'
       ],
       additional: 'Possível adicionar funcionalidades: A orçar'
     }
@@ -124,22 +124,22 @@ export default function Marketplace() {
             </div>
 
             <h1 className="text-4xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-              Escolha o <span className="border-b-4 border-black">Agente</span>{' '}
-              ideal para seu negócio
+              Encontre a <span className="border-b-4 border-black">Solução IA</span>{' '}
+              perfeita para sua empresa
             </h1>
 
             <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-8">
-              Explore nossa coleção de agentes de IA especializados, cada um desenvolvido para 
-              resolver desafios específicos do seu negócio com máxima eficiência.
+              Descubra assistentes inteligentes personalizados que automatizam tarefas, 
+              economizam tempo e impulsionam seus resultados de forma extraordinária.
             </p>
 
             <a
-              href="https://wa.me/5527996112436?text=Olá,%20quero%20saber%20mais!"
+              href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-lg px-8 py-4"
             >
-              Fale com um especialista
+              Converse com nosso time
             </a>
           </div>
 
@@ -203,12 +203,12 @@ export default function Marketplace() {
                     )}
 
                     <a
-                      href="https://wa.me/5527996112436?text=Olá,%20quero%20saber%20mais!"
+                      href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-primary"
                     >
-                      Quero o meu agente
+                      Implementar esta solução
                     </a>
                   </div>
 
@@ -256,12 +256,12 @@ export default function Marketplace() {
 
               <div className="text-center">
                 <a
-                  href="https://wa.me/5527996112436?text=Olá,%20quero%20saber%20mais!"
+                  href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary text-lg px-8 py-4"
                 >
-                  Solicitar orçamento personalizado
+                  Falar sobre meu projeto
                 </a>
               </div>
             </div>
