@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ArrowRight, Bot, Mail } from 'lucide-react'
+import { ArrowRight, Bot } from 'lucide-react'
 
 export default function Hero() {
   const [currentText, setCurrentText] = useState('')
@@ -52,27 +52,41 @@ export default function Hero() {
           </h1>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            A nova era digital começa com o modelo AI-First: implemente com segurança e 
-            transforme sua operação em escala.
+            Transforme processos manuais em automações inteligentes que escalam.{' '}
+            <span className="font-semibold text-black">ROI comprovado desde o primeiro mês.</span>
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
+              href="https://wa.me/5541995203400?text=Olá,%20quero%20uma%20análise%20gratuita%20dos%20meus%20processos!"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-lg px-8 py-4"
+              className="btn-primary text-lg px-8 py-4 group"
             >
-              Comece agora
-              <ArrowRight size={20} />
+              Análise Gratuita de Processos
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="mailto:contato@widia.io"
+              href="#valores"
               className="btn-secondary text-lg px-8 py-4"
             >
-              <Mail size={20} />
-              contato@widia.io
+              Ver Soluções
             </a>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span>Implementação em 30 dias</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span>Sem necessidade de código</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span>Suporte dedicado</span>
+            </div>
           </div>
         </div>
       </div>

@@ -5,48 +5,48 @@ import { Check, Star } from 'lucide-react'
 export default function Pricing() {
   const plans = [
     {
-      name: 'Essencial AI',
-      price: 'R$ 9.800',
-      period: 'a partir de',
-      description: 'Análise e otimização de 1 processo em uma área da empresa',
+      name: 'Starter AI',
+      price: 'A partir de R$ 2.900',
+      period: 'mês',
+      description: 'Perfeito para pequenos negócios começarem sua jornada AI',
       features: [
-        'Análise completa de 1 processo específico',
-        '3h de consultoria estratégica',
-        'Implementação de 1 agente inteligente',
-        '1h de treinamento interno',
-        'Contrato de 30 dias'
+        '1 agente inteligente focado',
+        '2h de consultoria inicial',
+        'Setup e configuração completos',
+        'Suporte via WhatsApp',
+        'Sem taxa de setup'
       ],
-      buttonText: 'Pedir Orçamento',
+      buttonText: 'Começar Agora',
       isPopular: false,
     },
     {
       name: 'Growth AI',
-      price: 'R$ 16.900',
-      period: 'mês/a partir de',
-      description: 'Análise de todas as áreas da empresa com ajuste de processos',
+      price: 'A partir de R$ 6.900',
+      period: 'mês',
+      description: 'Escale sua operação com automação inteligente completa',
       features: [
-        'Análise completa de todas as áreas',
-        'Implementação de 2 agentes por mês',
+        'Até 3 agentes personalizados',
+        'Análise completa de processos',
         '5h de consultoria estratégica',
-        '2h de treinamento interno por ciclo',
-        'Contrato mensal opcional'
+        'Treinamento da equipe incluído',
+        'Relatórios de performance'
       ],
-      buttonText: 'Pedir Orçamento',
+      buttonText: 'Agendar Demo',
       isPopular: true,
     },
     {
-      name: 'Custom AI',
+      name: 'Enterprise AI',
       price: 'Sob consulta',
-      period: 'a partir de',
-      description: 'Soluções totalmente sob medida com estratégia AI-First exclusiva',
+      period: '',
+      description: 'Transformação completa com estratégia AI-First sob medida',
       features: [
-        'Imersão completa nos processos',
-        'Estratégia AI-First personalizada',
-        'Múltiplos agentes integrados',
-        'Consultoria e treinamento sob medida',
-        'Suporte dedicado'
+        'Agentes ilimitados',
+        'Estratégia AI-First completa',
+        'Consultoria dedicada',
+        'Integração com sistemas existentes',
+        'SLA e suporte prioritário'
       ],
-      buttonText: 'Pedir Orçamento',
+      buttonText: 'Falar com Especialista',
       isPopular: false,
     }
   ]
@@ -88,7 +88,9 @@ export default function Pricing() {
                   <span className="text-3xl lg:text-4xl font-bold text-black">
                     {plan.price}
                   </span>
-                  <span className="text-gray-600 ml-2">/{plan.period}</span>
+                  {plan.period && (
+                    <span className="text-gray-600 ml-2">/{plan.period}</span>
+                  )}
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {plan.description}
