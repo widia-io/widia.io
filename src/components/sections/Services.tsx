@@ -129,7 +129,7 @@ export default function Services() {
 
                 <div className="pt-4">
                   <a
-                    href="https://wa.me/5527996112436?text=Olá,%20quero%20saber%20mais!"
+                    href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary"

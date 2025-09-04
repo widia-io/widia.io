@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ArrowRight, Bot } from 'lucide-react'
+import { ArrowRight, Bot, Mail } from 'lucide-react'
 
 export default function Hero() {
   const [currentText, setCurrentText] = useState('')
@@ -58,13 +58,20 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://wa.me/5527996112436?text=Olá,%20quero%20saber%20mais!"
+              href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-lg px-8 py-4"
             >
               Comece agora
               <ArrowRight size={20} />
+            </a>
+            <a
+              href="mailto:contato@widia.io"
+              className="btn-secondary text-lg px-8 py-4"
+            >
+              <Mail size={20} />
+              contato@widia.io
             </a>
           </div>
         </div>

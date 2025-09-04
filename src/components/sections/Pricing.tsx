@@ -112,7 +112,7 @@ export default function Pricing() {
               </div>
 
               <a
-                href="https://wa.me/5527996112436?text=Olá,%20quero%20saber%20mais!"
+                href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full justify-center ${
@@ -140,7 +140,7 @@ export default function Pricing() {
               Transforme sua operação com agentes inteligentes sob medida para o seu negócio.
             </p>
             <a
-              href="https://wa.me/5527996112436?text=Olá,%20quero%20saber%20mais!"
+              href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-lg px-8 py-4"

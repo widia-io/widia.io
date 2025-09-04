@@ -25,7 +25,7 @@ export default function Footer() {
                   <Instagram size={20} />
                 </a>
                 <a
-                  href="https://wa.me/5527996112436"
+                  href="https://wa.me/5541995203400"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-black transition-colors duration-200"
@@ -72,7 +72,7 @@ export default function Footer() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <a
-                    href="https://wa.me/5527996112436"
+                    href="https://wa.me/5541995203400"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-black transition-colors duration-200 flex items-center gap-2"
