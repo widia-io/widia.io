@@ -1,6 +1,11 @@
-# widia.io
+# 🤖 Widia.io - Landing Page
 
-Uma versão completa e monocromática do site The Outsider Hub, adaptada para widia.io com design minimalista em preto e branco.
+[![Deploy](https://github.com/widia-io/widia.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/widia-io/widia.io/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Landing page oficial da **Widia.io** - Agência especializada em soluções AI-First para empresas.
+
+🌐 **Website**: [widia.io](https://widia.io)
 
 ## 🎨 Design
 
@@ -109,10 +114,36 @@ O projeto está pronto para deploy em:
 - AWS Amplify
 - Qualquer hosting que suporte Node.js
 
+## 🎯 Estratégia de Conversão
+
+### Funil Otimizado
+1. **Hero**: Captura atenção + análise gratuita
+2. **Benefícios**: Constrói valor percebido
+3. **Social Proof**: Gera confiança
+4. **Pricing**: Apresenta investimento após valor
+
+### CTAs Estratégicos
+- **Primário**: "Análise Gratuita de Processos"
+- **Secundário**: "Ver Soluções" / "Agendar Demo"
+- **WhatsApp**: Contato direto otimizado
+
+## 📞 Contato
+
+- **Website**: [widia.io](https://widia.io)
+- **WhatsApp**: [+55 41 99520-3400](https://wa.me/5541995203400)
+- **Email**: [contato@widia.io](mailto:contato@widia.io)
+- **Instagram**: [@widia.io](https://instagram.com/widia.io)
+
 ## 📝 Licença
 
-© 2025 widia.io — Transformando empresas com modelo AI-First e agentes sob medida.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
-**Desenvolvido com base na análise completa do The Outsider Hub, mantendo toda a estrutura e funcionalidades originais em um design monocromático elegante e moderno.**
+<div align="center">
+  
+**🤖 Desenvolvido com IA pela Widia.io**
+
+*O futuro não é automático. É inteligente.*
+
+</div>
