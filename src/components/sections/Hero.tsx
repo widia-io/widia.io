@@ -35,9 +35,9 @@ export default function Hero() {
   }, [currentText, currentIndex, isDeleting])
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-b from-gray-50 to-white">
+    <section className="relative flex items-center bg-gradient-to-b from-gray-50 to-white py-20 lg:py-32">
       <div className="container">
-        <div className="text-center space-y-8 animate-fade-in">
+        <div className="text-center space-y-6 lg:space-y-8 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full text-sm font-medium">
             <Bot size={16} />
             Agência de IA
@@ -91,7 +91,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+      <div className="mt-12 flex justify-center">
         <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-gray-300 rounded-full mt-2 animate-bounce"></div>
         </div>

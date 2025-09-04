@@ -36,16 +36,21 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-black mb-4">Comunidade</h4>
+              <h4 className="font-semibold text-black mb-4">Soluções</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link href="#features" className="text-gray-600 hover:text-black transition-colors duration-200">
-                    Modelos Figma
+                  <Link href="/marketplace" className="text-gray-600 hover:text-black transition-colors duration-200">
+                    Marketplace de Agentes
                   </Link>
                 </li>
                 <li>
-                  <Link href="#pricing" className="text-gray-600 hover:text-black transition-colors duration-200">
-                    FlutterFlow Apps
+                  <Link href="#valores" className="text-gray-600 hover:text-black transition-colors duration-200">
+                    Planos e Preços
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#services" className="text-gray-600 hover:text-black transition-colors duration-200">
+                    Consultoria AI-First
                   </Link>
                 </li>
               </ul>
