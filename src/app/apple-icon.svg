@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- Apple Touch Icon Widia.io -->
+  
+  <!-- Background circular -->
+  <rect width="180" height="180" fill="black"/>
+  
+  <!-- W Icon -->
+  <path d="M45 54 L63 117 L90 72 L117 117 L135 54" 
+        stroke="white" 
+        stroke-width="10" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        fill="none"/>
+</svg>

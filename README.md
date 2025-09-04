@@ -132,7 +132,7 @@ O projeto está pronto para deploy em:
 - **Website**: [widia.io](https://widia.io)
 - **WhatsApp**: [+55 41 99520-3400](https://wa.me/5541995203400)
 - **Email**: [contato@widia.io](mailto:contato@widia.io)
-- **Instagram**: [@widia.io](https://instagram.com/widia.io)
+- **Instagram**: [@widia.digital](https://www.instagram.com/widia.digital)
 
 ## 📝 Licença
 
