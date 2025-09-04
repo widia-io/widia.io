@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1584" height="396" viewBox="0 0 1584 396" xmlns="http://www.w3.org/2000/svg">
+  <!-- Banner LinkedIn Widia.io - Versão Minimalista -->
+  
+  <!-- Background -->
+  <rect width="1584" height="396" fill="black"/>
+  
+  <!-- Logo W Central Grande -->
+  <g transform="translate(792, 198)">
+    <path d="M-60 -50 L-30 30 L0 -20 L30 30 L60 -50" 
+          stroke="white" 
+          stroke-width="10" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          fill="none"
+          transform="translate(0, -20)"/>
+    
+    <!-- Nome -->
+    <text x="0" y="80" 
+          font-family="Inter, -apple-system, sans-serif" 
+          font-size="48" 
+          font-weight="300" 
+          letter-spacing="8"
+          text-anchor="middle" 
+          fill="white">WIDIA.IO</text>
+  </g>
+  
+  <!-- Tagline sutil -->
+  <text x="792" y="340" 
+        font-family="Inter, -apple-system, sans-serif" 
+        font-size="16" 
+        font-weight="400" 
+        letter-spacing="4"
+        text-anchor="middle" 
+        fill="white" 
+        opacity="0.7">AGÊNCIA DE IA</text>
+</svg>

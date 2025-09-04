@@ -23,9 +23,9 @@ export default function Logo({ size = 'md', variant = 'full', className = '' }: 
       >
         <rect width="40" height="40" rx="8" fill="black"/>
         <path 
-          d="M8 12L12 28L16 12L20 28L24 12L28 28L32 12" 
+          d="M10 12L14 28L20 16L26 28L30 12" 
           stroke="white" 
-          strokeWidth="2" 
+          strokeWidth="2.5" 
           strokeLinecap="round" 
           strokeLinejoin="round"
         />
@@ -43,9 +43,9 @@ export default function Logo({ size = 'md', variant = 'full', className = '' }: 
       >
         <rect width="40" height="40" rx="8" fill="black"/>
         <path 
-          d="M8 12L12 28L16 12L20 28L24 12L28 28L32 12" 
+          d="M10 12L14 28L20 16L26 28L30 12" 
           stroke="white" 
-          strokeWidth="2" 
+          strokeWidth="2.5" 
           strokeLinecap="round" 
           strokeLinejoin="round"
         />

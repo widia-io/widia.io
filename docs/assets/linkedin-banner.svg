@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1584" height="396" viewBox="0 0 1584 396" xmlns="http://www.w3.org/2000/svg">
+  <!-- Banner LinkedIn Widia.io (proporção 4:1) -->
+  
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f9fafb"/>
+      <stop offset="100%" style="stop-color:#ffffff"/>
+    </linearGradient>
+    
+    <!-- Pattern decorativo -->
+    <pattern id="dotPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#e5e7eb" opacity="0.5"/>
+      <circle cx="22" cy="22" r="1" fill="#e5e7eb" opacity="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1584" height="396" fill="url(#bgGradient)"/>
+  <rect width="1584" height="396" fill="url(#dotPattern)"/>
+  
+  <!-- Elementos decorativos -->
+  <circle cx="100" cy="300" r="150" fill="black" opacity="0.03"/>
+  <circle cx="1484" cy="100" r="200" fill="black" opacity="0.03"/>
+  
+  <!-- Logo Container -->
+  <g transform="translate(100, 100)">
+    <!-- Ícone W -->
+    <rect x="0" y="0" width="80" height="80" rx="16" fill="black"/>
+    <path d="M20 24 L28 56 L40 36 L52 56 L60 24" 
+          stroke="white" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          fill="none"/>
+    
+    <!-- Nome da empresa -->
+    <text x="100" y="50" 
+          font-family="Inter, -apple-system, sans-serif" 
+          font-size="48" 
+          font-weight="700" 
+          fill="black">widia.io</text>
+  </g>
+  
+  <!-- Tagline Principal -->
+  <text x="792" y="200" 
+        font-family="Inter, -apple-system, sans-serif" 
+        font-size="42" 
+        font-weight="700" 
+        text-anchor="middle" 
+        fill="black">Transforme sua empresa em AI-First</text>
+  
+  <!-- Subtítulo -->
+  <text x="792" y="250" 
+        font-family="Inter, -apple-system, sans-serif" 
+        font-size="26" 
+        font-weight="400" 
+        text-anchor="middle" 
+        fill="#4b5563">Agentes inteligentes que automatizam e escalam seus processos</text>
+  
+  <!-- Call to Action Visual -->
+  <g transform="translate(692, 300)">
+    <rect x="0" y="0" width="200" height="50" rx="25" fill="black"/>
+    <text x="100" y="32" 
+          font-family="Inter, -apple-system, sans-serif" 
+          font-size="18" 
+          font-weight="600" 
+          text-anchor="middle" 
+          fill="white">ROI em 30 dias</text>
+  </g>
+  
+  <!-- Elementos visuais de IA -->
+  <g opacity="0.1">
+    <!-- Neural network visual -->
+    <circle cx="1350" cy="300" r="8" fill="black"/>
+    <circle cx="1400" cy="280" r="8" fill="black"/>
+    <circle cx="1400" cy="320" r="8" fill="black"/>
+    <circle cx="1450" cy="300" r="8" fill="black"/>
+    <line x1="1358" y1="300" x2="1392" y2="280" stroke="black" stroke-width="2"/>
+    <line x1="1358" y1="300" x2="1392" y2="320" stroke="black" stroke-width="2"/>
+    <line x1="1408" y1="280" x2="1442" y2="300" stroke="black" stroke-width="2"/>
+    <line x1="1408" y1="320" x2="1442" y2="300" stroke="black" stroke-width="2"/>
+  </g>
+</svg>
