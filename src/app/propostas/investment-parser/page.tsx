@@ -20,7 +20,7 @@ export default function InvestmentParserProposal() {
                   Investment Parser Platform
                 </h1>
                 <p className="text-sm text-gray-500 font-medium">
-                  Versão 2.1 • Outubro 2025 • Cliente: Widia
+                  Versão 2.1 • Outubro 2025 • Cliente: Fabiano
                 </p>
               </div>
             </div>
