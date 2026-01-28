@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js'
 import { Line, Bar, Doughnut } from 'react-chartjs-2'
-import { Users, TrendingUp, MessageSquare, FileText, Shield, Search } from 'lucide-react'
+import { DollarSign, TrendingUp, TrendingDown, ShoppingCart, Users, CreditCard } from 'lucide-react'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend, ArcElement)
 
@@ -43,13 +42,14 @@ export default function Dashboard() {
     },
   }
 
-  const lineData = {
-    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+  // MRR Evolution Chart
+  const mrrData = {
+    labels: ['Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
     datasets: [
       {
-        data: [240, 173, 204, 180, 210, 190],
-        borderColor: '#000000',
-        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        data: [32500, 38200, 42800, 45100, 48900, 52400],
+        borderColor: '#10b981',
+        backgroundColor: 'rgba(16, 185, 129, 0.1)',
         borderWidth: 2,
         fill: true,
         tension: 0.4,
@@ -57,42 +57,51 @@ export default function Dashboard() {
     ],
   }
 
-  const barData = {
+  // Weekly Sales Chart
+  const salesData = {
     labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
     datasets: [
       {
-        data: [130, 89, 120, 95, 85, 65, 75],
+        data: [12, 8, 15, 11, 18, 6, 4],
         backgroundColor: [
-          '#000000',
-          '#262626',
-          '#404040',
-          '#525252',
-          '#737373',
-          '#A3A3A3',
-          '#D4D4D4',
+          '#10b981',
+          '#059669',
+          '#047857',
+          '#065f46',
+          '#064e3b',
+          '#6ee7b7',
+          '#a7f3d0',
         ],
         borderWidth: 0,
       },
     ],
   }
 
-  const doughnutData = {
-    labels: ['Blocked', 'Total Posts', 'New Likes', 'Comment'],
+  // Revenue Distribution
+  const revenueData = {
+    labels: ['Plano Pro', 'Plano Business', 'Plano Starter', 'Add-ons'],
     datasets: [
       {
-        data: [750, 1300, 1730, 204],
-        backgroundColor: ['#000000', '#404040', '#737373', '#A3A3A3'],
+        data: [23580, 18340, 7860, 2620],
+        backgroundColor: ['#10b981', '#059669', '#6ee7b7', '#a7f3d0'],
         borderWidth: 0,
       },
     ],
   }
 
   const metrics = [
-    { icon: Users, label: 'Total Followers', value: '240K', change: '+3.1%', color: 'text-green-600' },
-    { icon: TrendingUp, label: 'New Likes', value: '173K2', change: '+1.2%', color: 'text-green-600' },
-    { icon: MessageSquare, label: 'Comment', value: '204K2', change: '+0.8%', color: 'text-green-600' },
-    { icon: FileText, label: 'Total Posts', value: '130K0', change: '+2.1%', color: 'text-green-600' },
-    { icon: Shield, label: 'Blocked Account', value: '0', change: '0%', color: 'text-gray-500' },
+    { icon: DollarSign, label: 'MRR', value: 'R$ 52.4K', change: '+12.5%', positive: true },
+    { icon: TrendingDown, label: 'Churn Rate', value: '2.4%', change: '-0.8%', positive: true },
+    { icon: ShoppingCart, label: 'Novas Vendas', value: '74', change: '+18.2%', positive: true },
+    { icon: CreditCard, label: 'Receita Total', value: 'R$ 156K', change: '+15.3%', positive: true },
+    { icon: Users, label: 'Clientes Ativos', value: '847', change: '+8.1%', positive: true },
+  ]
+
+  const expenses = [
+    { label: 'Infraestrutura', value: 'R$ 4.2K', percent: 30 },
+    { label: 'Marketing', value: 'R$ 3.5K', percent: 25 },
+    { label: 'Equipe', value: 'R$ 4.9K', percent: 35 },
+    { label: 'Outros', value: 'R$ 1.4K', percent: 10 },
   ]
 
   return (
@@ -110,33 +119,38 @@ export default function Dashboard() {
 
         <div className="bg-gray-900 rounded-2xl p-8 max-w-6xl mx-auto">
           <div className="bg-white rounded-xl p-6 shadow-lg">
+            {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
-                <div className="bg-black text-white px-3 py-1 rounded-full text-sm font-medium">
-                  Dashboard
+                <div className="bg-emerald-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold">
+                  Dashboard de Vendas
                 </div>
-                <Search className="text-gray-400" size={20} />
-                <input 
-                  type="text" 
-                  placeholder="Search..." 
-                  className="text-sm text-gray-600 bg-transparent outline-none"
-                />
+                <span className="text-sm text-gray-500">Últimos 30 dias</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-black rounded-full"></div>
+                <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
+                  <TrendingUp size={16} className="text-white" />
+                </div>
                 <div>
-                  <p className="text-sm font-medium text-black">Admin</p>
-                  <p className="text-xs text-gray-500">Owner Admin</p>
+                  <p className="text-sm font-medium text-black">SaaS Metrics</p>
+                  <p className="text-xs text-gray-500">Visão Geral</p>
                 </div>
               </div>
             </div>
 
+            {/* KPI Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
               {metrics.map((metric, index) => (
-                <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                  <div className="flex items-center justify-between mb-2">
-                    <metric.icon size={20} className="text-gray-600" />
-                    <span className={`text-sm font-medium ${metric.color}`}>
+                <div key={index} className="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <metric.icon size={20} className="text-emerald-600" />
+                    </div>
+                    <span className={`text-sm font-semibold px-2 py-0.5 rounded-full ${
+                      metric.positive 
+                        ? 'bg-emerald-100 text-emerald-700' 
+                        : 'bg-red-100 text-red-700'
+                    }`}>
                       {metric.change}
                     </span>
                   </div>
@@ -146,32 +160,56 @@ export default function Dashboard() {
               ))}
             </div>
 
+            {/* Charts Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Left Column - Main Charts */}
               <div className="lg:col-span-2 space-y-6">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="text-lg font-semibold text-black mb-4">Activity Followers</h3>
-                  <div className="h-64">
-                    <Line data={lineData} options={chartOptions} />
+                {/* MRR Evolution */}
+                <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 className="text-lg font-semibold text-black">Evolução do MRR</h3>
+                      <p className="text-sm text-gray-500">Receita recorrente mensal</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-2xl font-bold text-emerald-600">R$ 52.4K</p>
+                      <p className="text-xs text-gray-500">+61% vs Jul</p>
+                    </div>
+                  </div>
+                  <div className="h-56">
+                    <Line data={mrrData} options={chartOptions} />
                   </div>
                 </div>
 
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="text-lg font-semibold text-black mb-4">Weekly Activity</h3>
-                  <div className="h-48">
-                    <Bar data={barData} options={chartOptions} />
+                {/* Weekly Sales */}
+                <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 className="text-lg font-semibold text-black">Vendas da Semana</h3>
+                      <p className="text-sm text-gray-500">Novas assinaturas por dia</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-2xl font-bold text-black">74</p>
+                      <p className="text-xs text-gray-500">esta semana</p>
+                    </div>
+                  </div>
+                  <div className="h-40">
+                    <Bar data={salesData} options={chartOptions} />
                   </div>
                 </div>
               </div>
 
+              {/* Right Column */}
               <div className="space-y-6">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="text-lg font-semibold text-black mb-4">New Followers</h3>
-                  <div className="h-48 flex items-center justify-center">
+                {/* Revenue by Product */}
+                <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
+                  <h3 className="text-lg font-semibold text-black mb-4">Receita por Plano</h3>
+                  <div className="h-40 flex items-center justify-center">
                     <Doughnut 
-                      data={doughnutData} 
+                      data={revenueData} 
                       options={{
                         ...chartOptions,
-                        cutout: '70%',
+                        cutout: '65%',
                         plugins: {
                           legend: {
                             display: false,
@@ -181,36 +219,65 @@ export default function Dashboard() {
                     />
                   </div>
                   <div className="mt-4 space-y-2">
-                    {doughnutData.labels.map((label, index) => (
+                    {revenueData.labels.map((label, index) => (
                       <div key={index} className="flex items-center justify-between text-sm">
                         <div className="flex items-center gap-2">
                           <div 
                             className="w-3 h-3 rounded-full"
-                            style={{ backgroundColor: doughnutData.datasets[0].backgroundColor[index] }}
+                            style={{ backgroundColor: revenueData.datasets[0].backgroundColor[index] }}
                           ></div>
                           <span className="text-gray-600">{label}</span>
                         </div>
-                        <span className="font-medium text-black">
-                          {doughnutData.datasets[0].data[index]}
+                        <span className="font-semibold text-black">
+                          R$ {(revenueData.datasets[0].data[index] / 1000).toFixed(1)}K
                         </span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="text-lg font-semibold text-black mb-4">See All</h3>
+                {/* Expenses Breakdown */}
+                <div className="bg-gray-50 p-5 rounded-xl border border-gray-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-black">Gastos</h3>
+                    <span className="text-sm font-semibold text-orange-600">R$ 14K</span>
+                  </div>
                   <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span className="text-sm text-gray-600">All</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                      <span className="text-sm text-gray-600">Mentions</span>
-                    </div>
+                    {expenses.map((expense, index) => (
+                      <div key={index} className="space-y-1">
+                        <div className="flex items-center justify-between text-sm">
+                          <span className="text-gray-600">{expense.label}</span>
+                          <span className="font-medium text-black">{expense.value}</span>
+                        </div>
+                        <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-orange-400 rounded-full"
+                            style={{ width: `${expense.percent}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Bottom Stats */}
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-xl">
+                <p className="text-sm text-emerald-700 font-medium">Lucro Líquido</p>
+                <p className="text-2xl font-bold text-emerald-700">R$ 38.4K</p>
+                <p className="text-xs text-emerald-600">73% de margem</p>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 p-4 rounded-xl">
+                <p className="text-sm text-blue-700 font-medium">LTV Médio</p>
+                <p className="text-2xl font-bold text-blue-700">R$ 2.840</p>
+                <p className="text-xs text-blue-600">+12% vs mês anterior</p>
+              </div>
+              <div className="bg-purple-50 border border-purple-200 p-4 rounded-xl">
+                <p className="text-sm text-purple-700 font-medium">CAC</p>
+                <p className="text-2xl font-bold text-purple-700">R$ 189</p>
+                <p className="text-xs text-purple-600">LTV/CAC: 15x</p>
               </div>
             </div>
           </div>
