@@ -2,54 +2,11 @@
 
 import { Check, Star } from 'lucide-react'
 
+import { plans } from '@/constants/pricing'
+import { buildWhatsAppLink } from '@/lib/whatsapp'
+
 export default function Pricing() {
-  const plans = [
-    {
-      name: 'Starter AI',
-      price: 'A partir de R$ 2.900',
-      period: 'mês',
-      description: 'Perfeito para pequenos negócios começarem sua jornada AI',
-      features: [
-        '1 agente inteligente focado',
-        '2h de consultoria inicial',
-        'Setup e configuração completos',
-        'Suporte via WhatsApp',
-        'Sem taxa de setup'
-      ],
-      buttonText: 'Começar Agora',
-      isPopular: false,
-    },
-    {
-      name: 'Growth AI',
-      price: 'A partir de R$ 6.900',
-      period: 'mês',
-      description: 'Escale sua operação com automação inteligente completa',
-      features: [
-        'Até 3 agentes personalizados',
-        'Análise completa de processos',
-        '5h de consultoria estratégica',
-        'Treinamento da equipe incluído',
-        'Relatórios de performance'
-      ],
-      buttonText: 'Agendar Demo',
-      isPopular: true,
-    },
-    {
-      name: 'Enterprise AI',
-      price: 'Sob consulta',
-      period: '',
-      description: 'Transformação completa com estratégia AI-First sob medida',
-      features: [
-        'Agentes ilimitados',
-        'Estratégia AI-First completa',
-        'Consultoria dedicada',
-        'Integração com sistemas existentes',
-        'SLA e suporte prioritário'
-      ],
-      buttonText: 'Falar com Especialista',
-      isPopular: false,
-    }
-  ]
+  const whatsAppLink = buildWhatsAppLink('Olá, quero saber mais!')
 
   return (
     <section id="valores" className="section bg-white">
@@ -114,7 +71,7 @@ export default function Pricing() {
               </div>
 
               <a
-                href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
+                href={whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full justify-center ${
@@ -142,7 +99,7 @@ export default function Pricing() {
               Transforme sua operação com agentes inteligentes sob medida para o seu negócio.
             </p>
             <a
-              href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
+              href={whatsAppLink}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-lg px-8 py-4"

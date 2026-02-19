@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { ArrowRight, Bot } from 'lucide-react'
 
+import { buildWhatsAppLink } from '@/lib/whatsapp'
+
 export default function Hero() {
   const [currentText, setCurrentText] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -34,6 +36,8 @@ export default function Hero() {
     return () => clearTimeout(timeout)
   }, [currentText, currentIndex, isDeleting])
 
+  const whatsAppLink = buildWhatsAppLink('Olá, quero uma análise gratuita dos meus processos!')
+
   return (
     <section className="relative flex items-center bg-gradient-to-b from-gray-50 to-white py-20 lg:py-32">
       <div className="container">
@@ -58,7 +62,7 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="https://wa.me/5541995203400?text=Olá,%20quero%20uma%20análise%20gratuita%20dos%20meus%20processos!"
+              href={whatsAppLink}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-lg px-8 py-4 group"
