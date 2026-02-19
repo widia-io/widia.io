@@ -1,61 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { Cog, Shield, Brain, TrendingUp, CheckCircle } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
+
+import { services } from '@/constants/services'
+import { buildWhatsAppLink } from '@/lib/whatsapp'
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState(0)
 
-  const services = [
-    {
-      id: 0,
-      icon: Cog,
-      title: 'Desenvolvimento Sob Medida',
-      description: 'Agentes inteligentes criados especificamente para seus processos únicos',
-      features: [
-        'Análise detalhada dos processos existentes',
-        'Desenvolvimento customizado para necessidades específicas',
-        'Integração seamless com sistemas atuais',
-        'Treinamento especializado da equipe',
-      ]
-    },
-    {
-      id: 1,
-      icon: TrendingUp,
-      title: 'Integração com Processos Reais',
-      description: 'Implementação direta em atendimento, operações e backoffice',
-      features: [
-        'Automação de atendimento ao cliente',
-        'Otimização de operações internas',
-        'Gestão inteligente de backoffice',
-        'Relatórios em tempo real',
-      ]
-    },
-    {
-      id: 2,
-      icon: Shield,
-      title: 'Segurança AI-First',
-      description: 'Implementação segura com visão estratégica de futuro',
-      features: [
-        'Arquitetura segura e escalável',
-        'Compliance com regulamentações',
-        'Monitoramento contínuo de segurança',
-        'Backup e recuperação automática',
-      ]
-    },
-    {
-      id: 3,
-      icon: Brain,
-      title: 'Inteligência Estratégica',
-      description: 'Análises e insights que transformam dados em decisões inteligentes',
-      features: [
-        'Análise preditiva avançada',
-        'Dashboard interativo de métricas',
-        'Insights personalizados para seu negócio',
-        'Recommendations baseadas em IA',
-      ]
-    }
-  ]
+  const whatsAppLink = buildWhatsAppLink('Olá, quero saber mais!')
 
   return (
     <div id="servicos" className="section bg-gray-50">
@@ -129,7 +83,7 @@ export default function Services() {
 
                 <div className="pt-4">
                   <a
-                    href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
+                    href={whatsAppLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary"

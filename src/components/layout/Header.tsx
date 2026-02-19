@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Logo from '../Logo'
 import { Menu, X } from 'lucide-react'
 
+import { buildWhatsAppLink } from '@/lib/whatsapp'
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -23,6 +25,8 @@ export default function Header() {
     { name: 'Marketplace', href: '/marketplace' },
     { name: 'Valores', href: '#valores' },
   ]
+
+  const whatsAppLink = buildWhatsAppLink('Olá, quero saber mais!')
 
   return (
     <header className="fixed top-4 left-0 right-0 z-50 px-4 transition-all duration-500">
@@ -64,7 +68,7 @@ export default function Header() {
 
             <div className="hidden lg:block">
               <a
-                href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
+                href={whatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`
@@ -104,7 +108,7 @@ export default function Header() {
               ))}
               <div className="pt-3 mt-3 border-t border-gray-200">
                 <a
-                  href="https://wa.me/5541995203400?text=Olá,%20quero%20saber%20mais!"
+                  href={whatsAppLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center bg-blue-600 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition-colors"
