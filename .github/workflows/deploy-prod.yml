@@ -1,0 +1,180 @@
+name: Deploy Widia Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: widia-prod-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE_NAME: ghcr.io/${{ github.repository }}
+
+jobs:
+  test_and_build:
+    name: Test and Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+  publish_image:
+    name: Publish Image
+    runs-on: ubuntu-latest
+    needs:
+      - test_and_build
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      - name: Setup Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: |
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
+            ${{ env.IMAGE_NAME }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy_prod:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs:
+      - publish_image
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate production config
+        run: |
+          test -n "${{ secrets.WIDIA_PROD_HOST }}"
+          test -n "${{ secrets.WIDIA_PROD_PORT }}"
+          test -n "${{ secrets.WIDIA_PROD_USER }}"
+          test -n "${{ secrets.WIDIA_PROD_SSH_KEY }}"
+          test -n "${{ secrets.WIDIA_PROD_KNOWN_HOSTS }}"
+          test -n "${{ vars.WIDIA_STACK_DIR }}"
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.WIDIA_PROD_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+          printf '%s\n' "${{ secrets.WIDIA_PROD_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+      - name: Sync deploy manifest
+        run: |
+          HOST="${{ secrets.WIDIA_PROD_HOST }}"
+          PORT="${{ secrets.WIDIA_PROD_PORT }}"
+          USER="${{ secrets.WIDIA_PROD_USER }}"
+          STACK_DIR="${{ vars.WIDIA_STACK_DIR }}"
+
+          ssh -p "$PORT" -i ~/.ssh/id_ed25519 "$USER@$HOST" "mkdir -p \"$STACK_DIR\""
+          scp -P "$PORT" -i ~/.ssh/id_ed25519 deploy/docker-compose.prod.yml "$USER@$HOST:$STACK_DIR/docker-compose.prod.yml"
+
+      - name: Deploy and auto-rollback on failure
+        run: |
+          HOST="${{ secrets.WIDIA_PROD_HOST }}"
+          PORT="${{ secrets.WIDIA_PROD_PORT }}"
+          USER="${{ secrets.WIDIA_PROD_USER }}"
+
+          ssh -p "$PORT" -i ~/.ssh/id_ed25519 "$USER@$HOST" "bash -s" <<'EOF'
+          set -Eeuo pipefail
+
+          STACK_DIR="${{ vars.WIDIA_STACK_DIR }}"
+          IMAGE_TAG="${{ github.sha }}"
+          GHCR_USERNAME="${{ github.actor }}"
+          GHCR_TOKEN="${{ github.token }}"
+
+          cd "$STACK_DIR"
+
+          compose() {
+            docker compose --env-file .image-tag.env -f docker-compose.prod.yml "$@"
+          }
+
+          wait_for_http() {
+            url="$1"
+            for _ in $(seq 1 20); do
+              if curl -fsS --max-time 10 "$url" >/dev/null; then
+                return 0
+              fi
+              sleep 3
+            done
+            echo "http check failed for $url"
+            return 1
+          }
+
+          rollback() {
+            if [ ! -s .last_successful_tag ]; then
+              echo "rollback skipped: .last_successful_tag not found"
+              return 1
+            fi
+
+            rollback_tag="$(cat .last_successful_tag)"
+            printf 'IMAGE_TAG=%s\n' "$rollback_tag" > .image-tag.env
+            compose pull web || true
+            compose up -d --remove-orphans web
+            wait_for_http "https://widia.io" || true
+            echo "rollback applied: $rollback_tag"
+          }
+
+          deploy() {
+            printf 'IMAGE_TAG=%s\n' "$IMAGE_TAG" > .image-tag.env
+            printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USERNAME" --password-stdin
+            compose pull web
+            compose up -d --remove-orphans web
+            wait_for_http "https://widia.io"
+            printf '%s\n' "$IMAGE_TAG" > .last_successful_tag
+            echo "deploy succeeded: $IMAGE_TAG"
+          }
+
+          if ! deploy; then
+            echo "deploy failed, attempting rollback"
+            rollback || true
+            exit 1
+          fi
+          EOF

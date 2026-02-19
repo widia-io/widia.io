@@ -114,6 +114,30 @@ O projeto está pronto para deploy em:
 - AWS Amplify
 - Qualquer hosting que suporte Node.js
 
+### CI/CD com GitHub Actions (produção)
+
+Este repositório possui workflows para:
+- Build e publish da imagem Docker no GHCR em todo push para `main`
+- Deploy automático no servidor via SSH usando `docker compose`
+- Rollback manual por tag de imagem
+
+Arquivos:
+- `.github/workflows/deploy-prod.yml`
+- `.github/workflows/rollback-prod.yml`
+- `deploy/docker-compose.prod.yml`
+
+Configurações necessárias no GitHub (Environment `production`):
+
+**Secrets**
+- `WIDIA_PROD_HOST` (ex: `82.112.245.152`)
+- `WIDIA_PROD_PORT` (ex: `22`)
+- `WIDIA_PROD_USER` (ex: `root`)
+- `WIDIA_PROD_SSH_KEY` (chave privada para acesso SSH)
+- `WIDIA_PROD_KNOWN_HOSTS` (saída do `ssh-keyscan` do servidor)
+
+**Variables**
+- `WIDIA_STACK_DIR` (ex: `/opt/stacks/widia`)
+
 ## 🎯 Estratégia de Conversão
 
 ### Funil Otimizado
