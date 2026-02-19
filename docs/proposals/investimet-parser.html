@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proposta Comercial — Investment Parser Platform</title>
+    <meta name="description" content="Proposta Comercial - Extração de Investimentos (Bradesco em 5 dias, com fonte)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --color-black: #000000;
+        --color-white: #FFFFFF;
+        --gray-900: #111827; /* textos secundários */
+        --gray-600: #4B5563; /* subtítulos e descrições */
+        --gray-400: #9CA3AF; /* decorativos */
+        --gray-bg: #F9FAFB;  /* backgrounds suaves */
+        --green-success: #10B981;
+        --blue-link: #3B82F6;
+        --page-max: 940px;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0; padding: 0;
+        background: var(--gray-bg);
+        color: var(--gray-900);
+        font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      a { color: var(--blue-link); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      .container {
+        max-width: var(--page-max);
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      header {
+        background: var(--white);
+        padding: 32px 0 16px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .brand svg { flex: 0 0 auto; }
+
+      .brand-title {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .brand-title h1 {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 800; /* Extra Bold */
+        color: var(--color-black);
+      }
+
+      .brand-title .meta {
+        color: var(--gray-600);
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .actions {
+        margin-top: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid var(--gray-400);
+        background: var(--white);
+        color: var(--color-black);
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .btn:hover { border-color: var(--gray-600); }
+
+      main {
+        background: var(--white);
+        margin: 16px 0 48px;
+        border: 1px solid #E5E7EB;
+        border-radius: 12px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      }
+
+      .section { padding: 24px; }
+      .section + .section { border-top: 1px solid #F3F4F6; }
+
+      h2 { font-size: 22px; margin: 0 0 8px; font-weight: 800; color: var(--color-black); }
+      h3 { font-size: 18px; margin: 16px 0 8px; font-weight: 700; color: var(--color-black); }
+
+      .lead {
+        color: var(--gray-600);
+        margin: 0 0 12px;
+      }
+
+      ul { margin: 8px 0 12px 20px; }
+      li { margin: 4px 0; }
+
+      .pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #EEF2FF;
+        color: #3730A3;
+        font-weight: 600;
+        font-size: 12px;
+      }
+
+      .codelike { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: #F3F4F6; padding: 2px 6px; border-radius: 6px; }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      @media (min-width: 920px) {
+        .grid-2 { grid-template-columns: 1fr 1fr; }
+      }
+
+      .notice {
+        border-left: 4px solid var(--green-success);
+        background: #ECFDF5;
+        padding: 12px 12px 12px 16px;
+        border-radius: 8px;
+        color: #065F46;
+        font-weight: 600;
+        margin: 8px 0 12px;
+      }
+
+      footer { color: var(--gray-600); font-size: 14px; margin: 16px 0 48px; text-align: center; }
+
+      /* Print */
+      @media print {
+        header .actions { display: none; }
+        main { box-shadow: none; border: none; }
+        body { background: white; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="brand">
+          <!-- Logo Widia.io inline (do brand-guidelines) -->
+          <svg width="180" height="60" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg" aria-label="Widia.io logo">
+            <g id="icon">
+              <rect x="10" y="15" width="30" height="30" rx="6" fill="black"/>
+              <path d="M15 22 L18 35 L25 26 L32 35 L35 22" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </g>
+            <g id="text" fill="black">
+              <text x="50" y="36" font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24">
+                <tspan font-weight="700">widia</tspan><tspan font-weight="400">.io</tspan>
+              </text>
+            </g>
+          </svg>
+          <div class="brand-title">
+            <h1>Proposta Comercial — Investment Parser Platform</h1>
+            <div class="meta">Versão 2.1 • Outubro 2025 • Cliente: Widia</div>
+            <div class="actions">
+              <button class="btn" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Resumo Executivo -->
+      <section class="section" id="resumo-executivo">
+        <h2>Resumo Executivo</h2>
+        <p class="lead">Extração de Investimentos (Bradesco em 5 dias, com entrega de código-fonte) e implantação por fases via N8N + Google Drive.</p>
+        <div class="grid grid-2">
+          <div>
+            <h3>Escopo imediato</h3>
+            <ul>
+              <li>Entrega do extractor do Bradesco em 5 dias, sem custo.</li>
+              <li>Entrega do código-fonte para execução local (CLI) e documentação.</li>
+            </ul>
+            <h3>Fases</h3>
+            <ul>
+              <li>Fase 1: Bradesco e Itaú no N8N lendo/salvando no Google Drive.</li>
+              <li>Fase 2: XP e BTG no mesmo modelo N8N/Google Drive.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Prazos</h3>
+            <ul>
+              <li>Bradesco (PoC): 5 dias corridos.</li>
+              <li>Fase 1: até 10 dias úteis.</li>
+              <li>Fase 2: até 7 dias úteis.</li>
+            </ul>
+            <h3>Custos</h3>
+            <ul>
+              <li>PoC Bradesco: sem custo.</li>
+              <li>Fase 1: R$ 1.000 (pagamento ao final).</li>
+              <li>Fase 2: R$ 1.500 (pagamento ao final).</li>
+              <li>Mensalidade (infra + agentes): ver seção “Custos e Condições”.</li>
+            </ul>
+          </div>
+        </div>
+        <h3>Entregáveis</h3>
+        <ul>
+          <li>Código-fonte dos scripts de extração do Bradesco, com instruções.</li>
+          <li>CSV final consolidado a partir de PDFs do Bradesco.</li>
+          <li>Workflows N8N (JSON), configuração Google Drive e documentação de operação.</li>
+        </ul>
+      </section>
+
+      <!-- Escopo e Fases -->
+      <section class="section" id="escopo-fases">
+        <h2>1. Escopo e Fases</h2>
+        <h3>1.1 PoC Bradesco (5 dias, sem custo)</h3>
+        <ul>
+          <li>Implementação/ajuste do extractor Bradesco com saída CSV padronizada.</li>
+          <li>Entrega do código-fonte e scripts de execução local.</li>
+          <li>Documentação de setup (pré-requisitos, instalação, execução, troubleshooting).</li>
+          <li>Testes locais com PDFs de exemplo fornecidos pelo cliente.</li>
+        </ul>
+        <p><span class="pill">Critérios de aceite (PoC)</span></p>
+        <ul>
+          <li>Processar PDFs do Bradesco fornecidos e gerar CSV consistente.</li>
+          <li>Reprodutibilidade: execução local pelo cliente seguindo a documentação.</li>
+        </ul>
+
+        <h3>1.2 Fase 1 — N8N + Google Drive (Bradesco e Itaú)</h3>
+        <ul>
+          <li>Workflow no N8N com leitura automática de PDFs (Google Drive).</li>
+          <li>Roteamento por banco (Bradesco e Itaú) e execução do script.</li>
+          <li>Escrita do CSV resultante no Google Drive.</li>
+          <li>Logs básicos e documentação de operação.</li>
+        </ul>
+
+        <h3>1.3 Fase 2 — N8N + Google Drive (XP e BTG)</h3>
+        <ul>
+          <li>Extensão do workflow para XP e BTG no mesmo padrão da Fase 1.</li>
+          <li>Validação com PDFs de exemplo e documentação de operação.</li>
+        </ul>
+      </section>
+
+      <!-- Arquitetura e Fluxos -->
+      <section class="section" id="arquitetura-fluxos">
+        <h2>2. Arquitetura e Fluxos</h2>
+        <h3>2.1 PoC Local (execução via scripts)</h3>
+        <pre class="codelike">PDF local → Script Python (Extractor Bradesco) → CSV local</pre>
+        <p class="lead">Pré-requisitos sugeridos</p>
+        <ul>
+          <li>Python 3.10+ e <span class="codelike">pip</span>.</li>
+          <li>Dependências instaladas via <span class="codelike">requirements.txt</span>.</li>
+        </ul>
+        <p class="lead">Execução (exemplo)</p>
+        <ul>
+          <li>Instalação: <span class="codelike">pip install -r requirements.txt</span></li>
+          <li>Execução: <span class="codelike">python extract_with_llm_complete.py --input input/bradesco.pdf --output output/bradesco.csv</span></li>
+        </ul>
+
+        <h3>2.2 N8N (Fases 1 e 2)</h3>
+        <pre class="codelike">Google Drive (input) → N8N (trigger + roteamento) → Script → Google Drive (output)</pre>
+        <p class="lead">Componentes</p>
+        <ul>
+          <li>Trigger Google Drive para detectar novos PDFs.</li>
+          <li>Switch/roteamento por banco (Bradesco, Itaú, XP, BTG).</li>
+          <li>Execução do script Python correspondente.</li>
+          <li>Upload do CSV no Google Drive de saída.</li>
+        </ul>
+      </section>
+
+      <!-- Entregáveis por Fase -->
+      <section class="section" id="entregaveis">
+        <h2>3. Entregáveis por Fase</h2>
+        <p class="lead">PoC Bradesco (sem custo)</p>
+        <ul>
+          <li>Código-fonte dos scripts e instruções de execução local.</li>
+          <li>CSVs de exemplo gerados a partir dos PDFs do cliente.</li>
+          <li>Guia de troubleshooting e limites conhecidos.</li>
+        </ul>
+        <p class="lead">Fase 1 (Bradesco e Itaú)</p>
+        <ul>
+          <li>Workflow N8N exportado (.json) com leitura e escrita no Google Drive.</li>
+          <li>Scripts/ajustes necessários para Itaú.</li>
+          <li>N8N provisionado na hospedagem da Widia e configuração de credenciais.</li>
+        </ul>
+        <p class="lead">Fase 2 (XP e BTG)</p>
+        <ul>
+          <li>Extensão do workflow N8N para XP e BTG.</li>
+          <li>Scripts/ajustes necessários para XP e BTG.</li>
+          <li>Atualização da documentação operacional.</li>
+        </ul>
+      </section>
+
+      <!-- Cronograma -->
+      <section class="section" id="cronograma">
+        <h2>4. Cronograma</h2>
+        <p class="lead">PoC Bradesco — 5 dias</p>
+        <ul>
+          <li>Dia 1: alinhamento, coleta de PDFs e setup local.</li>
+          <li>Dias 2–4: implementação/ajustes, testes com PDFs do cliente.</li>
+          <li>Dia 5: entrega dos scripts, documentação e handover.</li>
+        </ul>
+        <p class="lead">Fase 1 — até 10 dias úteis</p>
+        <ul>
+          <li>Provisionamento do N8N e credenciais do Google Drive.</li>
+          <li>Implementação do workflow (trigger, roteamento, execução, upload).</li>
+          <li>Testes com PDFs reais e ajustes. Go-live e handover.</li>
+        </ul>
+        <p class="lead">Fase 2 — até 7 dias úteis</p>
+        <ul>
+          <li>Extensão do workflow para XP e BTG.</li>
+          <li>Ajustes/implementações de extractors e configuração de rotas.</li>
+          <li>Testes com PDFs reais, go-live e atualização de documentação.</li>
+        </ul>
+      </section>
+
+      <!-- Custos e Condições -->
+      <section class="section" id="custos-condicoes">
+        <h2>5. Custos e Condições</h2>
+        <ul>
+          <li>PoC Bradesco: sem custo para o cliente.</li>
+          <li>Fase 1: R$ 1.000 (pagamento único ao final).</li>
+          <li>Fase 2: R$ 1.500 (pagamento único ao final).</li>
+        </ul>
+        <p class="lead">Mensalidade (a partir do go-live da Fase 1)</p>
+        <ul>
+          <li>Infraestrutura e operação: R$ 120/mês (N8N/Coolify, servidor Python, logs, backups, monitoramento básico).</li>
+          <li>Uso dos agentes (LLM/OpenRouter): repasse a custo conforme consumo.</li>
+          <li>Exemplo: 200 PDFs/mês ≈ R$ 83 (LLM) + R$ 120 (fixo) → total ≈ R$ 203/mês.</li>
+        </ul>
+        <div class="notice">Observações: N8N hospedado pela Widia; se o cliente usar instância própria, a mensalidade de infraestrutura pode ser revista. Escopos como enriquecimento/monitoramento avançado podem ser propostos separadamente.</div>
+      </section>
+
+      <!-- Termos e PI -->
+      <section class="section" id="termos-pi">
+        <h2>6. Termos e Propriedade Intelectual</h2>
+        <ul>
+          <li>Código-fonte dos scripts do Bradesco entregue para execução local.</li>
+          <li>Workflows N8N entregues em formato exportável (.json).</li>
+          <li>Dados processados pertencem exclusivamente ao cliente.</li>
+          <li>Confidencialidade: NDA bilateral mediante solicitação.</li>
+        </ul>
+      </section>
+
+      <!-- Próximos Passos -->
+      <section class="section" id="proximos-passos">
+        <h2>7. Próximos Passos</h2>
+        <ol>
+          <li>Validação deste escopo (PoC gratuito do Bradesco + definição das Fases).</li>
+          <li>Envio de PDFs de exemplo do Bradesco para testes iniciais.</li>
+          <li>Kickoff do PoC (D0) e entrega em até 5 dias.</li>
+          <li>Apresentação de resultados e, se aprovado, detalhamento de esforço/custos para Fase 1 e Fase 2.</li>
+        </ol>
+      </section>
+
+      <!-- Adendo -->
+      <section class="section" id="adendo">
+        <h2>8. Adendo — Extensão para Extração de Novos Bancos</h2>
+        <ul>
+          <li>Inclusão de novos bancos/corretoras além de Bradesco, Itaú, XP e BTG.</li>
+          <li>Entregáveis: extractor do novo banco, atualização do workflow N8N e documentação.</li>
+          <li>Pré-requisitos: 3–5 PDFs de exemplo e padrão de nome de arquivo.</li>
+          <li>Prazo típico: 3–7 dias úteis por banco (varia pela complexidade).</li>
+          <li>Orçamento: apresentado após análise dos PDFs enviados.</li>
+          <li>Compatibilidade: Google Drive e orquestração N8N hospedado pela Widia.</li>
+          <li>Critério de aceite: processamento dos PDFs de exemplo com CSV consistente e reprodutível.</li>
+        </ul>
+      </section>
+
+      <footer>
+        © Widia.io — Identidade visual conforme guia de marca. Contato: contato@widia.io
+      </footer>
+    </main>
+  </body>
+  </html>
+
