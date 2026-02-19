@@ -1,0 +1,83 @@
+name: Rollback Widia Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Image tag to rollback (example: 9b53f9d...)"
+        required: true
+        type: string
+
+concurrency:
+  group: widia-prod-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  rollback_prod:
+    name: Rollback to Selected Tag
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Validate production config
+        run: |
+          test -n "${{ secrets.WIDIA_PROD_HOST }}"
+          test -n "${{ secrets.WIDIA_PROD_PORT }}"
+          test -n "${{ secrets.WIDIA_PROD_USER }}"
+          test -n "${{ secrets.WIDIA_PROD_SSH_KEY }}"
+          test -n "${{ secrets.WIDIA_PROD_KNOWN_HOSTS }}"
+          test -n "${{ vars.WIDIA_STACK_DIR }}"
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.WIDIA_PROD_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+          printf '%s\n' "${{ secrets.WIDIA_PROD_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+      - name: Rollback
+        run: |
+          HOST="${{ secrets.WIDIA_PROD_HOST }}"
+          PORT="${{ secrets.WIDIA_PROD_PORT }}"
+          USER="${{ secrets.WIDIA_PROD_USER }}"
+
+          ssh -p "$PORT" -i ~/.ssh/id_ed25519 "$USER@$HOST" "bash -s" <<'EOF'
+          set -Eeuo pipefail
+
+          STACK_DIR="${{ vars.WIDIA_STACK_DIR }}"
+          IMAGE_TAG="${{ inputs.image_tag }}"
+          GHCR_USERNAME="${{ github.actor }}"
+          GHCR_TOKEN="${{ github.token }}"
+
+          cd "$STACK_DIR"
+
+          compose() {
+            docker compose --env-file .image-tag.env -f docker-compose.prod.yml "$@"
+          }
+
+          wait_for_http() {
+            url="$1"
+            for _ in $(seq 1 20); do
+              if curl -fsS --max-time 10 "$url" >/dev/null; then
+                return 0
+              fi
+              sleep 3
+            done
+            echo "http check failed for $url"
+            return 1
+          }
+
+          printf '%s\n' "IMAGE_TAG=$IMAGE_TAG" > .image-tag.env
+          printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USERNAME" --password-stdin
+          compose pull web
+          compose up -d --remove-orphans web
+          wait_for_http "https://widia.io"
+          printf '%s\n' "$IMAGE_TAG" > .last_successful_tag
+          echo "rollback succeeded: $IMAGE_TAG"
+          EOF

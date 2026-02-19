@@ -1,0 +1,28 @@
+name: widia
+
+services:
+  web:
+    image: ghcr.io/widia-io/widia.io:${IMAGE_TAG:-latest}
+    container_name: widia-web
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
+      - PORT=3000
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.widia-site.rule=Host(`widia.io`) || Host(`www.widia.io`)"
+      - "traefik.http.routers.widia-site.entrypoints=websecure"
+      - "traefik.http.routers.widia-site.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.widia-site.middlewares=widia-www"
+      - "traefik.http.middlewares.widia-www.redirectregex.regex=^https://www\\.widia\\.io/(.*)"
+      - "traefik.http.middlewares.widia-www.redirectregex.replacement=https://widia.io/$${1}"
+      - "traefik.http.middlewares.widia-www.redirectregex.permanent=true"
+      - "traefik.http.services.widia-site.loadbalancer.server.port=3000"
+
+networks:
+  proxy:
+    external: true
