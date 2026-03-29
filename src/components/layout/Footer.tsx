@@ -6,66 +6,71 @@ import { Instagram, Mail, MessageCircle } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
+    <footer className="border-t border-[var(--ledger-line)] pb-8 pt-10">
       <div className="container">
-        <div className="py-12 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-1">
-              <Logo size="md" className="mb-4" />
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Transformando negócios com Inteligência Artificial
+        <div className="surface-panel rounded-[30px] p-6 sm:p-8">
+          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr]">
+            <div className="space-y-5">
+              <Logo size="md" />
+              <p className="max-w-sm text-sm leading-relaxed text-[var(--ink-soft)]">
+                IA prática pro seu negócio
               </p>
-              <div className="flex items-center space-x-4 mt-6">
+
+              <div className="flex items-center gap-3">
                 <a
                   href="https://www.instagram.com/widia.digital"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-black transition-colors duration-200"
+                  className="rounded-full border border-[var(--ledger-line)] bg-white/65 p-3 text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]"
                 >
-                  <Instagram size={20} />
+                  <Instagram size={18} />
                 </a>
                 <a
                   href="https://wa.me/5541995203400"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-black transition-colors duration-200"
+                  className="rounded-full border border-[var(--ledger-line)] bg-white/65 p-3 text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]"
                 >
-                  <MessageCircle size={20} />
+                  <MessageCircle size={18} />
                 </a>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold text-black mb-4">Soluções</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)]">
+                Navegação
+              </h4>
+              <ul className="mt-4 space-y-3 text-sm">
                 <li>
-                  <Link href="/marketplace" className="text-gray-600 hover:text-black transition-colors duration-200">
-                    Marketplace de Agentes
+                  <Link href="#como-funciona" className="text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]">
+                    Como Funciona
                   </Link>
                 </li>
                 <li>
-                  <Link href="#valores" className="text-gray-600 hover:text-black transition-colors duration-200">
-                    Planos e Preços
+                  <Link href="#servicos" className="text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]">
+                    Serviços
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" className="text-gray-600 hover:text-black transition-colors duration-200">
-                    Consultoria AI-First
+                  <Link href="#sobre" className="text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]">
+                    Sobre
                   </Link>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h4 className="font-semibold text-black mb-4">Termos de Uso</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)]">
+                Termos de uso
+              </h4>
+              <ul className="mt-4 space-y-3 text-sm">
                 <li>
-                  <Link href="#" className="text-gray-600 hover:text-black transition-colors duration-200">
+                  <Link href="#" className="text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]">
                     Política de Privacidade
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="text-gray-600 hover:text-black transition-colors duration-200">
+                  <Link href="#" className="text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]">
                     Termos de Uso
                   </Link>
                 </li>
@@ -73,14 +78,16 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-black mb-4">Contatos</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)]">
+                Contato
+              </h4>
+              <ul className="mt-4 space-y-3 text-sm">
                 <li>
                   <a
                     href="https://wa.me/5541995203400"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-black transition-colors duration-200 flex items-center gap-2"
+                    className="flex items-center gap-2 text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]"
                   >
                     <MessageCircle size={16} />
                     WhatsApp
@@ -89,7 +96,7 @@ export default function Footer() {
                 <li>
                   <a
                     href="mailto:contato@widia.io"
-                    className="text-gray-600 hover:text-black transition-colors duration-200 flex items-center gap-2"
+                    className="flex items-center gap-2 text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]"
                   >
                     <Mail size={16} />
                     E-mail
@@ -100,9 +107,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 py-6">
-          <p className="text-sm text-gray-500 text-center">
-            © 2025 widia.io — levamos empresas ao modelo AI-First com agentes sob medida.
+        <div className="py-6">
+          <p className="text-center text-sm text-[var(--ink-soft)]">
+            © 2026 widia.io — IA prática pro seu negócio.
           </p>
         </div>
       </div>
