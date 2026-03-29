@@ -136,7 +136,7 @@ Configurações necessárias no GitHub (Environment `production`):
 - `WIDIA_PROD_KNOWN_HOSTS` (saída do `ssh-keyscan` do servidor)
 
 **Variables**
-- `WIDIA_STACK_DIR` (ex: `/opt/stacks/widia`)
+- `WIDIA_STACK_DIR` (ex: `/opt/stacks/widia-io`)
 
 ## 🎯 Estratégia de Conversão
 

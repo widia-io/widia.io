@@ -96,6 +96,11 @@ jobs:
           test -n "${{ secrets.WIDIA_PROD_SSH_KEY }}"
           test -n "${{ secrets.WIDIA_PROD_KNOWN_HOSTS }}"
           test -n "${{ vars.WIDIA_STACK_DIR }}"
+          STACK_DIR_RAW="${{ vars.WIDIA_STACK_DIR }}"
+          STACK_DIR="${STACK_DIR_RAW%/}"
+          EXPECTED_STACK_DIR="/opt/stacks/widia-io"
+          test -n "$STACK_DIR_RAW"
+          [ "$STACK_DIR" = "$EXPECTED_STACK_DIR" ] || { echo "Invalid WIDIA_STACK_DIR: $STACK_DIR_RAW"; exit 1; }
 
       - name: Configure SSH
         run: |
@@ -112,6 +117,7 @@ jobs:
           PORT="${{ secrets.WIDIA_PROD_PORT }}"
           USER="${{ secrets.WIDIA_PROD_USER }}"
           STACK_DIR="${{ vars.WIDIA_STACK_DIR }}"
+          STACK_DIR="${STACK_DIR%/}"
 
           ssh -p "$PORT" -i ~/.ssh/id_ed25519 "$USER@$HOST" "mkdir -p \"$STACK_DIR\""
           scp -P "$PORT" -i ~/.ssh/id_ed25519 deploy/docker-compose.prod.yml "$USER@$HOST:$STACK_DIR/docker-compose.prod.yml"
@@ -126,6 +132,7 @@ jobs:
           set -Eeuo pipefail
 
           STACK_DIR="${{ vars.WIDIA_STACK_DIR }}"
+          STACK_DIR="${STACK_DIR%/}"
           IMAGE_TAG="${{ github.sha }}"
           GHCR_USERNAME="${{ github.actor }}"
           GHCR_TOKEN="${{ github.token }}"
