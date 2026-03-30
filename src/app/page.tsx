@@ -1,17 +1,23 @@
 import Hero from '@/components/sections/Hero'
-import Dashboard from '@/components/sections/Dashboard'
+import ComoFunciona from '@/components/sections/ComoFunciona'
+import OQueResolvemos from '@/components/sections/OQueResolvemos'
+import ProvaSocial from '@/components/sections/ProvaSocial'
 import Services from '@/components/sections/Services'
-import Pricing from '@/components/sections/Pricing'
+import Sobre from '@/components/sections/Sobre'
+import FAQ from '@/components/sections/FAQ'
+import CTAFinal from '@/components/sections/CTAFinal'
 
 export default function Home() {
   return (
     <>
-      <div className="pt-20">
-        <Hero />
-      </div>
-      <Dashboard />
+      <Hero />
+      <OQueResolvemos />
+      <ComoFunciona />
+      <ProvaSocial />
       <Services />
-      <Pricing />
+      <Sobre />
+      <FAQ />
+      <CTAFinal />
     </>
   )
 }

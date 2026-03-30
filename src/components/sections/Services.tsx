@@ -1,114 +1,117 @@
-'use client'
+import { ArrowRight } from 'lucide-react'
 
-import { useState } from 'react'
-import { CheckCircle } from 'lucide-react'
-
-import { services } from '@/constants/services'
 import { buildWhatsAppLink } from '@/lib/whatsapp'
+import { serviceItems } from '@/constants/sections'
 
 export default function Services() {
-  const [activeTab, setActiveTab] = useState(0)
-
-  const whatsAppLink = buildWhatsAppLink('Olá, quero saber mais!')
-
   return (
-    <div id="servicos" className="section bg-gray-50">
+    <section id="servicos" className="section section-anchor">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-5xl font-bold text-black mb-6">
-            Como implementamos o modelo AI-First
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Criamos e implementamos agentes inteligentes que integram processos reais: 
-            atendimento, operações e backoffice.
-          </p>
-        </div>
+        <div className="surface-panel trace-grid rounded-[34px] p-6 sm:p-8 lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+            <div className="space-y-6">
+              <span className="section-kicker">formas de entrar</span>
+              <div className="space-y-4">
+                <h2 className="font-display text-4xl leading-[0.98] text-[var(--graphite-ink)] sm:text-5xl">
+                  Escolha o ritmo que faz sentido para o momento da sua operação.
+                </h2>
+                <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]">
+                  Tem negócio que precisa só de clareza para começar. Tem negócio que já está
+                  pronto para uma entrega pontual. E tem rotina que pede evolução contínua.
+                </p>
+              </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon
-              return (
-                <button
-                  key={index}
-                  onClick={() => setActiveTab(index)}
-                  className={`flex items-center gap-3 px-6 py-4 rounded-lg font-medium transition-all duration-300 ${
-                    activeTab === index
-                      ? 'bg-black text-white shadow-lg'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+              <div className="surface-card rounded-[28px] p-5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--ink-soft)]">
+                  entrada recomendada
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--graphite-ink)]">
+                  Se você ainda não sabe onde a IA encaixa melhor, comece pela sessão gratuita.
+                  Ela é o jeito mais rápido de sair do campo da ideia e entrar na decisão certa.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              {serviceItems.map((item, index) => (
+                <article
+                  key={item.name}
+                  className={`rounded-[30px] border p-6 sm:p-7 ${
+                    item.highlight
+                      ? 'border-[var(--signal-blue)] bg-white shadow-[0_18px_38px_rgba(47,97,245,0.12)]'
+                      : 'surface-card'
                   }`}
                 >
-                  <IconComponent size={20} />
-                  <div className="text-left">
-                    <div className="font-semibold text-sm lg:text-base">
-                      {service.title}
+                  <div className="grid gap-5 lg:grid-cols-[0.18fr_0.58fr_0.24fr] lg:items-start">
+                    <div className="space-y-3">
+                      <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)]">
+                        {`0${index + 1}`}
+                      </p>
+                      <span
+                        className={`inline-flex rounded-full px-3 py-1.5 text-xs font-medium ${
+                          item.highlight
+                            ? 'bg-[var(--signal-blue-soft)] text-[var(--signal-blue)]'
+                            : 'border border-[var(--ledger-line)] bg-white/70 text-[var(--graphite-ink)]'
+                        }`}
+                      >
+                        {item.format}
+                      </span>
                     </div>
-                    <div className="text-xs lg:text-sm opacity-80 hidden lg:block">
-                      {service.description}
+
+                    <div className="space-y-4">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <h3 className="font-display text-[1.7rem] leading-tight text-[var(--graphite-ink)]">
+                          {item.name}
+                        </h3>
+                        {item.highlight && (
+                          <span className="rounded-full bg-[var(--graphite-ink)] px-3 py-1 text-xs font-medium text-[var(--paper-bright)]">
+                            recomendado
+                          </span>
+                        )}
+                      </div>
+
+                      <p className="text-[15px] leading-relaxed text-[var(--ink-soft)]">
+                        {item.description}
+                      </p>
+
+                      <div className="grid gap-3 sm:grid-cols-2">
+                        <div className="rounded-[22px] border border-[var(--ledger-line)] bg-[var(--paper-ivory)] px-4 py-4">
+                          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)]">
+                            ideal para
+                          </p>
+                          <p className="mt-2 text-sm leading-relaxed text-[var(--graphite-ink)]">
+                            {item.bestFor}
+                          </p>
+                        </div>
+                        <div className="rounded-[22px] border border-[var(--ledger-line)] bg-[var(--paper-ivory)] px-4 py-4">
+                          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)]">
+                            o que entrega
+                          </p>
+                          <p className="mt-2 text-sm leading-relaxed text-[var(--graphite-ink)]">
+                            {item.outcome}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex lg:justify-end">
+                      <a
+                        href={buildWhatsAppLink(item.ctaMessage)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={item.highlight ? 'action-primary w-full lg:w-auto' : 'action-secondary w-full lg:w-auto'}
+                      >
+                        {item.highlight ? 'Agendar agora' : 'Saiba mais'}
+                        <ArrowRight size={16} />
+                      </a>
                     </div>
                   </div>
-                </button>
-              )
-            })}
-          </div>
-
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="bg-black text-white p-3 rounded-lg">
-                    {(() => {
-                      const IconComponent = services[activeTab].icon
-                      return <IconComponent size={24} />
-                    })()}
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-black">
-                      {services[activeTab].title}
-                    </h3>
-                    <p className="text-gray-600">
-                      {services[activeTab].description}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  {services[activeTab].features.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle size={20} className="text-green-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="pt-4">
-                  <a
-                    href={whatsAppLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary"
-                  >
-                    Saiba mais sobre este serviço
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center">
-                <div className="w-full h-64 lg:h-80 bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
-                  <div className="text-center text-gray-500">
-                    {(() => {
-                      const IconComponent = services[activeTab].icon
-                      return <IconComponent size={48} className="mx-auto mb-4" />
-                    })()}
-                    <p className="text-lg font-medium">{services[activeTab].title}</p>
-                    <p className="text-sm">Visualização do Serviço</p>
-                  </div>
-                </div>
-              </div>
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
