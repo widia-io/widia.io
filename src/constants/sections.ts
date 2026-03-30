@@ -8,7 +8,7 @@ import {
   Wrench,
   Rocket,
 } from 'lucide-react'
-import { AboutHighlight, Step, ProblemCard, Testimonial, ServiceItem, FAQItem } from '@/types/sections'
+import { AboutHighlight, CaseStudy, Step, ProblemCard, Testimonial, ServiceItem, FAQItem } from '@/types/sections'
 import { CTA_MESSAGES } from './cta-messages'
 
 export const steps: Step[] = [
@@ -96,6 +96,29 @@ export const testimonials: Testimonial[] = [
     focus: 'Venda recorrente organizada',
     impact: 'Landing + checkout em 7 dias',
     quote: 'Em 7 dias já tinha minha landing page com checkout funcionando. Não precisei aprender nada técnico.',
+  },
+]
+
+export const caseStudies: CaseStudy[] = [
+  {
+    name: 'meuflip',
+    url: 'https://meuflip.com',
+    category: 'SaaS para house flipping',
+    status: 'Produto em operação',
+    headline: 'Viabilidade, custos e lucro real organizados em um único sistema.',
+    description:
+      'Plataforma criada para quem faz flip com frequência e precisa analisar negócio com menos improviso e mais controle.',
+    evidence: ['ROI médio de +24%', '4h/sem poupadas', 'Análise completa em 30s'],
+  },
+  {
+    name: 'MeuFoco',
+    url: 'https://meufoco.app',
+    category: 'SaaS de produtividade pessoal',
+    status: 'Produto lançado',
+    headline: 'Metas, hábitos, tarefas, finanças e journaling integrados na mesma plataforma.',
+    description:
+      'Produto estruturado para evolução pessoal com módulos conectados, Life Score semanal e planos claros de entrada e expansão.',
+    evidence: ['Metas + hábitos + tarefas', 'Módulo financeiro disponível', 'Planos grátis, Pro e Premium'],
   },
 ]
 

@@ -24,6 +24,16 @@ export type Testimonial = {
   quote: string
 }
 
+export type CaseStudy = {
+  name: string
+  url: string
+  category: string
+  status: string
+  headline: string
+  description: string
+  evidence: string[]
+}
+
 export type ServiceItem = {
   name: string
   description: string
