@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { IBM_Plex_Mono, Manrope, Space_Grotesk } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
+import AppShell from '@/components/layout/AppShell'
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -56,11 +55,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${manrope.variable} ${spaceGrotesk.variable} ${plexMono.variable}`}>
-        <Header />
-        <main className="relative overflow-hidden pt-20 lg:pt-24">
-          {children}
-        </main>
-        <Footer />
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   )
