@@ -1,15 +1,18 @@
 import WidiaLogo from '@/components/ui/WidiaLogo'
 import { PrintButton } from '@/components/ui/PrintButton'
+import { buildWhatsAppLink } from '@/lib/whatsapp'
 import {
   FileText,
   Clock,
   DollarSign,
   CheckCircle2,
+  AlertCircle,
   Calendar,
   Zap,
   Shield,
   Code,
   Package,
+  MessageCircle,
 } from 'lucide-react'
 
 const executiveSummaryCards = [
@@ -76,47 +79,6 @@ const phaseThreeScope = [
   'Ela valida, a IA gera — 3x mais conteúdo no mesmo tempo',
 ] as const
 
-const deliverables = [
-  {
-    badge: 'F1',
-    title: 'Landing Page + Stripe',
-    price: 'R$ 1.500 único',
-    className: 'from-blue-50 to-cyan-50 border-blue-200',
-    badgeClassName: 'bg-blue-600',
-    iconClassName: 'text-blue-600',
-    items: [
-      'Landing page com os 3 planos de assinatura',
-      'Checkout Stripe com recorrência mensal e anual',
-      'Cupons, responsividade e hospedagem inclusa',
-    ],
-  },
-  {
-    badge: 'F2',
-    title: 'Assistente WhatsApp',
-    price: 'R$ 500 setup',
-    className: 'from-green-50 to-emerald-50 border-green-200',
-    badgeClassName: 'bg-green-600',
-    iconClassName: 'text-green-600',
-    items: [
-      'Triagem automática de novos leads no WhatsApp',
-      'Qualificação por interesse, orçamento e dúvidas',
-      'Agendamento de call ou envio do link de checkout',
-    ],
-  },
-  {
-    badge: 'F3',
-    title: 'Conteúdo com IA',
-    price: 'R$ 400 setup',
-    className: 'from-purple-50 to-pink-50 border-purple-200',
-    badgeClassName: 'bg-purple-600',
-    iconClassName: 'text-purple-600',
-    items: [
-      'Roteiros de Reels por tema',
-      'Legendas com variações de tom de voz',
-      'Estruturas de carrosséis educativos prontas para validação',
-    ],
-  },
-] as const
 
 const phaseOneTimeline = [
   'Alinhamento, coleta de referências visuais e definição dos planos',
@@ -131,13 +93,16 @@ const phaseTwoTimeline = [
   'Ajustes e ativação',
 ] as const
 
-const costRows = [
-  { category: 'Setup (único)', item: 'Fase 1 (Landing + Stripe)', value: 'R$ 1.500' },
-  { category: 'Setup (único)', item: 'Fase 2 (WhatsApp IA)', value: 'R$ 500' },
-  { category: 'Setup (único)', item: 'Fase 3 (Conteúdo IA)', value: 'R$ 400' },
-  { category: 'Mensalidade', item: 'Manutenção + hospedagem', value: 'R$ 200/mês' },
-  { category: 'Mensalidade', item: 'Assistente WhatsApp (Fase 2)', value: 'R$ 300/mês' },
-  { category: 'Mensalidade', item: 'Conteúdo IA (Fase 3)', value: 'R$ 200/mês' },
+const setupRows = [
+  { item: 'Fase 1 — Landing Page + Stripe', value: 'R$ 1.500' },
+  { item: 'Fase 2 — Assistente WhatsApp', value: 'R$ 500' },
+  { item: 'Fase 3 — Conteúdo com IA', value: 'R$ 400' },
+] as const
+
+const monthlyRows = [
+  { item: 'Manutenção + hospedagem', value: 'R$ 200/mês' },
+  { item: 'Assistente WhatsApp (Fase 2)', value: 'R$ 300/mês' },
+  { item: 'Conteúdo IA (Fase 3)', value: 'R$ 200/mês' },
 ] as const
 
 const terms = [
@@ -183,6 +148,7 @@ export default function AlaneMicheleProposal() {
                 <h1 className="text-2xl md:text-3xl font-extrabold text-black leading-tight">
                   Clube Alane Michele — Estrutura de Receita Recorrente
                 </h1>
+                <p className="text-sm text-gray-600">Consultoria de imagem pessoal com 77K seguidores no Instagram e produto digital validado.</p>
                 <p className="text-sm text-gray-500 font-medium">1.0 · Março 2026 · Cliente: Alane Michele</p>
               </div>
             </div>
@@ -228,7 +194,7 @@ export default function AlaneMicheleProposal() {
               <ul className="space-y-2">
                 {currentScenario.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-gray-700">
-                    <CheckCircle2 size={18} className="text-black mt-0.5 flex-shrink-0" />
+                    <AlertCircle size={18} className="text-amber-500 mt-0.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -238,12 +204,12 @@ export default function AlaneMicheleProposal() {
             <div className="border-l-4 border-blue-500 pl-6 py-2">
               <h3 className="text-lg font-bold text-black mb-3">1.2 A oportunidade</h3>
               <p className="text-gray-700 leading-relaxed">
-                A audiência já existe. O produto já existe. Falta estrutura para monetizar de forma recorrente e previsível.
+                Com 77K seguidores engajados e um produto validado, a Alane já tem demanda — mas cada venda depende de atendimento manual via DM e Pix. Uma landing page com checkout recorrente transforma audiência em receita previsível.
               </p>
 
               <div className="mt-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-sm font-semibold text-blue-900 mb-2">📈 Exemplo de previsibilidade</p>
-                <p className="text-sm text-blue-800">50 assinantes no plano Presença = R$ 19.850/mês de MRR.</p>
+                <p className="text-sm text-blue-800">50 assinantes × R$ 397 (plano Presença) = <strong>R$ 19.850/mês</strong> de receita recorrente.</p>
               </div>
             </div>
           </div>
@@ -283,7 +249,7 @@ export default function AlaneMicheleProposal() {
             </div>
 
             <div className="border-l-4 border-green-500 pl-6 py-2">
-              <h3 className="text-lg font-bold text-black mb-3">2.2 Fase 2 — Assistente de Triagem no WhatsApp (após Fase 1)</h3>
+              <h3 className="text-lg font-bold text-black mb-3">2.2 Fase 2 — Assistente de Triagem no WhatsApp (3–5 dias úteis)</h3>
               <ul className="space-y-2">
                 {phaseTwoScope.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-gray-700">
@@ -295,7 +261,7 @@ export default function AlaneMicheleProposal() {
             </div>
 
             <div className="border-l-4 border-purple-500 pl-6 py-2">
-              <h3 className="text-lg font-bold text-black mb-3">2.3 Fase 3 — Geração de Conteúdo com IA (bônus)</h3>
+              <h3 className="text-lg font-bold text-black mb-3">2.3 Fase 3 — Geração de Conteúdo com IA</h3>
               <ul className="space-y-2">
                 {phaseThreeScope.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-gray-700">
@@ -308,43 +274,10 @@ export default function AlaneMicheleProposal() {
           </div>
         </section>
 
-        <section className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow" id="entregaveis">
-          <h2 className="text-2xl font-extrabold text-black mb-6 flex items-center gap-3">
-            <div className="w-8 h-8 bg-black text-white rounded-lg flex items-center justify-center text-sm font-bold">
-              3
-            </div>
-            Entregáveis por Fase
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {deliverables.map((item) => (
-              <div key={item.badge} className={`bg-gradient-to-br ${item.className} rounded-xl p-6 border-2`}>
-                <div className="flex items-center gap-2 mb-4">
-                  <div className={`w-10 h-10 ${item.badgeClassName} text-white rounded-lg flex items-center justify-center font-bold`}>
-                    {item.badge}
-                  </div>
-                  <div>
-                    <p className="font-bold text-black">{item.title}</p>
-                    <p className="text-xs text-gray-600">{item.price}</p>
-                  </div>
-                </div>
-                <ul className="space-y-2 text-sm text-gray-700">
-                  {item.items.map((deliverable) => (
-                    <li key={deliverable} className="flex items-start gap-2">
-                      <CheckCircle2 size={16} className={`${item.iconClassName} mt-0.5 flex-shrink-0`} />
-                      <span>{deliverable}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
         <section className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow" id="cronograma">
           <h2 className="text-2xl font-extrabold text-black mb-6 flex items-center gap-3">
             <div className="w-8 h-8 bg-black text-white rounded-lg flex items-center justify-center text-sm font-bold">
-              4
+              3
             </div>
             Cronograma
           </h2>
@@ -370,7 +303,7 @@ export default function AlaneMicheleProposal() {
             <div className="bg-gradient-to-r from-green-50 to-transparent rounded-xl p-6 border-l-4 border-green-500">
               <div className="flex items-center gap-3 mb-3">
                 <Calendar className="text-green-600" size={24} />
-                <h3 className="font-bold text-black text-lg">Fase 2 — após aprovação da Fase 1</h3>
+                <h3 className="font-bold text-black text-lg">Fase 2 — 3 a 5 dias úteis após aprovação da Fase 1</h3>
               </div>
               <ul className="space-y-2 text-sm text-gray-700">
                 {phaseTwoTimeline.map((item) => (
@@ -387,7 +320,7 @@ export default function AlaneMicheleProposal() {
         <section className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow" id="custos-condicoes">
           <h2 className="text-2xl font-extrabold text-black mb-6 flex items-center gap-3">
             <div className="w-8 h-8 bg-black text-white rounded-lg flex items-center justify-center text-sm font-bold">
-              5
+              4
             </div>
             Custos e Condições
           </h2>
@@ -397,23 +330,40 @@ export default function AlaneMicheleProposal() {
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Categoria</th>
                     <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Item</th>
-                    <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Valor</th>
+                    <th className="px-4 py-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-500">Valor</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                  {costRows.map((row) => (
-                    <tr key={`${row.category}-${row.item}`}>
-                      <td className="px-4 py-3 text-sm font-medium text-gray-600">{row.category}</td>
+                  <tr className="bg-gray-50">
+                    <td colSpan={2} className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500">Setup (pagamento único)</td>
+                  </tr>
+                  {setupRows.map((row) => (
+                    <tr key={row.item}>
                       <td className="px-4 py-3 text-sm text-gray-700">{row.item}</td>
-                      <td className="px-4 py-3 text-sm font-semibold text-black">{row.value}</td>
+                      <td className="px-4 py-3 text-sm font-semibold text-black text-right">{row.value}</td>
                     </tr>
                   ))}
+                  <tr className="bg-gray-50 border-t-2 border-gray-300">
+                    <td className="px-4 py-2 text-sm font-semibold text-gray-700">Subtotal setup</td>
+                    <td className="px-4 py-2 text-sm font-bold text-black text-right">R$ 2.400</td>
+                  </tr>
+                  <tr className="bg-gray-50">
+                    <td colSpan={2} className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500">Mensalidades</td>
+                  </tr>
+                  {monthlyRows.map((row) => (
+                    <tr key={row.item}>
+                      <td className="px-4 py-3 text-sm text-gray-700">{row.item}</td>
+                      <td className="px-4 py-3 text-sm font-semibold text-black text-right">{row.value}</td>
+                    </tr>
+                  ))}
+                  <tr className="bg-gray-50 border-t-2 border-gray-300">
+                    <td className="px-4 py-2 text-sm font-semibold text-gray-700">Subtotal mensal (todas as fases)</td>
+                    <td className="px-4 py-2 text-sm font-bold text-black text-right">R$ 700/mês</td>
+                  </tr>
                   <tr className="bg-black text-white">
-                    <td className="px-4 py-4 text-sm font-semibold">Exemplo Fase 1 ativa</td>
-                    <td className="px-4 py-4 text-sm">R$ 1.500 setup + R$ 200/mês</td>
-                    <td className="px-4 py-4 text-sm font-bold">R$ 3.900 no primeiro ano</td>
+                    <td className="px-4 py-4 text-sm font-semibold">Exemplo Fase 1 ativa: R$ 1.500 setup + R$ 200/mês</td>
+                    <td className="px-4 py-4 text-sm font-bold text-right">R$ 3.900 no 1º ano</td>
                   </tr>
                 </tbody>
               </table>
@@ -438,7 +388,7 @@ export default function AlaneMicheleProposal() {
         <section className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow" id="propriedade-termos">
           <h2 className="text-2xl font-extrabold text-black mb-6 flex items-center gap-3">
             <div className="w-8 h-8 bg-black text-white rounded-lg flex items-center justify-center text-sm font-bold">
-              6
+              5
             </div>
             Propriedade e Termos
           </h2>
@@ -456,7 +406,7 @@ export default function AlaneMicheleProposal() {
         <section className="bg-gradient-to-br from-black to-gray-900 text-white rounded-2xl p-8 shadow-lg" id="proximos-passos">
           <h2 className="text-2xl font-extrabold mb-6 flex items-center gap-3">
             <div className="w-8 h-8 bg-white text-black rounded-lg flex items-center justify-center text-sm font-bold">
-              7
+              6
             </div>
             Próximos Passos
           </h2>
@@ -470,6 +420,18 @@ export default function AlaneMicheleProposal() {
                 <p className="text-gray-100 text-sm">{step}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 text-center print:hidden">
+            <a
+              href={buildWhatsAppLink('Oi! Vi a proposta do Clube e quero agendar a call de alinhamento.')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg hover:shadow-xl"
+            >
+              <MessageCircle size={22} />
+              Agendar Call de Alinhamento
+            </a>
           </div>
         </section>
       </main>
