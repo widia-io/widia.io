@@ -132,6 +132,23 @@ const nextSteps = [
   'Revisão e go-live',
 ] as const
 
+function BlurredPrice({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
+  return (
+    <span
+      className={`inline-flex select-none blur-[7px] [filter:blur(7px)] transition duration-300 hover:blur-[5px] ${className}`}
+      aria-label="Valor apresentado na call de alinhamento"
+    >
+      {children}
+    </span>
+  )
+}
+
 export default function AlaneMicheleProposal() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -341,12 +358,16 @@ export default function AlaneMicheleProposal() {
                   {setupRows.map((row) => (
                     <tr key={row.item}>
                       <td className="px-4 py-3 text-sm text-gray-700">{row.item}</td>
-                      <td className="px-4 py-3 text-sm font-semibold text-black text-right">{row.value}</td>
+                      <td className="px-4 py-3 text-sm font-semibold text-black text-right">
+                        <BlurredPrice>{row.value}</BlurredPrice>
+                      </td>
                     </tr>
                   ))}
                   <tr className="bg-gray-50 border-t-2 border-gray-300">
                     <td className="px-4 py-2 text-sm font-semibold text-gray-700">Subtotal setup</td>
-                    <td className="px-4 py-2 text-sm font-bold text-black text-right">R$ 2.400</td>
+                    <td className="px-4 py-2 text-sm font-bold text-black text-right">
+                      <BlurredPrice>R$ 2.400</BlurredPrice>
+                    </td>
                   </tr>
                   <tr className="bg-gray-50">
                     <td colSpan={2} className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500">Mensalidades</td>
@@ -354,19 +375,49 @@ export default function AlaneMicheleProposal() {
                   {monthlyRows.map((row) => (
                     <tr key={row.item}>
                       <td className="px-4 py-3 text-sm text-gray-700">{row.item}</td>
-                      <td className="px-4 py-3 text-sm font-semibold text-black text-right">{row.value}</td>
+                      <td className="px-4 py-3 text-sm font-semibold text-black text-right">
+                        <BlurredPrice>{row.value}</BlurredPrice>
+                      </td>
                     </tr>
                   ))}
                   <tr className="bg-gray-50 border-t-2 border-gray-300">
                     <td className="px-4 py-2 text-sm font-semibold text-gray-700">Subtotal mensal (todas as fases)</td>
-                    <td className="px-4 py-2 text-sm font-bold text-black text-right">R$ 700/mês</td>
+                    <td className="px-4 py-2 text-sm font-bold text-black text-right">
+                      <BlurredPrice>R$ 700/mês</BlurredPrice>
+                    </td>
                   </tr>
                   <tr className="bg-black text-white">
-                    <td className="px-4 py-4 text-sm font-semibold">Exemplo Fase 1 ativa: R$ 1.500 setup + R$ 200/mês</td>
-                    <td className="px-4 py-4 text-sm font-bold text-right">R$ 3.900 no 1º ano</td>
+                    <td className="px-4 py-4 text-sm font-semibold">
+                      Exemplo Fase 1 ativa:{' '}
+                      <BlurredPrice className="text-white">R$ 1.500 setup + R$ 200/mês</BlurredPrice>
+                    </td>
+                    <td className="px-4 py-4 text-sm font-bold text-right">
+                      <BlurredPrice className="text-white">R$ 3.900 no 1º ano</BlurredPrice>
+                    </td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+
+          <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-4 print:hidden">
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-start gap-3">
+                <MessageCircle size={18} className="mt-0.5 flex-shrink-0 text-amber-700" />
+                <div className="text-sm text-amber-900">
+                  <p className="font-semibold">Valores detalhados apresentados na call de alinhamento.</p>
+                  <p>A composição final depende do escopo aprovado e das fases escolhidas.</p>
+                </div>
+              </div>
+              <a
+                href={buildWhatsAppLink('Oi! Vi a proposta do Clube e quero destravar os valores detalhados na call de alinhamento.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-700 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-amber-800"
+              >
+                <MessageCircle size={16} />
+                Agendar call no WhatsApp
+              </a>
             </div>
           </div>
 
