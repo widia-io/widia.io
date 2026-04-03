@@ -9,20 +9,20 @@ export default function OQueResolvemos() {
       <div className="container">
         <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
           <div className="space-y-6 lg:sticky lg:top-28 lg:self-start">
-            <span className="section-kicker">gargalos recorrentes</span>
+            <span className="section-kicker">você se reconhece?</span>
             <div className="space-y-4">
               <h2 className="font-display text-4xl leading-[0.98] text-[var(--graphite-ink)] sm:text-5xl">
-                Onde a operação costuma emperrar, a Widia entra para organizar.
+                Se algum desses problemas é seu, a IA resolve em dias.
               </h2>
               <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]">
-                Não é IA por IA. É aplicação em pontos concretos onde a rotina perde tempo,
-                margem ou clareza.
+                Cada hora que você gasta em tarefa manual é dinheiro jogado fora.
+                Veja onde a maioria dos nossos clientes estava antes de automatizar.
               </p>
             </div>
 
             <div className="surface-card rounded-[28px] p-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--ink-soft)]">
-                sinais mais comuns
+                problemas mais comuns
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {problemCards.map((card) => (

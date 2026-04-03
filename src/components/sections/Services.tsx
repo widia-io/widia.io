@@ -10,24 +10,24 @@ export default function Services() {
         <div className="surface-panel trace-grid rounded-[34px] p-6 sm:p-8 lg:p-10">
           <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
             <div className="space-y-6">
-              <span className="section-kicker">formas de entrar</span>
+              <span className="section-kicker">comece agora</span>
               <div className="space-y-4">
                 <h2 className="font-display text-4xl leading-[0.98] text-[var(--graphite-ink)] sm:text-5xl">
-                  Escolha o ritmo que faz sentido para o momento da sua operação.
+                  Escolha como você quer começar a economizar tempo e dinheiro.
                 </h2>
                 <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]">
-                  Tem negócio que precisa só de clareza para começar. Tem negócio que já está
-                  pronto para uma entrega pontual. E tem rotina que pede evolução contínua.
+                  Não importa o tamanho do seu negócio. Se você tem processos manuais,
+                  a IA pode resolver. E o primeiro passo é gratuito.
                 </p>
               </div>
 
               <div className="surface-card rounded-[28px] p-5">
                 <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--ink-soft)]">
-                  entrada recomendada
+                  comece sem risco
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--graphite-ink)]">
-                  Se você ainda não sabe onde a IA encaixa melhor, comece pela sessão gratuita.
-                  Ela é o jeito mais rápido de sair do campo da ideia e entrar na decisão certa.
+                  A sessão diagnóstico é gratuita e sem compromisso. Em 1h você sai sabendo
+                  exatamente onde IA gera resultado no seu negócio. Sem enrolação.
                 </p>
               </div>
             </div>

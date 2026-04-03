@@ -31,10 +31,10 @@ export default function Sobre() {
           </div>
 
           <div className="space-y-6">
-            <span className="section-kicker">quem conduz o trabalho</span>
+            <span className="section-kicker">quem está por trás</span>
             <div className="space-y-4">
               <h2 className="font-display text-4xl leading-[0.98] text-[var(--graphite-ink)] sm:text-5xl">
-                Engenharia pesada por trás, aplicação prática na ponta.
+                19 anos de engenharia pesada. Agora trabalhando pra você.
               </h2>
               <p className="text-lg leading-relaxed text-[var(--ink-soft)]">
                 {aboutBio}
@@ -56,12 +56,12 @@ export default function Sobre() {
 
             <div className="surface-card rounded-[28px] p-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)]">
-                o ponto de vista
+                a filosofia
               </p>
               <p className="mt-3 text-[15px] leading-relaxed text-[var(--graphite-ink)]">
-                O foco não é vender tecnologia bonita. É pegar tarefas soltas, processos manuais e
-                gargalos repetidos e transformar isso em operação mais clara, mais previsível e
-                menos pesada para quem toca o negócio.
+                Empresa grande gasta milhões em tecnologia que você pode ter agora por uma
+                fração do custo. A Widia existe para isso: pegar o que só gigante tinha acesso
+                e colocar funcionando no seu negócio. Sem enrolação, sem código, sem complicação.
               </p>
             </div>
           </div>

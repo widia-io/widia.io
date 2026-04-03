@@ -15,43 +15,43 @@ const intakeSignals = [
   {
     icon: MessageCircle,
     title: 'WhatsApp',
-    detail: 'triagem e resposta inicial',
+    detail: 'atendimento 24h sem você digitar',
     accent: 'var(--proof-green)',
     soft: 'var(--proof-green-soft)',
   },
   {
     icon: FileSpreadsheet,
-    title: 'Excel',
-    detail: 'orçamento e regra manual',
+    title: 'Orçamentos',
+    detail: 'de 1 dia para 3 minutos',
     accent: 'var(--amber-note)',
     soft: 'var(--amber-note-soft)',
   },
   {
     icon: Instagram,
-    title: 'Instagram',
-    detail: 'roteiros e cadência de conteúdo',
+    title: 'Conteúdo',
+    detail: 'posts toda semana no automático',
     accent: 'var(--signal-blue)',
     soft: 'var(--signal-blue-soft)',
   },
   {
     icon: CreditCard,
-    title: 'Pix e assinatura',
-    detail: 'cobrança recorrente organizada',
+    title: 'Cobrança',
+    detail: 'recorrente funcionando sozinha',
     accent: 'var(--graphite-ink)',
     soft: 'rgba(23, 25, 30, 0.08)',
   },
 ]
 
 const outcomeSignals = [
-  'atendimento sem fila',
-  'orçamentos em minutos',
-  'checkout recorrente pronto',
+  'até 20h/mês economizadas',
+  'resultado na primeira semana',
+  'zero código necessário',
 ]
 
 const proofPills = [
-  { label: 'Sem código', color: 'var(--signal-blue)' },
-  { label: 'Resultado no primeiro mês', color: 'var(--proof-green)' },
-  { label: 'Suporte dedicado', color: 'var(--amber-note)' },
+  { label: 'Sessão gratuita de 1h', color: 'var(--signal-blue)' },
+  { label: 'Resultado em 7 dias', color: 'var(--proof-green)' },
+  { label: 'Sem risco pra você', color: 'var(--amber-note)' },
 ]
 
 export default function Hero() {
@@ -64,16 +64,17 @@ export default function Hero() {
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/60 to-transparent" />
           <div className="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div className="max-w-2xl space-y-6">
-              <span className="section-kicker">atelier operacional para pequenas empresas</span>
+              <span className="section-kicker">para pequenas empresas que querem crescer com IA</span>
 
               <div className="space-y-5">
                 <h1 className="font-display text-5xl leading-[0.96] text-[var(--graphite-ink)] sm:text-6xl lg:text-7xl">
-                  IA aplicada ao que trava sua operação.
+                  Pare de perder tempo e dinheiro com trabalho manual.
                 </h1>
 
                 <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)] sm:text-xl">
-                  Atendimento, orçamentos, conteúdo e cobrança deixam de depender de improviso.
-                  A Widia entra no fluxo, organiza a rotina e acompanha até funcionar.
+                  A Widia coloca <strong>IA trabalhando na sua operação</strong> — atendimento, orçamentos,
+                  conteúdo e cobrança no automático. Sem código, sem complicação,
+                  com resultado na primeira semana.
                 </p>
               </div>
 
@@ -84,7 +85,7 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   className="action-primary group text-base sm:text-[15px]"
                 >
-                  Agendar sessão gratuita de 1h
+                  Quero minha sessão gratuita
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </a>
                 <a href="#como-funciona" className="action-secondary text-base sm:text-[15px]">
@@ -103,11 +104,12 @@ export default function Hero() {
 
               <div className="surface-card rounded-[28px] p-4 sm:p-5">
                 <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--ink-soft)]">
-                  Sem código. Sem complicação.
+                  por que a Widia é diferente
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--ink-soft)] sm:text-[15px]">
-                  Você continua usando o que já conhece. A diferença é que o fluxo passa a
-                  trabalhar a seu favor, com mais clareza, menos repetição e apoio próximo.
+                  A gente não vende slide bonito nem ferramenta que você nunca vai usar.
+                  Entramos na sua operação, construímos a automação e acompanhamos até
+                  funcionar de verdade. Se não resolver, você não paga.
                 </p>
               </div>
             </div>
@@ -117,10 +119,10 @@ export default function Hero() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--ink-soft)]">
-                      painel de orquestração
+                      o que você automatiza
                     </p>
                     <h2 className="font-display mt-3 text-2xl leading-tight text-[var(--graphite-ink)] sm:text-3xl">
-                      O que entra no fluxo da Widia
+                      Tudo isso funcionando sem você
                     </h2>
                   </div>
                   <div className="rounded-full border border-[var(--ledger-line)] bg-white/70 p-3 text-[var(--signal-blue)]">
@@ -160,7 +162,7 @@ export default function Hero() {
                 <div className="my-6 flex items-center gap-3">
                   <div className="h-px flex-1 bg-[var(--ledger-line)]" />
                   <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)]">
-                    widia em ação
+                    como funciona
                   </span>
                   <div className="h-px flex-1 bg-[var(--ledger-line)]" />
                 </div>
