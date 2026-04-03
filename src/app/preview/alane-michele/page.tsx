@@ -1,30 +1,7 @@
 'use client'
 
 import { ArrowRight } from 'lucide-react'
-import { Barlow, Dancing_Script, Playfair_Display } from 'next/font/google'
 import styles from './page.module.css'
-
-const barlow = Barlow({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-alane-body',
-  display: 'swap',
-})
-
-const dancingScript = Dancing_Script({
-  subsets: ['latin'],
-  weight: ['600', '700'],
-  variable: '--font-alane-script',
-  display: 'swap',
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-alane-serif',
-  display: 'swap',
-})
 
 type Plan = {
   name: string
@@ -116,7 +93,19 @@ const benefits = [
 
 export default function AlaneMichelePreview() {
   return (
-    <div className={`${styles.page} ${barlow.variable} ${dancingScript.variable} ${playfair.variable}`}>
+    <>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet"
+      />
+      <style>{`
+        :root {
+          --font-alane-body: 'Barlow', sans-serif;
+          --font-alane-script: 'Dancing Script', cursive;
+          --font-alane-serif: 'Playfair Display', serif;
+        }
+      `}</style>
+    <div className={styles.page}>
       <nav className={styles.nav}>
         <div className={styles.logo}>
           ALANE <span>Michele</span>
@@ -311,5 +300,6 @@ export default function AlaneMichelePreview() {
         </div>
       </footer>
     </div>
+    </>
   )
 }

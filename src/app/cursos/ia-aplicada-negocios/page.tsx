@@ -1,30 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import {
-  Plus_Jakarta_Sans,
-  DM_Serif_Display,
-  JetBrains_Mono,
-} from 'next/font/google'
 import s from './page.module.css'
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-body',
-})
-
-const dmSerif = DM_Serif_Display({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-display',
-})
-
-const jetbrains = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['500', '700'],
-  variable: '--font-mono',
-})
 
 const HOTMART_URL = 'https://pay.hotmart.com/M105204781F'
 
@@ -85,8 +62,20 @@ function FaqItem({
 
 export default function IAaplicadaNegocios() {
   return (
+    <>
+      <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet"
+      />
+      <style>{`
+        :root {
+          --font-body: 'Plus Jakarta Sans', sans-serif;
+          --font-display: 'DM Serif Display', serif;
+          --font-mono: 'JetBrains Mono', monospace;
+        }
+      `}</style>
     <div
-      className={`${s.page} ${jakarta.variable} ${dmSerif.variable} ${jetbrains.variable}`}
+      className={s.page}
       style={{ fontFamily: 'var(--font-body)' }}
     >
       {/* URGENCY BAR */}
@@ -579,5 +568,6 @@ export default function IAaplicadaNegocios() {
         </div>
       </footer>
     </div>
+    </>
   )
 }
