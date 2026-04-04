@@ -1,4 +1,13 @@
+import type { Metadata } from 'next'
 import Hero from '@/components/sections/Hero'
+
+export const metadata: Metadata = {
+  keywords: [
+    'consultoria IA para pequenas empresas', 'como usar IA no meu negócio',
+    'inteligência artificial para empresas', 'automação com IA',
+    'IA prática para negócios', 'ferramentas de IA para empresas',
+  ],
+}
 import ComoFunciona from '@/components/sections/ComoFunciona'
 import OQueResolvemos from '@/components/sections/OQueResolvemos'
 import ProvaSocial from '@/components/sections/ProvaSocial'

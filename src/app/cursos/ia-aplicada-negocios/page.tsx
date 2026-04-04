@@ -124,9 +124,43 @@ function FloatingCta() {
   )
 }
 
+const courseJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'IA Aplicada para Negócios — Imersão ao Vivo',
+  description: 'Em duas noites, você sai com as ferramentas de IA instaladas, configuradas e funcionando no seu negócio. Sem teoria. Sem código. Sem enrolação.',
+  provider: { '@type': 'Organization', name: 'widia.io', url: 'https://widia.io' },
+  instructor: { '@type': 'Person', name: 'Bruno Gonzaga' },
+  offers: {
+    '@type': 'Offer',
+    price: '97',
+    priceCurrency: 'BRL',
+    availability: 'https://schema.org/LimitedAvailability',
+    url: HOTMART_URL,
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Online',
+    startDate: '2026-04-14',
+    endDate: '2026-04-16',
+  },
+}
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+}
+
 export default function IAaplicadaNegocios() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
         rel="stylesheet"
