@@ -629,7 +629,6 @@
 }
 
 .spotsProgressFill {
-  width: 68%;
   height: 100%;
   background: var(--gold);
   border-radius: 3px;
@@ -772,6 +771,171 @@
   }
 }
 
+/* ========== FILTER GRID (para quem é / não é) ========== */
+.filterGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.filterCard {
+  padding: 32px;
+  background: var(--cream-light);
+}
+
+.filterCardYes {
+  border-top: 4px solid var(--gold);
+}
+
+.filterCardNo {
+  border-top: 4px solid var(--red-ink);
+}
+
+.filterCard h3 {
+  margin-bottom: 16px;
+}
+
+.filterList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filterList li {
+  padding: 10px 0 10px 28px;
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--navy);
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.filterList li:last-child {
+  border-bottom: none;
+}
+
+.filterListYes li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.filterListNo li::before {
+  content: '\2717';
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: var(--red-ink);
+}
+
+/* ========== PROFILE GRID (casos de uso) ========== */
+.profileGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.profileCard {
+  background: var(--navy-light);
+  padding: 28px;
+  border: 1px solid rgba(237, 231, 221, 0.1);
+}
+
+.profileTitle {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.profileList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profileList li {
+  padding: 6px 0 6px 20px;
+  position: relative;
+  font-size: 0.9rem;
+  color: #b0a99e;
+}
+
+.profileList li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* ========== DELIVERABLES ========== */
+.deliverablesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 600px;
+}
+
+.deliverableItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.deliverableItem:last-child {
+  border-bottom: none;
+}
+
+.deliverableNumber {
+  width: 36px;
+  height: 36px;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.deliverableText {
+  font-size: 1.05rem;
+  color: var(--navy);
+  font-weight: 600;
+  padding-top: 6px;
+}
+
+/* ========== PROOF (experiência prática) ========== */
+.proofGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.proofCard {
+  background: var(--cream-light);
+  border-left: 4px solid var(--gold);
+  padding: 28px 32px;
+}
+
+.proofQuote {
+  font-size: 1.1rem;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.proofContext {
+  font-size: 0.9rem;
+  color: var(--warm-gray);
+  margin-bottom: 0;
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 640px) {
   .section {
@@ -783,6 +947,14 @@
   }
 
   .twoCol {
+    grid-template-columns: 1fr;
+  }
+
+  .filterGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .profileGrid {
     grid-template-columns: 1fr;
   }
 

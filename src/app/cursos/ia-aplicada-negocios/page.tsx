@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import s from './page.module.css'
 
 const HOTMART_URL = 'https://pay.hotmart.com/M105204781F'
+const SPOTS_TOTAL = 30
+const SPOTS_REMAINING = 12
 
 const FAQ_ITEMS = [
   {
@@ -74,7 +76,7 @@ function CountdownTimer() {
         {String(m).padStart(2, '0')}<span className={s.countdownUnit}>m</span>{' '}
         {String(sec).padStart(2, '0')}<span className={s.countdownUnit}>s</span>
       </span>
-      {' '}· R$97 → R$197
+      {' '}· Garanta por R$97
     </span>
   )
 }
@@ -254,6 +256,36 @@ export default function IAaplicadaNegocios() {
         </div>
       </section>
 
+      {/* PARA QUEM É / NÃO É */}
+      <section className={`${s.section} ${s.sectionCream}`}>
+        <div className={s.container}>
+          <div className={s.filterGrid}>
+            <div className={`${s.filterCard} ${s.filterCardYes}`}>
+              <h3 style={{ fontFamily: 'var(--font-display)' }}>
+                <span className={s.gold}>É</span> para você se...
+              </h3>
+              <ul className={`${s.filterList} ${s.filterListYes}`}>
+                <li>Tem um negócio e faz tudo na mão</li>
+                <li>Quer resultado rápido, não diploma</li>
+                <li>Está disposto a dedicar 4 horas e aplicar</li>
+                <li>Não é técnico e não quer ser</li>
+              </ul>
+            </div>
+            <div className={`${s.filterCard} ${s.filterCardNo}`}>
+              <h3 style={{ fontFamily: 'var(--font-display)' }}>
+                <span className={s.red}>NÃO</span> é para você se...
+              </h3>
+              <ul className={`${s.filterList} ${s.filterListNo}`}>
+                <li>Quer virar programador de IA</li>
+                <li>Procura teoria profunda ou certificação</li>
+                <li>Espera que alguém implemente por você</li>
+                <li>Não pode dedicar 2 noites</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* POR QUE AO VIVO */}
       <section className={`${s.section} ${s.sectionCream}`}>
         <div className={s.container}>
@@ -346,6 +378,56 @@ export default function IAaplicadaNegocios() {
               </div>
             ))}
           </div>
+          <p
+            style={{
+              marginTop: 32,
+              fontSize: '1.1rem',
+              color: 'var(--navy)',
+              fontWeight: 600,
+            }}
+          >
+            Se você economiza <span className={s.gold}>5 horas por semana</span>,
+            em 1 mês já recupera o investimento várias vezes. Uma proposta a mais
+            fechada <span className={s.gold}>paga o curso</span>.
+          </p>
+        </div>
+      </section>
+
+      {/* CASOS DE USO POR PERFIL */}
+      <section className={`${s.section} ${s.sectionNavy}`}>
+        <div className={s.container}>
+          <h2 style={{ fontFamily: 'var(--font-display)' }}>
+            Se enxergue <span className={s.gold}>aqui.</span>
+          </h2>
+          <div className={s.profileGrid}>
+            {[
+              {
+                title: 'Consultor',
+                items: ['Proposta comercial em minutos', 'Diagnóstico automatizado', 'Follow-up estruturado'],
+              },
+              {
+                title: 'Clínica / Serviço',
+                items: ['Respostas rápidas para pacientes', 'Organização de agenda e processos', 'Conteúdo para redes sociais'],
+              },
+              {
+                title: 'Pequena empresa',
+                items: ['Prospecção de clientes com IA', 'Rotina comercial automatizada', 'Análise financeira simplificada'],
+              },
+              {
+                title: 'Autônomo / Freelancer',
+                items: ['Criação de oferta e posicionamento', 'Conteúdo e pesquisa de mercado', 'Atendimento e orçamento rápido'],
+              },
+            ].map((profile) => (
+              <div className={s.profileCard} key={profile.title}>
+                <div className={`${s.profileTitle} ${s.mono}`}>{profile.title}</div>
+                <ul className={s.profileList}>
+                  {profile.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -371,7 +453,7 @@ export default function IAaplicadaNegocios() {
             {
               badge: 'Bloco 2',
               title: 'As Ferramentas Certas',
-              desc: 'Claude Cowork, Claude Code, Codex, Gemini. O que cada uma faz, quando usar qual. Sem firula.',
+              desc: 'As melhores IAs do mercado para trabalho real. O que cada uma faz, quando usar qual. Sem firula.',
             },
             {
               badge: 'Bloco 3',
@@ -408,7 +490,7 @@ export default function IAaplicadaNegocios() {
           {[
             {
               badge: 'Bloco 5',
-              title: 'Seja Meu CEO',
+              title: 'IA como sócio estratégico',
               desc: 'Use a IA pra validar ideias de produto, analisar mercado e criar plano de ação. Seu sócio estratégico que te diz a verdade.',
             },
             {
@@ -418,13 +500,13 @@ export default function IAaplicadaNegocios() {
             },
             {
               badge: 'Bloco 7',
-              title: 'Skills Pro Seu Negócio',
-              desc: 'Crie automações personalizadas que repetem tarefas perfeitamente. Proposta em segundos, resumo de vendas automático.',
+              title: 'Automações prontas para tarefas repetitivas',
+              desc: 'Crie rotinas que repetem tarefas perfeitamente. Proposta em segundos, resumo de vendas automático.',
             },
             {
               badge: 'Bloco 8',
-              title: 'Plugins que Fazem a Diferença',
-              desc: 'Plugins e integrações que potencializam seu trabalho: Google Drive, Web Search, Artifacts, MCP.',
+              title: 'Integrações úteis no dia a dia',
+              desc: 'Conecte a IA ao que você já usa: Google Drive, busca na web, geração de documentos e mais.',
             },
           ].map((block) => (
             <div className={s.card} key={block.badge}>
@@ -433,6 +515,30 @@ export default function IAaplicadaNegocios() {
               <p>{block.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* O QUE VOCÊ SAI COM */}
+      <section className={`${s.section} ${s.sectionCreamLight}`}>
+        <div className={s.container}>
+          <h2 style={{ fontFamily: 'var(--font-display)' }}>
+            Ao final da imersão, você{' '}
+            <span className={s.underlineHand}>sai com:</span>
+          </h2>
+          <ul className={s.deliverablesList}>
+            {[
+              'Uma pasta pronta para validação de ideias',
+              'Um fluxo de prospecção com IA configurado',
+              'Uma estrutura para propostas comerciais',
+              'Uma biblioteca de prompts úteis por tarefa',
+              'Uma rotina prática para usar IA todo dia — sem depender de ninguém',
+            ].map((item, i) => (
+              <li className={s.deliverableItem} key={item}>
+                <span className={`${s.deliverableNumber} ${s.mono}`}>{i + 1}</span>
+                <span className={s.deliverableText}>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -485,6 +591,45 @@ export default function IAaplicadaNegocios() {
         </div>
       </section>
 
+      {/* PROVA DE EXPERIÊNCIA */}
+      <section className={`${s.section} ${s.sectionCream}`}>
+        <div className={s.container}>
+          <h2 style={{ fontFamily: 'var(--font-display)' }}>
+            Isso não é teoria.{' '}
+            <span className={s.underlineHand}>É o que eu uso todo dia.</span>
+          </h2>
+          <div className={s.proofGrid}>
+            <div className={s.proofCard}>
+              <p className={s.proofQuote}>
+                &ldquo;De 3 horas para 10 minutos.&rdquo;
+              </p>
+              <p className={s.proofContext}>
+                Montei um processo de propostas com IA que reduziu de 3h pra
+                10min. Mesmo processo que ensino na imersão.
+              </p>
+            </div>
+            <div className={s.proofCard}>
+              <p className={s.proofQuote}>
+                &ldquo;Validação de oferta em 1 conversa.&rdquo;
+              </p>
+              <p className={s.proofContext}>
+                Usei o método &ldquo;sócio estratégico&rdquo; pra validar um
+                produto antes de investir. Economizei semanas de pesquisa.
+              </p>
+            </div>
+            <div className={s.proofCard}>
+              <p className={s.proofQuote}>
+                &ldquo;Prospecção que roda sozinha.&rdquo;
+              </p>
+              <p className={s.proofContext}>
+                A IA pesquisa, filtra e organiza leads. O que levava 1 dia
+                inteiro agora leva 30 minutos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* INSTRUTOR */}
       <section className={`${s.section} ${s.sectionCream}`}>
         <div className={s.container}>
@@ -508,15 +653,18 @@ export default function IAaplicadaNegocios() {
                 @obrunogonzaga · Fundador da widia.io
               </p>
               <p>
-                20+ anos de experiência em tecnologia. Empreendedor,
-                desenvolvedor, e praticante de IA no dia a dia. Não sou guru de
-                IA. Sou empreendedor que usa IA pra resolver problemas reais do
-                negócio.
+                20+ anos em tecnologia aplicando sistemas e automação para
+                resolver problemas reais de negócio. Uso IA diariamente:
+                operação, conteúdo, prospecção, análise e produtividade.
+              </p>
+              <p>
+                Não ensino teoria de laboratório — ensino o que funciona porque
+                eu uso. Empreendedor que fez de tudo: vendeu, atendeu, cobrou,
+                postou, planejou. Igual a você.
               </p>
               <p style={{ marginBottom: 0 }}>
                 <strong style={{ color: 'var(--navy)' }}>
-                  Esse programa é o que eu gostaria de ter encontrado quando
-                  comecei.
+                  Por isso sei exatamente onde a IA faz a maior diferença.
                 </strong>
               </p>
             </div>
@@ -597,19 +745,22 @@ export default function IAaplicadaNegocios() {
                 className={s.spotsNumber}
                 style={{ fontFamily: 'var(--font-display)' }}
               >
-                30
+                {SPOTS_REMAINING}
               </div>
               <div className={`${s.spotsText} ${s.mono}`}>
-                vagas nesta turma.
+                vagas restantes de {SPOTS_TOTAL}.
                 <br />
                 Quando acabar, acabou.
               </div>
             </div>
             <div className={s.spotsProgress}>
-              <div className={s.spotsProgressFill} />
+              <div
+                className={s.spotsProgressFill}
+                style={{ width: `${((SPOTS_TOTAL - SPOTS_REMAINING) / SPOTS_TOTAL) * 100}%` }}
+              />
             </div>
             <p className={`${s.spotsWarning} ${s.mono}`}>
-              Vagas preenchendo rápido
+              {SPOTS_REMAINING} vagas restantes de {SPOTS_TOTAL}
             </p>
           </div>
         </div>
