@@ -10,15 +10,15 @@ export default function ProvaSocial() {
       <div className="container">
         <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-4">
-            <span className="section-kicker">prova em operação</span>
+            <span className="section-kicker">resultados reais</span>
             <h2 className="font-display text-4xl leading-[0.98] text-[var(--graphite-ink)] sm:text-5xl">
-              Produtos em produção e resultados percebidos por quem colocou a IA na rotina.
+              Veja o que já está acontecendo com quem automatizou.
             </h2>
           </div>
 
           <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]">
-            O valor aqui aparece em dois lugares: em produto que já foi para o ar e em rotina que
-            ficou menos dependente de tarefa manual, improviso e retrabalho.
+            Não é promessa. São produtos no ar e clientes que já estão economizando
+            horas toda semana com IA na operação.
           </p>
         </div>
 
@@ -134,11 +134,11 @@ export default function ProvaSocial() {
               </div>
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/55">
-                  efeito na rotina
+                  o resultado
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-white/82">
-                  Menos tempo gasto em tarefa repetitiva, mais energia para o trabalho que realmente
-                  move o negócio.
+                  Horas recuperadas toda semana. Tempo que antes ia pra tarefa repetitiva
+                  agora vai pra fazer o negócio crescer.
                 </p>
               </div>
             </div>

@@ -4,9 +4,9 @@ import { buildWhatsAppLink } from '@/lib/whatsapp'
 import { CTA_MESSAGES } from '@/constants/cta-messages'
 
 const sessionOutputs = [
-  'leitura honesta do fluxo atual',
-  'prioridades mais claras de automação',
-  'próximo passo viável para começar',
+  'mapa dos gargalos que mais custam tempo e dinheiro',
+  'plano claro de quais automações implementar primeiro',
+  'estimativa real de horas e custo que você vai economizar',
 ]
 
 export default function CTAFinal() {
@@ -22,16 +22,17 @@ export default function CTAFinal() {
           <div className="relative grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div className="space-y-6">
               <span className="inline-flex rounded-full border border-white/10 bg-white/7 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-white/60">
-                sessão gratuita de 1h
+                100% gratuita · sem compromisso
               </span>
 
               <div className="space-y-4">
                 <h2 className="font-display text-4xl leading-[0.98] text-white sm:text-5xl">
-                  Quer ver onde a IA realmente entra no seu negócio?
+                  Cada dia sem IA é dinheiro que você está deixando na mesa.
                 </h2>
                 <p className="max-w-2xl text-lg leading-relaxed text-white/72">
-                  A gente olha para a sua rotina, entende o que trava a operação e sai com um
-                  caminho mais claro. Sem compromisso e sem transformar isso em uma aula técnica.
+                  Em 1h a gente mostra exatamente onde sua operação está sangrando tempo
+                  e dinheiro com trabalho manual. Você sai com um plano claro para automatizar.
+                  Sem custo, sem compromisso, sem enrolação.
                 </p>
               </div>
 
@@ -42,7 +43,7 @@ export default function CTAFinal() {
                   rel="noopener noreferrer"
                   className="action-secondary bg-white text-[var(--graphite-ink)]"
                 >
-                  Agendar sessão gratuita
+                  Quero minha sessão gratuita agora
                   <ArrowRight size={18} />
                 </a>
               </div>
@@ -50,7 +51,7 @@ export default function CTAFinal() {
 
             <div className="rounded-[30px] border border-white/10 bg-white/7 p-6 backdrop-blur-md sm:p-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/55">
-                o que sai da conversa
+                o que você leva da sessão
               </p>
 
               <div className="mt-5 space-y-4">

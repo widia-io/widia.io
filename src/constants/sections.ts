@@ -14,20 +14,20 @@ import { CTA_MESSAGES } from './cta-messages'
 export const steps: Step[] = [
   {
     number: 1,
-    title: 'Sessão gratuita de 1h',
-    description: 'A gente entra na rotina, entende gargalos e prioriza onde a IA começa a destravar valor de verdade.',
+    title: 'Diagnóstico gratuito de 1h',
+    description: 'A gente entra na sua operação, identifica onde você está perdendo dinheiro e monta o plano de ataque.',
     icon: Calendar,
   },
   {
     number: 2,
-    title: 'Solução sob medida',
-    description: 'Desenhamos o fluxo, construímos a automação e conectamos ao que você já usa no dia a dia.',
+    title: 'Implementação sob medida',
+    description: 'Construímos a automação que resolve seu problema real, conectada ao que você já usa. Sem enrolação.',
     icon: Wrench,
   },
   {
     number: 3,
-    title: 'Acompanhamento até funcionar',
-    description: 'Você começa a usar com apoio próximo, ajustes finos e evolução contínua da operação.',
+    title: 'Resultado garantido',
+    description: 'Você começa a economizar horas e dinheiro desde a primeira semana. A gente acompanha até funcionar de verdade.',
     icon: Rocket,
   },
 ]
@@ -36,41 +36,41 @@ export const problemCards: ProblemCard[] = [
   {
     icon: MessageCircle,
     tag: 'Atendimento',
-    problem: 'Respondo cliente por cliente no WhatsApp',
-    solution: 'Assistente que faz triagem, organiza recorrências e reduz o peso das respostas manuais.',
-    outcome: 'Atendimento inicial sem fila e menos dependente de você para tudo.',
+    problem: 'Gasto 4h por dia respondendo WhatsApp no manual',
+    solution: 'Assistente de IA que faz triagem, responde dúvidas frequentes e organiza filas. Você só entra quando precisa.',
+    outcome: 'Clientes atendidos em segundos, não em horas. Até 4h/dia recuperadas.',
     ctaMessage: CTA_MESSAGES.PROBLEMA_WHATSAPP,
   },
   {
     icon: FileSpreadsheet,
     tag: 'Financeiro',
-    problem: 'Perco horas fazendo orçamento no Excel',
-    solution: 'Automação de planilhas e regras que transforma cálculo manual em processo repetível.',
-    outcome: 'Orçamentos em minutos, com menos retrabalho e mais clareza de margem.',
+    problem: 'Perco um dia inteiro fazendo orçamento no Excel',
+    solution: 'Automação que transforma seus dados em orçamentos prontos, com cálculo de margem e envio automático.',
+    outcome: 'Orçamentos em 3 minutos. Zero retrabalho. Margem visível na hora.',
     ctaMessage: CTA_MESSAGES.PROBLEMA_EXCEL,
   },
   {
     icon: Instagram,
     tag: 'Conteúdo',
-    problem: 'Não consigo criar conteúdo pro Instagram',
-    solution: 'IA que estrutura pautas, roteiros e legendas no seu tom, sem travar a agenda.',
-    outcome: 'Produção de conteúdo mais consistente sem depender de inspiração de última hora.',
+    problem: 'Não posto há semanas porque não tenho tempo',
+    solution: 'IA que cria pautas, roteiros e legendas no seu tom de voz. Você só aprova e publica.',
+    outcome: 'Conteúdo consistente toda semana, sem depender de inspiração ou agência cara.',
     ctaMessage: CTA_MESSAGES.PROBLEMA_INSTAGRAM,
   },
   {
     icon: CreditCard,
     tag: 'Cobrança',
-    problem: 'Quero cobrar recorrente mas faço tudo no Pix',
-    solution: 'Landing page e checkout automatizado para organizar assinatura, cobrança e acompanhamento.',
-    outcome: 'Fluxo de venda mais previsível, com cobrança recorrente funcionando de ponta a ponta.',
+    problem: 'Cobro tudo no Pix manual e perco cliente todo mês',
+    solution: 'Landing page com checkout automatizado, cobrança recorrente e acompanhamento de inadimplência.',
+    outcome: 'Receita previsível com cobrança funcionando 24h, sem você precisar cobrar ninguém.',
     ctaMessage: CTA_MESSAGES.PROBLEMA_PIX,
   },
   {
     icon: HelpCircle,
-    tag: 'Direção',
-    problem: 'Não sei nem por onde começar com IA',
-    solution: 'Sessão de diagnóstico personalizada para enxergar gargalos, prioridades e primeiro passo viável.',
-    outcome: 'Você sai com clareza do que resolver agora e do que pode esperar.',
+    tag: 'Perdido',
+    problem: 'Todo mundo fala de IA mas eu não sei nem por onde começar',
+    solution: 'Diagnóstico personalizado para descobrir exatamente onde IA já pode gerar resultado no seu negócio.',
+    outcome: 'Em 1h você sai com clareza total do que fazer agora e o que pode esperar.',
     ctaMessage: CTA_MESSAGES.PROBLEMA_INICIO,
   },
 ]
@@ -79,23 +79,23 @@ export const testimonials: Testimonial[] = [
   {
     name: 'Consultora de Imagem',
     role: 'Curitiba, PR',
-    focus: 'WhatsApp sob controle',
+    focus: 'WhatsApp no automático',
     impact: '4h por semana recuperadas',
-    quote: 'Antes eu gastava 4h por semana respondendo WhatsApp. Agora gasto 30 minutos.',
+    quote: 'Eu gastava 4h por semana só respondendo WhatsApp. Hoje gasto 30 minutos. Parece que contratei uma secretária que nunca dorme.',
   },
   {
     name: 'Engenheiro Civil',
     role: 'São Paulo, SP',
-    focus: 'Orçamento sem retrabalho',
+    focus: 'Orçamento sem dor de cabeça',
     impact: '1 dia por semana economizado',
-    quote: 'Automatizamos os orçamentos que eu fazia no Excel. Economizo um dia inteiro por semana.',
+    quote: 'Automatizamos os orçamentos que eu fazia no Excel. Economizo um dia inteiro por semana. Isso é dinheiro no bolso.',
   },
   {
     name: 'Empreendedora Digital',
     role: 'Florianópolis, SC',
-    focus: 'Venda recorrente organizada',
+    focus: 'Venda recorrente funcionando',
     impact: 'Landing + checkout em 7 dias',
-    quote: 'Em 7 dias já tinha minha landing page com checkout funcionando. Não precisei aprender nada técnico.',
+    quote: 'Em 7 dias já tinha minha landing page com checkout funcionando. Não precisei aprender nada técnico. Só falei o que eu precisava.',
   },
 ]
 
@@ -105,47 +105,47 @@ export const caseStudies: CaseStudy[] = [
     url: 'https://meuflip.com',
     category: 'SaaS para house flipping',
     status: 'Produto em operação',
-    headline: 'Viabilidade, custos e lucro real organizados em um único sistema.',
+    headline: 'De planilha bagunçada para sistema completo com ROI de +24%.',
     description:
-      'Plataforma criada para quem faz flip com frequência e precisa analisar negócio com menos improviso e mais controle.',
+      'Plataforma que analisa viabilidade, custos e lucro de cada operação. Quem usava Excel e achismo agora tem controle real em 30 segundos.',
     evidence: ['ROI médio de +24%', '4h/sem poupadas', 'Análise completa em 30s'],
   },
   {
     name: 'MeuFoco',
     url: 'https://meufoco.app',
-    category: 'SaaS de produtividade pessoal',
+    category: 'SaaS de produtividade',
     status: 'Produto lançado',
-    headline: 'Metas, hábitos, tarefas, finanças e journaling integrados na mesma plataforma.',
+    headline: 'Metas, hábitos, finanças e journaling numa plataforma só. Do zero ao produto lançado.',
     description:
-      'Produto estruturado para evolução pessoal com módulos conectados, Life Score semanal e planos claros de entrada e expansão.',
-    evidence: ['Metas + hábitos + tarefas', 'Módulo financeiro disponível', 'Planos grátis, Pro e Premium'],
+      'Produto completo com módulos integrados, Life Score semanal e planos de entrada. Construído e lançado com a metodologia Widia.',
+    evidence: ['Metas + hábitos + tarefas', 'Módulo financeiro incluso', 'Planos grátis, Pro e Premium'],
   },
 ]
 
 export const serviceItems: ServiceItem[] = [
   {
     name: 'Sessão Diagnóstico',
-    description: '1h gratuita para mapear gargalos, oportunidades e o ponto certo de entrada.',
-    format: '1 encontro',
-    bestFor: 'Para quem quer clareza antes de investir em qualquer automação.',
-    outcome: 'Sai com prioridades nítidas e um próximo passo viável.',
+    description: '1h gratuita para encontrar onde seu negócio está sangrando tempo e dinheiro com processos manuais.',
+    format: 'Gratuita',
+    bestFor: 'Para quem quer parar de adivinhar e saber exatamente onde IA gera resultado.',
+    outcome: 'Você sai com um mapa claro: o que automatizar primeiro, quanto vai economizar e o próximo passo.',
     ctaMessage: CTA_MESSAGES.SESSAO_GRATUITA,
     highlight: true,
   },
   {
     name: 'Projeto Pontual',
-    description: 'Uma automação, assistente ou ferramenta desenhada para um problema específico do fluxo.',
-    format: 'Entrega fechada',
-    bestFor: 'Para destravar um gargalo concreto sem abrir uma frente gigante.',
-    outcome: 'Você recebe uma solução pronta para uso e ajustada ao contexto.',
+    description: 'Uma automação específica implementada e funcionando na sua operação. Entrega fechada, resultado concreto.',
+    format: 'Entrega em até 2 semanas',
+    bestFor: 'Para quem já sabe o problema e quer resolver de uma vez.',
+    outcome: 'Solução pronta para uso, testada e ajustada ao seu contexto. Sem código, sem complicação.',
     ctaMessage: CTA_MESSAGES.PROJETO_PONTUAL,
   },
   {
     name: 'Acompanhamento Mensal',
-    description: 'Suporte contínuo e novas automações conforme a operação amadurece.',
-    format: 'Ritmo contínuo',
-    bestFor: 'Para quem quer evoluir sem voltar ao improviso operacional.',
-    outcome: 'A operação ganha cadência, ajustes finos e novas camadas de automação.',
+    description: 'Suporte contínuo + novas automações conforme seu negócio cresce. Como ter um time de tecnologia sem o custo de um.',
+    format: 'Evolução contínua',
+    bestFor: 'Para quem não quer voltar ao improviso e quer escalar a operação com IA.',
+    outcome: 'Operação que melhora todo mês. Mais automação, menos gargalo, mais lucro.',
     ctaMessage: CTA_MESSAGES.ACOMPANHAMENTO,
   },
 ]
@@ -153,39 +153,39 @@ export const serviceItems: ServiceItem[] = [
 export const faqItems: FAQItem[] = [
   {
     question: 'Preciso saber programar?',
-    answer: 'Não. A gente cuida de toda a parte técnica. Você só precisa explicar o que precisa resolver.',
+    answer: 'Zero. Nada. Nenhuma linha de código. A gente cuida de toda a parte técnica. Você só precisa explicar o que trava sua rotina.',
   },
   {
-    question: 'Quanto tempo demora pra ter resultado?',
-    answer: 'A maioria dos projetos entrega resultado no primeiro mês. Projetos simples ficam prontos em 1-2 semanas.',
+    question: 'Quanto tempo até eu ver resultado?',
+    answer: 'A maioria dos clientes vê resultado na primeira semana. Projetos simples ficam prontos em 7 dias. Projetos maiores em 2-4 semanas.',
   },
   {
     question: 'Funciona pro meu tipo de negócio?',
-    answer: 'Se você tem tarefas repetitivas, atendimento ao cliente ou processos manuais, provavelmente sim. Na sessão gratuita a gente avalia juntos.',
+    answer: 'Se você tem tarefas repetitivas, atendimento ao cliente ou processos manuais que tomam seu tempo, sim. Na sessão gratuita a gente avalia juntos em 1h.',
   },
   {
-    question: 'Como funciona o pagamento?',
-    answer: 'A sessão diagnóstico é gratuita. Projetos pontuais têm valor fixo combinado antes. Acompanhamento mensal é por assinatura.',
+    question: 'E se não funcionar?',
+    answer: 'A gente acompanha até funcionar. Simples assim. Se a automação não resolver seu problema, você não paga. Sem risco para você.',
   },
   {
-    question: 'E se eu não gostar do resultado?',
-    answer: 'A gente acompanha até funcionar. Se não resolver seu problema, você não paga.',
+    question: 'Quanto custa?',
+    answer: 'A sessão diagnóstico é 100% gratuita. Projetos pontuais têm valor fixo combinado antes de começar. Acompanhamento mensal é por assinatura acessível. Sem surpresa.',
   },
 ]
 
-export const aboutBio = '19 anos de engenharia de software, de pagamentos bancários a SaaS. Hoje ajudo pequenas empresas a fazerem com IA o que antes só empresa grande conseguia.'
+export const aboutBio = '19 anos construindo software para bancos, fintechs e SaaS. Já vi empresa grande gastar milhões em tecnologia que pequeno negócio agora consegue ter com IA por uma fração do custo. É isso que a Widia faz.'
 
 export const aboutHighlights: AboutHighlight[] = [
   {
-    label: 'Trajetória',
-    value: '19 anos em engenharia de software',
+    label: 'Experiência',
+    value: '19 anos de engenharia de software pesada',
   },
   {
-    label: 'Território',
-    value: 'De pagamentos bancários a SaaS',
+    label: 'Passagem',
+    value: 'Bancos, fintechs e startups de SaaS',
   },
   {
-    label: 'Hoje',
-    value: 'IA aplicada à rotina de pequenas empresas',
+    label: 'Missão',
+    value: 'Dar pra pequena empresa o que só grande tinha',
   },
 ]

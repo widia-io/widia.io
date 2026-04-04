@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import s from './page.module.css'
 
 const HOTMART_URL = 'https://pay.hotmart.com/M105204781F'
@@ -36,15 +36,58 @@ const FAQ_ITEMS = [
   },
 ]
 
+const LOTE1_DEADLINE = new Date('2026-04-10T23:59:59-03:00').getTime()
+
+function CountdownTimer() {
+  const [now, setNow] = useState<number | null>(null)
+
+  useEffect(() => {
+    setNow(Date.now())
+    const id = setInterval(() => setNow(Date.now()), 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  if (now === null) {
+    return <span>LOTE 1 — VAGAS LIMITADAS</span>
+  }
+
+  const diff = LOTE1_DEADLINE - now
+  if (diff <= 0) {
+    return (
+      <span>
+        LOTE 1 ENCERRADO — PREÇO ATUAL: <span className={s.countdownHighlight}>R$197</span>
+      </span>
+    )
+  }
+
+  const d = Math.floor(diff / 86400000)
+  const h = Math.floor((diff % 86400000) / 3600000)
+  const m = Math.floor((diff % 3600000) / 60000)
+  const sec = Math.floor((diff % 60000) / 1000)
+
+  return (
+    <span>
+      LOTE 1 ENCERRA EM:{' '}
+      <span className={s.countdownDigits}>
+        {d}<span className={s.countdownUnit}>d</span>{' '}
+        {String(h).padStart(2, '0')}<span className={s.countdownUnit}>h</span>{' '}
+        {String(m).padStart(2, '0')}<span className={s.countdownUnit}>m</span>{' '}
+        {String(sec).padStart(2, '0')}<span className={s.countdownUnit}>s</span>
+      </span>
+      {' '}· R$97 → R$197
+    </span>
+  )
+}
+
 function FaqItem({
   q,
   a,
   defaultOpen,
-}: {
+}: Readonly<{
   q: string
   a: string
   defaultOpen?: boolean
-}) {
+}>) {
   const [open, setOpen] = useState(defaultOpen ?? false)
 
   return (
@@ -60,6 +103,25 @@ function FaqItem({
   )
 }
 
+function FloatingCta() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 600)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <div className={`${s.floatingCta} ${visible ? s.floatingCtaVisible : ''}`}>
+      <span className={`${s.floatingCtaPrice} ${s.mono}`}>R$97 · Lote 1</span>
+      <a href={HOTMART_URL} className={`${s.btn} ${s.btnGold}`}>
+        QUERO MINHA VAGA →
+      </a>
+    </div>
+  )
+}
+
 export default function IAaplicadaNegocios() {
   return (
     <>
@@ -67,21 +129,10 @@ export default function IAaplicadaNegocios() {
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
         rel="stylesheet"
       />
-      <style>{`
-        :root {
-          --font-body: 'Plus Jakarta Sans', sans-serif;
-          --font-display: 'DM Serif Display', serif;
-          --font-mono: 'JetBrains Mono', monospace;
-        }
-      `}</style>
-    <div
-      className={s.page}
-      style={{ fontFamily: 'var(--font-body)' }}
-    >
+    <div className={s.page}>
       {/* URGENCY BAR */}
       <div className={`${s.urgencyBar} ${s.mono}`}>
-        TURMA 1 — AO VIVO — VAGAS LIMITADAS &middot;{' '}
-        <span>DEPOIS DESSA TURMA, SÓ GRAVADO</span>
+        <CountdownTimer />
       </div>
 
       {/* HERO */}
@@ -123,7 +174,7 @@ export default function IAaplicadaNegocios() {
             QUERO MINHA VAGA NA TURMA 1 →
           </a>
           <p style={{ marginTop: 16, fontSize: '0.85rem', color: 'var(--warm-gray)' }}>
-            R$ 97 · Pagamento único · Garantia de 7 dias
+            R$ 97 · Lote 1 · Pagamento único · Garantia de 7 dias
           </p>
         </div>
       </section>
@@ -356,7 +407,7 @@ export default function IAaplicadaNegocios() {
         <div className={s.container}>
           <h2 style={{ fontFamily: 'var(--font-display)' }}>
             Quem entra na Turma 1 leva{' '}
-            <span className={s.gold}>3 bônus.</span>
+            <span className={s.gold}>4 bônus.</span>
           </h2>
 
           <div className={s.bonusCard}>
@@ -384,6 +435,17 @@ export default function IAaplicadaNegocios() {
               Templates de pastas prontas: Validação de Produto, Prospecção de
               Clientes, Conteúdo Mensal, Análise Financeira. Cada pasta com
               README e prompt inicial.
+            </p>
+          </div>
+
+          <div className={`${s.bonusCard} ${s.bonusCardHighlight}`}>
+            <h3 style={{ fontFamily: 'var(--font-display)' }}>
+              Comunidade Exclusiva de Empresários
+            </h3>
+            <p>
+              Grupo fechado só com empresários e donos de pequenos e médios
+              negócios. Troque experiências, tire dúvidas e discuta soluções
+              de IA aplicadas ao dia a dia da sua empresa.
             </p>
           </div>
         </div>
@@ -446,16 +508,19 @@ export default function IAaplicadaNegocios() {
             >
               Tudo isso por
             </h2>
-            <p className={`${s.priceOld} ${s.mono}`}>De R$ 197</p>
+            <span className={`${s.loteLabel} ${s.mono}`}>LOTE 1</span>
             <div
               className={s.priceTag}
               style={{
                 fontFamily: 'var(--font-display)',
-                marginBottom: 32,
+                marginBottom: 8,
               }}
             >
               <span className={s.currency}>R$</span>97
             </div>
+            <p className={`${s.loteDeadline} ${s.mono}`}>
+              Preço sobe para R$197 em 10/Abr
+            </p>
             <p
               style={{
                 color: 'var(--navy)',
@@ -471,6 +536,7 @@ export default function IAaplicadaNegocios() {
               <li>Gravação completa com acesso vitalício</li>
               <li>Bônus: PDF de Prompts por Tarefa</li>
               <li>Bônus: Kit da Pasta Perfeita</li>
+              <li>Bônus: Comunidade exclusiva de empresários</li>
               <li>7 dias de garantia incondicional</li>
             </ul>
             <a
@@ -492,17 +558,25 @@ export default function IAaplicadaNegocios() {
           </div>
 
           <div className={s.spotsBar}>
-            <div
-              className={s.spotsNumber}
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              30
+            <div className={s.spotsTop}>
+              <div
+                className={s.spotsNumber}
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                30
+              </div>
+              <div className={`${s.spotsText} ${s.mono}`}>
+                vagas nesta turma.
+                <br />
+                Quando acabar, acabou.
+              </div>
             </div>
-            <div className={`${s.spotsText} ${s.mono}`}>
-              vagas nesta turma.
-              <br />
-              Depois, só gravado.
+            <div className={s.spotsProgress}>
+              <div className={s.spotsProgressFill} />
             </div>
+            <p className={`${s.spotsWarning} ${s.mono}`}>
+              Vagas preenchendo rápido
+            </p>
           </div>
         </div>
       </section>
@@ -567,6 +641,7 @@ export default function IAaplicadaNegocios() {
           Sem teoria. Sem código. Sem enrolação.
         </div>
       </footer>
+      <FloatingCta />
     </div>
     </>
   )

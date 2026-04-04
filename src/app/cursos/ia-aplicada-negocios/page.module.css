@@ -9,9 +9,13 @@
   --navy-light: #1F2937;
   --gold-light: #D4AD5A;
   --gold-dim: rgba(184, 146, 63, 0.15);
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'DM Serif Display', serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
   background: var(--cream);
   color: var(--navy);
+  font-family: var(--font-body);
   line-height: 1.7;
   overflow-x: hidden;
 }
@@ -177,9 +181,23 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.urgencyBar span {
+.countdownDigits {
+  color: var(--gold-light);
+  letter-spacing: 0.04em;
+}
+
+.countdownUnit {
+  font-size: 0.65rem;
+  opacity: 0.7;
+  margin-right: 2px;
+}
+
+.countdownHighlight {
   color: var(--gold-light);
 }
 
@@ -467,6 +485,17 @@
   font-size: 0.95rem;
 }
 
+/* ========== BONUS HIGHLIGHT ========== */
+.bonusCardHighlight {
+  border: 2px solid var(--gold);
+  background: var(--navy-light);
+}
+
+.bonusCardHighlight::before {
+  content: 'NOVO';
+  background: var(--red-ink);
+}
+
 /* ========== INSTRUCTOR ========== */
 .instructorSection {
   display: flex;
@@ -538,23 +567,39 @@
   margin-right: 4px;
 }
 
-.priceOld {
-  font-size: 1.1rem;
-  color: var(--warm-gray);
-  text-decoration: line-through;
-  text-decoration-color: var(--red-ink);
-  text-decoration-thickness: 2px;
+/* ========== LOTE LABEL ========== */
+.loteLabel {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  background: var(--navy);
+  padding: 6px 20px;
+  margin-bottom: 16px;
+}
+
+.loteDeadline {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--red-ink);
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
 }
 
 /* ========== SPOTS ========== */
 .spotsBar {
   background: var(--navy);
-  padding: 20px 24px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.spotsTop {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin-top: 24px;
+  margin-bottom: 16px;
 }
 
 .spotsText {
@@ -568,6 +613,43 @@
   font-size: 2rem;
   color: var(--gold);
   line-height: 1;
+  animation: pulseNumber 2s ease infinite;
+}
+
+@keyframes pulseNumber {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.spotsProgress {
+  height: 6px;
+  background: rgba(237, 231, 221, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.spotsProgressFill {
+  width: 68%;
+  height: 100%;
+  background: var(--gold);
+  border-radius: 3px;
+  animation: fillPulse 3s ease infinite;
+}
+
+@keyframes fillPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.spotsWarning {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 /* ========== FAQ ========== */
@@ -647,6 +729,47 @@
 /* ========== MONO ========== */
 .mono {
   font-family: var(--font-mono);
+}
+
+/* ========== FLOATING CTA ========== */
+.floatingCta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: var(--navy);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.floatingCtaVisible {
+  transform: translateY(0);
+}
+
+.floatingCta .btn {
+  padding: 14px 32px;
+  font-size: 0.9rem;
+}
+
+.floatingCtaPrice {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+  display: none;
+}
+
+@media (min-width: 500px) {
+  .floatingCtaPrice {
+    display: block;
+  }
 }
 
 /* ========== RESPONSIVE ========== */

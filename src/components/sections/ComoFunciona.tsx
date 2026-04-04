@@ -6,23 +6,23 @@ export default function ComoFunciona() {
       <div className="container">
         <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
           <div className="space-y-6 lg:sticky lg:top-28">
-            <span className="section-kicker">fluxo guiado</span>
+            <span className="section-kicker">simples e direto</span>
             <div className="space-y-4">
               <h2 className="font-display text-4xl leading-[0.98] text-[var(--graphite-ink)] sm:text-5xl">
-                Do diagnóstico ao uso real, sem largar você no meio do caminho.
+                3 passos para sua operação rodar no automático.
               </h2>
               <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]">
-                A Widia não entrega slide bonito nem ferramenta solta. O trabalho é entender,
-                construir e acompanhar a adoção até a rotina começar a ficar mais leve.
+                Sem curso, sem teoria, sem enrolação. A gente entra na sua operação,
+                constrói a automação e acompanha até você ver resultado real.
               </p>
             </div>
 
             <div className="surface-card rounded-[28px] p-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--ink-soft)]">
-                uma linha simples
+                o compromisso da Widia
               </p>
               <p className="mt-3 text-sm leading-relaxed text-[var(--graphite-ink)]">
-                Entrar na operação, desenhar o fluxo certo e sustentar o uso no dia a dia.
+                Se a automação não resolver seu problema, você não paga. Simples assim.
               </p>
             </div>
           </div>

@@ -20,14 +20,14 @@ export default function FAQ() {
       <div className="container">
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div className="space-y-6">
-            <span className="section-kicker">perguntas frequentes</span>
+            <span className="section-kicker">tira-dúvidas</span>
             <div className="space-y-4">
               <h2 className="font-display text-4xl leading-[0.98] text-[var(--graphite-ink)] sm:text-5xl">
-                Dúvidas comuns antes de colocar IA no fluxo.
+                Ainda tem dúvida? A gente responde aqui.
               </h2>
               <p className="text-lg leading-relaxed text-[var(--ink-soft)]">
-                Se algo ainda parecer nebuloso, a conversa certa vem antes da automação. A sessão
-                gratuita existe justamente para isso.
+                Se sua pergunta não estiver aqui, agenda a sessão gratuita. Em 1h a gente tira
+                todas as suas dúvidas e já mostra onde IA encaixa no seu negócio.
               </p>
             </div>
 
@@ -36,8 +36,8 @@ export default function FAQ() {
                 não achou sua resposta?
               </p>
               <p className="mt-3 text-sm leading-relaxed text-[var(--graphite-ink)]">
-                A gente entende o contexto do seu negócio e aponta o melhor primeiro passo sem te
-                empurrar uma solução pronta.
+                Fala com a gente direto no WhatsApp. Sem robô, sem fila. Resposta real de quem
+                entende do assunto.
               </p>
               <a
                 href={whatsAppLink}
