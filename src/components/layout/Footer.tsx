@@ -65,7 +65,7 @@ export default function Footer() {
               </h4>
               <ul className="mt-4 space-y-3 text-sm">
                 <li>
-                  <Link href="#" className="text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]">
+                  <Link href="/privacidade" className="text-[var(--ink-soft)] hover:text-[var(--graphite-ink)]">
                     Política de Privacidade
                   </Link>
                 </li>
