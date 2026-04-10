@@ -5,7 +5,7 @@ import s from './page.module.css'
 
 const HOTMART_URL = 'https://pay.hotmart.com/M105204781F'
 const SPOTS_TOTAL = 30
-const SPOTS_REMAINING = 12
+const SPOTS_REMAINING = 30
 
 const FAQ_ITEMS = [
   {
@@ -34,11 +34,11 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Vai ter outras turmas?',
-    a: 'A Turma 1 é a única confirmada por agora. Se rolar novas turmas, o formato e o preço podem mudar. Essa é a melhor condição que vai existir.',
+    a: 'A Turma 1 esgotou. Esta é a Turma 2 — mesma estrutura, mesmas condições. Se rolar novas turmas, o formato e o preço podem mudar.',
   },
 ]
 
-const LOTE1_DEADLINE = new Date('2026-04-10T23:59:59-03:00').getTime()
+const LOTE1_DEADLINE = new Date('2026-04-24T23:59:59-03:00').getTime()
 
 function CountdownTimer() {
   const [now, setNow] = useState<number | null>(null)
@@ -141,8 +141,8 @@ const courseJsonLd = {
   hasCourseInstance: {
     '@type': 'CourseInstance',
     courseMode: 'Online',
-    startDate: '2026-04-14',
-    endDate: '2026-04-16',
+    startDate: '2026-04-28',
+    endDate: '2026-04-30',
   },
 }
 
@@ -179,7 +179,7 @@ export default function IAaplicadaNegocios() {
             IA Aplicada para <span className={s.underlineHand}>Negócios</span>
           </h1>
           <div className={`${s.liveBadge} ${s.mono}`}>
-            <span className={s.liveDot} /> Imersão ao vivo — Turma 1
+            <span className={s.liveDot} /> Imersão ao vivo — Turma 2 <span style={{ background: 'var(--gold)', color: 'var(--navy)', padding: '2px 8px', borderRadius: 4, fontSize: '0.75rem', fontWeight: 700, marginLeft: 8 }}>Turma 1 esgotada</span>
           </div>
           <p className={s.heroSub}>
             Em duas noites, você sai com as ferramentas de IA instaladas,
@@ -191,7 +191,7 @@ export default function IAaplicadaNegocios() {
             <div className={s.dateCard}>
               <span className={`${s.dayLabel} ${s.mono}`}>Noite 1</span>
               <div style={{ fontFamily: 'var(--font-display)' }} className={s.dayDate}>
-                Terça, 14/Abr
+                Terça, 28/Abr
               </div>
               <div className={`${s.dayTime} ${s.mono}`}>20h → 22h (Brasília)</div>
               <p className={s.dayTopics}>Ferramentas + Setup + Folder Process</p>
@@ -199,7 +199,7 @@ export default function IAaplicadaNegocios() {
             <div className={s.dateCard}>
               <span className={`${s.dayLabel} ${s.mono}`}>Noite 2</span>
               <div style={{ fontFamily: 'var(--font-display)' }} className={s.dayDate}>
-                Quinta, 16/Abr
+                Quinta, 30/Abr
               </div>
               <div className={`${s.dayTime} ${s.mono}`}>20h → 22h (Brasília)</div>
               <p className={s.dayTopics}>Validação + Leads + Skills + Plugins</p>
@@ -207,7 +207,7 @@ export default function IAaplicadaNegocios() {
           </div>
 
           <a href={HOTMART_URL} className={`${s.btn} ${s.btnNavy}`}>
-            QUERO MINHA VAGA NA TURMA 1 →
+            QUERO MINHA VAGA NA TURMA 2 →
           </a>
           <p style={{ marginTop: 16, fontSize: '0.85rem', color: 'var(--warm-gray)' }}>
             R$ 97 · Lote 1 · Pagamento único · Garantia de 7 dias
@@ -441,7 +441,7 @@ export default function IAaplicadaNegocios() {
           </h2>
 
           <div className={`${s.dayHeader} ${s.mono}`}>
-            <span className={s.liveDot} /> Noite 1 — Terça, 14/Abr · 20h–22h
+            <span className={s.liveDot} /> Noite 1 — Terça, 28/Abr · 20h–22h
           </div>
 
           {[
@@ -484,7 +484,7 @@ export default function IAaplicadaNegocios() {
           <div style={{ margin: '40px 0' }} />
 
           <div className={`${s.dayHeader} ${s.mono}`}>
-            <span className={s.liveDot} /> Noite 2 — Quinta, 16/Abr · 20h–22h
+            <span className={s.liveDot} /> Noite 2 — Quinta, 30/Abr · 20h–22h
           </div>
 
           {[
@@ -546,7 +546,7 @@ export default function IAaplicadaNegocios() {
       <section className={`${s.section} ${s.sectionNavy}`}>
         <div className={s.container}>
           <h2 style={{ fontFamily: 'var(--font-display)' }}>
-            Quem entra na Turma 1 leva{' '}
+            Quem entra na Turma 2 leva{' '}
             <span className={s.gold}>4 bônus.</span>
           </h2>
 
@@ -680,7 +680,7 @@ export default function IAaplicadaNegocios() {
               className={`${s.liveBadge} ${s.mono}`}
               style={{ justifyContent: 'center', marginBottom: 16 }}
             >
-              <span className={s.liveDot} /> Turma 1 — Vagas limitadas
+              <span className={s.liveDot} /> Turma 2 — Vagas limitadas
             </div>
             <h2
               style={{
@@ -701,7 +701,7 @@ export default function IAaplicadaNegocios() {
               <span className={s.currency}>R$</span>97
             </div>
             <p className={`${s.loteDeadline} ${s.mono}`}>
-              Preço sobe para R$197 em 10/Abr
+              Preço sobe para R$197 em 24/Abr
             </p>
             <p
               style={{
@@ -726,7 +726,7 @@ export default function IAaplicadaNegocios() {
               className={`${s.btn} ${s.btnNavy}`}
               style={{ width: '100%', maxWidth: 420, textAlign: 'center' }}
             >
-              QUERO MINHA VAGA NA TURMA 1 →
+              QUERO MINHA VAGA NA TURMA 2 →
             </a>
             <p
               style={{
@@ -805,7 +805,7 @@ export default function IAaplicadaNegocios() {
               marginBottom: 12,
             }}
           >
-            14 e 16 de abril. Duas noites. Tudo muda.
+            28 e 30 de abril. Duas noites. Tudo muda.
           </p>
           <p style={{ color: '#b0a99e', marginBottom: 40 }}>
             30 vagas. Depois dessa turma, só gravado.
