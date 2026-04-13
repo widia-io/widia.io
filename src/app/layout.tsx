@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { IBM_Plex_Mono, Manrope, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import AppShell from '@/components/layout/AppShell'
+import MetaPixel from '@/components/MetaPixel'
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -78,6 +79,7 @@ export default function RootLayout({
             }),
           }}
         />
+        <MetaPixel />
         <AppShell>{children}</AppShell>
       </body>
     </html>
