@@ -157,6 +157,19 @@ const faqJsonLd = {
 }
 
 export default function IAaplicadaNegocios() {
+  useEffect(() => {
+    const fbq = (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq
+    if (typeof fbq === 'function') {
+      fbq('track', 'ViewContent', {
+        content_name: 'IA Aplicada para Negócios',
+        content_ids: ['curso-ia-aplicada-negocios'],
+        content_type: 'product',
+        value: 97,
+        currency: 'BRL',
+      })
+    }
+  }, [])
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd) }} />
