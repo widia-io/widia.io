@@ -1,20 +1,91 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import s from './page.module.css'
 
 const HOTMART_URL = 'https://pay.hotmart.com/M105204781F'
 const SPOTS_TOTAL = 30
-const SPOTS_REMAINING = 30
+const SPOTS_REMAINING = 11
+
+const TESTIMONIALS = [
+  {
+    name: 'Ana Cristina',
+    role: 'Dona de clínica estética',
+    initials: 'AC',
+    quote: 'Em 2 semanas, meu orçamento foi de 40min pra 5min. Uso todo dia.',
+    context: 'Aplicou o Folder Process pra padronizar orçamentos e follow-up de pacientes.',
+  },
+  {
+    name: 'Julio Cesar',
+    role: 'Consultor de PMEs',
+    initials: 'JC',
+    quote: 'Parei de abrir o ChatGPT só pra dar uma olhadinha. Agora uso com direção.',
+    context: 'Proposta comercial que levava 3h hoje sai em 10min — no padrão da empresa.',
+  },
+  {
+    name: 'Gabi Santos',
+    role: 'Arquiteta autônoma',
+    initials: 'GS',
+    quote: 'Atendimento 4x mais rápido. O cliente nem percebe que tem IA.',
+    context: 'Prospecção e briefings automatizados — sem programar uma linha.',
+  },
+] as const
+
+const BONUSES = [
+  {
+    title: 'Gravação completa das 2 noites',
+    desc: 'Acesso vitalício. Reveja quando quiser, no seu ritmo.',
+    value: 97,
+  },
+  {
+    title: 'PDF de Prompts por Tarefa',
+    desc: '200+ prompts prontos: vendas, financeiro, conteúdo, atendimento e gestão. Copia, cola e usa.',
+    value: 47,
+  },
+  {
+    title: 'Kit da Pasta Perfeita',
+    desc: 'Templates prontos: Validação, Prospecção, Conteúdo, Financeiro. Cada pasta com README e prompt inicial.',
+    value: 67,
+  },
+  {
+    title: 'Comunidade Exclusiva de Empresários',
+    desc: 'Grupo fechado só com donos de pequenos e médios negócios. Troque experiências e soluções reais.',
+    value: 197,
+    highlight: true,
+  },
+] as const
+
+const BONUS_TOTAL = BONUSES.reduce((sum, b) => sum + b.value, 0)
 
 const FAQ_ITEMS = [
   {
-    q: 'Preciso saber programar?',
-    a: 'Não. O programa é feito pra empreendedores que não são técnicos. Tudo é mostrado passo a passo, ao vivo, na tela.',
+    q: 'Tem garantia se eu não gostar?',
+    a: 'Sim. 7 dias de garantia incondicional. Entrou no primeiro encontro, achou que não é pra você, pede reembolso e pronto. Sem perguntas, sem fricção, sem constrangimento.',
+  },
+  {
+    q: 'Já comprei curso de IA antes e não apliquei. Por que esse vai ser diferente?',
+    a: 'Porque ele é AO VIVO. Você abre o computador, eu mostro na tela, você faz junto. Sai da aula com tudo instalado e funcionando. Não tem "vou assistir depois" — é fazer agora ou perder. A agenda fixa te obriga a começar.',
+  },
+  {
+    q: 'Eu não sei nada de IA. Vou conseguir acompanhar?',
+    a: 'Sim. O programa é feito pra empreendedor não-técnico. Começa do zero, explica do jeito mais simples possível, e a gente instala tudo junto. Se travou, pergunta ali mesmo. Quem já usou ChatGPT uma vez na vida, consegue.',
+  },
+  {
+    q: 'Quanto tempo até eu ver resultado?',
+    a: 'Na própria imersão. Você sai da Noite 2 com pelo menos 1 automação rodando no seu negócio. Nas semanas seguintes, aplicando o Folder Process, o retorno começa a aparecer: horas economizadas, propostas mais rápidas, processos que antes levavam dias virando minutos.',
+  },
+  {
+    q: 'Como vou pagar? Tem PIX?',
+    a: 'Sim. PIX à vista ou cartão em até 12x via Hotmart. Pagamento 100% seguro, confirmação imediata.',
   },
   {
     q: 'E se eu não puder participar ao vivo?',
     a: 'Você recebe a gravação completa das duas noites com acesso vitalício. Mas a experiência ao vivo — tirando dúvidas na hora, fazendo o setup junto — é outra coisa. Recomendo fortemente que participe.',
+  },
+  {
+    q: 'Preciso saber programar?',
+    a: 'Não. O programa é feito pra empreendedores que não são técnicos. Tudo é mostrado passo a passo, ao vivo, na tela.',
   },
   {
     q: 'Funciona pra qualquer tipo de negócio?',
@@ -27,10 +98,6 @@ const FAQ_ITEMS = [
   {
     q: 'Preciso de Mac?',
     a: 'Não. Todas as ferramentas — Claude Cowork, Claude Code, Codex — funcionam tanto no Mac quanto no Windows.',
-  },
-  {
-    q: 'Tem garantia?',
-    a: 'Sim. 7 dias de garantia incondicional. Se não gostar, pede reembolso e pronto.',
   },
   {
     q: 'Vai ter outras turmas?',
@@ -189,16 +256,31 @@ export default function IAaplicadaNegocios() {
         <div className={s.container}>
           <span className={`${s.heroLabel} ${s.mono}`}>@obrunogonzaga</span>
           <h1 style={{ fontFamily: 'var(--font-display)' }}>
-            IA Aplicada para <span className={s.underlineHand}>Negócios</span>
+            Em 2 noites, a IA roda no <span className={s.underlineHand}>seu negócio</span> de verdade.
           </h1>
           <div className={`${s.liveBadge} ${s.mono}`}>
             <span className={s.liveDot} /> Imersão ao vivo — Turma 2 <span style={{ background: 'var(--gold)', color: 'var(--navy)', padding: '2px 8px', borderRadius: 4, fontSize: '0.75rem', fontWeight: 700, marginLeft: 8 }}>Turma 1 esgotada</span>
           </div>
           <p className={s.heroSub}>
-            Em duas noites, você sai com as ferramentas de IA instaladas,
-            configuradas e funcionando no seu negócio. Sem teoria. Sem código.
-            Sem enrolação.
+            Você sai com as ferramentas de IA instaladas, configuradas e
+            funcionando. Sem teoria. Sem código. Sem enrolação.
           </p>
+
+          <div className={s.heroPriceBlock}>
+            <div className={`${s.heroPriceLine} ${s.mono}`}>
+              <span className={s.heroPriceLot}>LOTE 1</span>
+              <span className={s.heroPriceValue} style={{ fontFamily: 'var(--font-display)' }}>
+                R$ <strong>97</strong>
+              </span>
+              <span className={s.heroPriceMeta}>Pagamento único</span>
+            </div>
+            <a href={HOTMART_URL} className={`${s.btn} ${s.btnNavy}`}>
+              QUERO MINHA VAGA NA TURMA 2 →
+            </a>
+            <p className={`${s.heroTrust} ${s.mono}`}>
+              🔒 Pagamento seguro Hotmart · PIX, boleto ou cartão 12x · Garantia 7 dias
+            </p>
+          </div>
 
           <div className={s.dateGrid}>
             <div className={s.dateCard}>
@@ -218,13 +300,6 @@ export default function IAaplicadaNegocios() {
               <p className={s.dayTopics}>Validação + Leads + Skills + Plugins</p>
             </div>
           </div>
-
-          <a href={HOTMART_URL} className={`${s.btn} ${s.btnNavy}`}>
-            QUERO MINHA VAGA NA TURMA 2 →
-          </a>
-          <p style={{ marginTop: 16, fontSize: '0.85rem', color: 'var(--warm-gray)' }}>
-            R$ 97 · Lote 1 · Pagamento único · Garantia de 7 dias
-          </p>
         </div>
       </section>
 
@@ -236,11 +311,9 @@ export default function IAaplicadaNegocios() {
           </h2>
           <ul className={s.checkList}>
             {[
-              'Faz tudo no negócio: vende, atende, cobra, posta, planeja.',
-              'Sabe que IA pode ajudar, mas não sabe por onde começar.',
-              'Já testou o ChatGPT, mas não saiu do "faz um textinho pra mim".',
-              'Não é técnico e não quer virar programador.',
-              'Quer resultado real, não mais um curso teórico.',
+              'Faz tudo no negócio — vende, atende, cobra, posta, planeja.',
+              'Já testou ChatGPT mas não saiu do "faz um textinho pra mim".',
+              'Quer resultado real no negócio, não mais um curso pra deixar na fila.',
             ].map((text) => (
               <li
                 key={text}
@@ -391,18 +464,21 @@ export default function IAaplicadaNegocios() {
               </div>
             ))}
           </div>
-          <p
-            style={{
-              marginTop: 32,
-              fontSize: '1.1rem',
-              color: 'var(--navy)',
-              fontWeight: 600,
-            }}
-          >
-            Se você economiza <span className={s.gold}>5 horas por semana</span>,
-            em 1 mês já recupera o investimento várias vezes. Uma proposta a mais
-            fechada <span className={s.gold}>paga o curso</span>.
-          </p>
+          <div className={s.roiBox}>
+            <p className={s.roiLine}>
+              <span className={`${s.mono} ${s.gold}`}>5 horas/semana</span> × 4 semanas =
+              <span className={`${s.mono} ${s.gold}`}> 20 horas/mês</span>
+            </p>
+            <p className={s.roiLine}>
+              Se sua hora vale <span className={`${s.mono} ${s.gold}`}>R$ 100</span>, você economiza
+              <span className={`${s.mono} ${s.gold}`}> R$ 2.000/mês</span>
+            </p>
+            <p className={s.roiLineBig}>
+              O curso custa <span className={s.mono}>R$ 97</span>.
+              <br />
+              <span className={s.gold}>ROI de 20x</span> no primeiro mês.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -563,82 +639,69 @@ export default function IAaplicadaNegocios() {
             <span className={s.gold}>4 bônus.</span>
           </h2>
 
-          <div className={s.bonusCard}>
-            <h3 style={{ fontFamily: 'var(--font-display)' }}>
-              Gravação completa das 2 noites
-            </h3>
-            <p>Acesso vitalício à gravação. Reveja quando quiser, no seu ritmo.</p>
-          </div>
+          {BONUSES.map((bonus) => (
+            <div
+              key={bonus.title}
+              className={`${s.bonusCard} ${'highlight' in bonus && bonus.highlight ? s.bonusCardHighlight : ''}`}
+            >
+              <div className={s.bonusHeader}>
+                <h3 style={{ fontFamily: 'var(--font-display)' }}>
+                  {bonus.title}
+                </h3>
+                <span className={`${s.bonusValue} ${s.mono}`}>
+                  R$ {bonus.value}
+                </span>
+              </div>
+              <p>{bonus.desc}</p>
+            </div>
+          ))}
 
-          <div className={s.bonusCard}>
-            <h3 style={{ fontFamily: 'var(--font-display)' }}>
-              PDF de Prompts por Tarefa
-            </h3>
-            <p>
-              Prompts prontos organizados por categoria: vendas, financeiro,
-              conteúdo, atendimento e gestão. Copia, cola e usa.
-            </p>
-          </div>
-
-          <div className={s.bonusCard}>
-            <h3 style={{ fontFamily: 'var(--font-display)' }}>
-              Kit da Pasta Perfeita
-            </h3>
-            <p>
-              Templates de pastas prontas: Validação de Produto, Prospecção de
-              Clientes, Conteúdo Mensal, Análise Financeira. Cada pasta com
-              README e prompt inicial.
-            </p>
-          </div>
-
-          <div className={`${s.bonusCard} ${s.bonusCardHighlight}`}>
-            <h3 style={{ fontFamily: 'var(--font-display)' }}>
-              Comunidade Exclusiva de Empresários
-            </h3>
-            <p>
-              Grupo fechado só com empresários e donos de pequenos e médios
-              negócios. Troque experiências, tire dúvidas e discuta soluções
-              de IA aplicadas ao dia a dia da sua empresa.
-            </p>
+          <div className={s.bonusStack}>
+            <div className={`${s.bonusStackRow} ${s.mono}`}>
+              <span>Valor total dos bônus</span>
+              <span className={s.bonusStackStrike}>R$ {BONUS_TOTAL}</span>
+            </div>
+            <div className={`${s.bonusStackRow} ${s.mono}`}>
+              <span>Valor do curso</span>
+              <span>R$ 97</span>
+            </div>
+            <div className={s.bonusStackDivider} />
+            <div className={`${s.bonusStackTotal} ${s.mono}`}>
+              <span>Seu investimento hoje</span>
+              <span className={s.gold} style={{ fontFamily: 'var(--font-display)' }}>
+                R$ 97
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* PROVA DE EXPERIÊNCIA */}
+      {/* PROVA SOCIAL — DEPOIMENTOS TURMA 1 */}
       <section className={`${s.section} ${s.sectionCream}`}>
         <div className={s.container}>
+          <span className={`${s.sectionLabel} ${s.mono}`}>TURMA 1 — APROVADOS</span>
           <h2 style={{ fontFamily: 'var(--font-display)' }}>
-            Isso não é teoria.{' '}
-            <span className={s.underlineHand}>É o que eu uso todo dia.</span>
+            Quem fez, <span className={s.underlineHand}>tá aplicando.</span>
           </h2>
           <div className={s.proofGrid}>
-            <div className={s.proofCard}>
-              <p className={s.proofQuote}>
-                &ldquo;De 3 horas para 10 minutos.&rdquo;
-              </p>
-              <p className={s.proofContext}>
-                Montei um processo de propostas com IA que reduziu de 3h pra
-                10min. Mesmo processo que ensino na imersão.
-              </p>
-            </div>
-            <div className={s.proofCard}>
-              <p className={s.proofQuote}>
-                &ldquo;Validação de oferta em 1 conversa.&rdquo;
-              </p>
-              <p className={s.proofContext}>
-                Usei o método &ldquo;sócio estratégico&rdquo; pra validar um
-                produto antes de investir. Economizei semanas de pesquisa.
-              </p>
-            </div>
-            <div className={s.proofCard}>
-              <p className={s.proofQuote}>
-                &ldquo;Prospecção que roda sozinha.&rdquo;
-              </p>
-              <p className={s.proofContext}>
-                A IA pesquisa, filtra e organiza leads. O que levava 1 dia
-                inteiro agora leva 30 minutos.
-              </p>
-            </div>
+            {TESTIMONIALS.map((t) => (
+              <div className={s.proofCard} key={t.name}>
+                <p className={s.proofQuote}>&ldquo;{t.quote}&rdquo;</p>
+                <div className={s.proofAuthor}>
+                  <div
+                    className={s.proofAvatar}
+                    style={{ fontFamily: 'var(--font-display)' }}
+                  >
+                    {t.initials}
+                  </div>
+                  <div>
+                    <div className={s.proofName}>{t.name}</div>
+                    <div className={`${s.proofRole} ${s.mono}`}>{t.role}</div>
+                  </div>
+                </div>
+                <p className={s.proofContext}>{t.context}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -647,11 +710,15 @@ export default function IAaplicadaNegocios() {
       <section className={`${s.section} ${s.sectionCream}`}>
         <div className={s.container}>
           <div className={s.instructorSection}>
-            <div
-              className={s.instructorPhoto}
-              style={{ fontFamily: 'var(--font-display)' }}
-            >
-              B
+            <div className={s.instructorPhoto}>
+              <Image
+                src="/images/instructor/bruno-gonzaga.png"
+                alt="Bruno Gonzaga — fundador da widia.io"
+                width={280}
+                height={280}
+                priority={false}
+                className={s.instructorPhotoImg}
+              />
             </div>
             <div>
               <h3 style={{ fontFamily: 'var(--font-display)' }}>Bruno Gonzaga</h3>
@@ -679,6 +746,40 @@ export default function IAaplicadaNegocios() {
                 <strong style={{ color: 'var(--navy)' }}>
                   Por isso sei exatamente onde a IA faz a maior diferença.
                 </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GARANTIA */}
+      <section className={`${s.section} ${s.sectionCream}`}>
+        <div className={s.container}>
+          <div className={s.guaranteeBox}>
+            <div
+              className={s.guaranteeSeal}
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
+              <span className={s.guaranteeSealBig}>7</span>
+              <span className={`${s.guaranteeSealSmall} ${s.mono}`}>DIAS</span>
+            </div>
+            <div className={s.guaranteeContent}>
+              <h2
+                style={{ fontFamily: 'var(--font-display)' }}
+                className={s.guaranteeTitle}
+              >
+                Garantia incondicional de <span className={s.gold}>7 dias</span>
+              </h2>
+              <p className={s.guaranteeText}>
+                Entra na Noite 1, se não enxergar como usar no seu negócio,
+                pede reembolso.{' '}
+                <strong>
+                  Sem pergunta, sem fricção, sem formulário de 12 páginas.
+                </strong>{' '}
+                Você arrisca zero.
+              </p>
+              <p className={`${s.guaranteeMeta} ${s.mono}`}>
+                Reembolso 100% via Hotmart em até 48h úteis.
               </p>
             </div>
           </div>
@@ -741,9 +842,12 @@ export default function IAaplicadaNegocios() {
             >
               QUERO MINHA VAGA NA TURMA 2 →
             </a>
+            <p className={`${s.trustLine} ${s.mono}`}>
+              🔒 Pagamento seguro Hotmart · PIX, boleto ou cartão 12x
+            </p>
             <p
               style={{
-                marginTop: 16,
+                marginTop: 8,
                 fontSize: '0.85rem',
                 color: 'var(--warm-gray)',
               }}
@@ -826,6 +930,12 @@ export default function IAaplicadaNegocios() {
           <a href={HOTMART_URL} className={`${s.btn} ${s.btnGold}`}>
             QUERO MINHA VAGA — R$ 97 →
           </a>
+          <p
+            className={`${s.trustLine} ${s.mono}`}
+            style={{ color: 'rgba(237,231,221,0.7)' }}
+          >
+            🔒 Pagamento seguro Hotmart · PIX, boleto ou cartão 12x · 7 dias de garantia
+          </p>
         </div>
       </section>
 
