@@ -38,7 +38,7 @@ export const vitoriaAver: Proposal = {
       {
         number: '03',
         title: 'Interface web',
-        desc: 'Next.js, responsivo, login pras alunas, histórico salvo.',
+        desc: 'Responsiva, login pras alunas, histórico de conversas salvo.',
       },
       {
         number: '04',
@@ -57,29 +57,64 @@ export const vitoriaAver: Proposal = {
     'Deploy e domínio configurado',
     'Treinamento de uso (1h via call)',
     '30 dias de suporte pós-entrega',
+    'Até 5.000 perguntas/mês em modelos econômicos (Claude Haiku ou GPT-4o mini)',
   ],
   timeline: [
     {
-      label: 'Semana 1',
-      desc: 'Discovery do conteúdo, mapeamento do método, setup.',
+      label: 'Semana 1 — Discovery e setup',
+      desc: 'Mergulhar no seu método e preparar a base técnica.',
+      bullets: [
+        'Kickoff call: alinhar escopo final, entregáveis e acessos',
+        'Coleta do material (aulas gravadas, PDFs, áudios, prints de DMs)',
+        'Call de imersão no tom de voz e no método Vitória Aver',
+        'Definição da lista piloto (3 a 5 alunas pra teste)',
+        'Setup de infraestrutura: servidor, banco vetorial, domínio',
+      ],
     },
     {
-      label: 'Semana 2',
-      desc: 'Processamento do conteúdo, primeira versão funcionando.',
+      label: 'Semana 2 — Construção',
+      desc: 'Processar o conteúdo e montar a primeira versão funcional.',
+      bullets: [
+        'Transcrição das aulas gravadas (áudio vira texto)',
+        'Processamento e indexação dos materiais na base de conhecimento',
+        'Montagem do cérebro (integração LLM + sua base)',
+        'Interface de chat com login e histórico de conversas',
+        'Painel admin v1 (perguntas frequentes + dúvidas não respondidas)',
+        'Primeira versão ponta a ponta rodando em ambiente privado',
+      ],
     },
     {
-      label: 'Semana 3',
-      desc: 'Calibragem de voz, ajustes, teste com alunas piloto.',
+      label: 'Semana 3 — Calibragem e teste piloto',
+      desc: 'Ajustar a voz até ficar igual à sua e validar com alunas reais.',
+      bullets: [
+        '1º ciclo de calibragem: você avalia 20 a 30 respostas, eu ajusto',
+        'Refinamento do tom de voz e das regras de resposta',
+        '2º ciclo de calibragem com ajustes finos',
+        'Liberação pras alunas piloto, coleta de feedback',
+        'Últimos ajustes antes do go-live',
+      ],
     },
     {
-      label: 'Entrega',
-      desc: 'Final da semana 3 / início da 4.',
+      label: 'Entrega (final da semana 3 / início da 4)',
+      desc: 'Virada de chave e handover.',
+      bullets: [
+        'Aprovação final de escopo e tom de voz',
+        'Treinamento de uso (1h via call, gravada)',
+        'Liberação pra todas as alunas da Academy',
+        'Handover do painel admin',
+        'Início dos 30 dias de suporte pós-entrega',
+      ],
     },
   ],
   investment: {
-    setup: [{ item: 'Setup (pagamento único)', value: 'R$ 4.500' }],
-    recurring: [{ item: 'Mensalidade (infra + manutenção)', value: 'R$ 600/mês' }],
-    note: 'Primeira mensalidade só após entrega aprovada.',
+    setup: [
+      { item: 'Setup — 40% na aprovação', value: 'R$ 1.800' },
+      { item: 'Setup — 60% na entrega', value: 'R$ 2.700' },
+    ],
+    recurring: [
+      { item: 'Mensalidade — infra, manutenção e até 5.000 perguntas/mês', value: 'R$ 600/mês' },
+    ],
+    note: 'Setup total: R$ 4.500 (40% na aprovação, 60% na entrega). A mensalidade cobre infraestrutura, manutenção e até 5.000 perguntas/mês processadas em modelos econômicos (Claude Haiku ou GPT-4o mini). Acima desse volume, o custo da API é pago direto ao provedor pela cliente — ajudamos na configuração da conta. Primeira mensalidade só após entrega aprovada.',
   },
   nextSteps: [
     'Validar proposta',
