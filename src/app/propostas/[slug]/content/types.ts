@@ -12,6 +12,7 @@ export type Layer = {
 export type TimelinePhase = {
   label: string
   desc: string
+  bullets?: string[]
 }
 
 export type Proposal = {
