@@ -199,19 +199,38 @@ export default function ProposalPage({ params }: { params: { slug: string } }) {
                 </p>
               </div>
 
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="mt-6 space-y-4">
                 {proposal.timeline.map((phase, index) => (
-                  <div key={phase.label} className="surface-card rounded-[20px] p-4">
-                    <div className="flex items-start gap-3">
+                  <div key={phase.label} className="surface-card rounded-[24px] p-5 sm:p-6">
+                    <div className="flex items-start gap-4">
                       <span
-                        className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full font-mono text-xs font-semibold"
+                        className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full font-mono text-xs font-semibold"
                         style={{ backgroundColor: 'var(--graphite-ink)', color: 'var(--paper-bright)' }}
                       >
                         {index + 1}
                       </span>
-                      <div>
-                        <p className="font-display text-base text-[var(--graphite-ink)]">{phase.label}</p>
+                      <div className="flex-1">
+                        <p className="font-display text-lg text-[var(--graphite-ink)] sm:text-xl">
+                          {phase.label}
+                        </p>
                         <p className="mt-1 text-sm leading-relaxed text-[var(--ink-soft)]">{phase.desc}</p>
+                        {phase.bullets && phase.bullets.length > 0 ? (
+                          <ul className="mt-4 space-y-2">
+                            {phase.bullets.map((item) => (
+                              <li
+                                key={item}
+                                className="flex items-start gap-2.5 text-sm leading-relaxed text-[var(--graphite-ink)]"
+                              >
+                                <CheckCircle2
+                                  size={14}
+                                  className="mt-1 flex-shrink-0"
+                                  style={{ color: 'var(--signal-blue)' }}
+                                />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
                       </div>
                     </div>
                   </div>
