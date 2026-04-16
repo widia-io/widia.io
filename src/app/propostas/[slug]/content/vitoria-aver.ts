@@ -81,6 +81,7 @@ export const vitoriaAver: Proposal = {
         'Interface de chat com login e histórico de conversas',
         'Painel admin v1 (perguntas frequentes + dúvidas não respondidas)',
         'Primeira versão ponta a ponta rodando em ambiente privado',
+        'Primeira parcela do setup (40% — R$ 1.800) ao final desta semana, após validação da primeira versão',
       ],
     },
     {
@@ -95,26 +96,27 @@ export const vitoriaAver: Proposal = {
       ],
     },
     {
-      label: 'Entrega (final da semana 3 / início da 4)',
-      desc: 'Virada de chave e handover.',
+      label: 'Semana 4 — Go-live e entrega final',
+      desc: 'Virada de chave, handover e fechamento.',
       bullets: [
         'Aprovação final de escopo e tom de voz',
         'Treinamento de uso (1h via call, gravada)',
         'Liberação pra todas as alunas da Academy',
         'Handover do painel admin',
         'Início dos 30 dias de suporte pós-entrega',
+        'Segunda parcela do setup (60% — R$ 2.700) ao final desta semana',
       ],
     },
   ],
   investment: {
     setup: [
-      { item: 'Setup — 40% na aprovação', value: 'R$ 1.800' },
-      { item: 'Setup — 60% na entrega', value: 'R$ 2.700' },
+      { item: 'Setup — 40% ao final da semana 2', value: 'R$ 1.800' },
+      { item: 'Setup — 60% ao final da semana 4', value: 'R$ 2.700' },
     ],
     recurring: [
       { item: 'Mensalidade — infra, manutenção e até 5.000 perguntas/mês', value: 'R$ 600/mês' },
     ],
-    note: 'Setup total: R$ 4.500 (40% na aprovação, 60% na entrega). A mensalidade cobre infraestrutura, manutenção e até 5.000 perguntas/mês processadas em modelos econômicos (Claude Haiku ou GPT-4o mini). Acima desse volume, o custo da API é pago direto ao provedor pela cliente — ajudamos na configuração da conta. Primeira mensalidade só após entrega aprovada.',
+    note: 'Sem entrada, sem sinal. O setup total de R$ 4.500 é dividido em 40/60: R$ 1.800 ao final da semana 2 (após a primeira versão funcional rodando em ambiente privado) e R$ 2.700 ao final da semana 4 (após o go-live e handover). Você só paga depois de ver funcionando. A mensalidade cobre infraestrutura, manutenção e até 5.000 perguntas/mês processadas em modelos econômicos (Claude Haiku ou GPT-4o mini). Acima desse volume, o custo da API é pago direto ao provedor pela cliente — ajudamos na configuração da conta. Primeira mensalidade só após entrega aprovada.',
   },
   nextSteps: [
     'Validar proposta',
