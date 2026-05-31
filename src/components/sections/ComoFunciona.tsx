@@ -9,11 +9,11 @@ export default function ComoFunciona() {
             <span className="section-kicker">simples e direto</span>
             <div className="space-y-4">
               <h2 className="font-display text-4xl leading-[0.98] text-[var(--graphite-ink)] sm:text-5xl">
-                3 passos para sua operação rodar no automático.
+                3 passos para sair da dúvida e chegar numa automação validada.
               </h2>
               <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]">
-                Sem curso, sem teoria, sem enrolação. A gente entra na sua operação,
-                constrói a automação e acompanha até você ver resultado real.
+                Sem curso, sem palestra, sem projeto longo no escuro. A gente pega
+                um processo real, valida com protótipo e só então propõe implantação.
               </p>
             </div>
 
@@ -22,7 +22,7 @@ export default function ComoFunciona() {
                 o compromisso da Widia
               </p>
               <p className="mt-3 text-sm leading-relaxed text-[var(--graphite-ink)]">
-                Se a automação não resolver seu problema, você não paga. Simples assim.
+                R$1.500 para mapear, prototipar e decidir o próximo passo com clareza.
               </p>
             </div>
           </div>

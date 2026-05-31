@@ -26,12 +26,12 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://widia.io'),
   title: {
-    default: 'widia.io | IA prática pro seu negócio',
+    default: 'widia.io | Diagnóstico IA 48h',
     template: '%s | widia.io',
   },
-  description: 'Ajudamos empreendedores e pequenas empresas a usar inteligência artificial no dia a dia. Sem código, sem complicação, com resultado no primeiro mês.',
+  description: 'Diagnóstico IA 48h para pequenas empresas: mapa de automação, protótipo simples e plano de implantação com IA.',
   keywords: [
-    'IA', 'inteligência artificial', 'automação', 'consultoria IA',
+    'diagnóstico IA', 'IA', 'inteligência artificial', 'automação', 'consultoria IA',
     'pequenas empresas', 'empreendedores', 'consultoria IA para pequenas empresas',
     'como usar IA no meu negócio', 'inteligência artificial para empresas',
   ],
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   robots: 'index, follow',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'widia.io | IA prática pro seu negócio',
-    description: 'Ajudamos empreendedores e pequenas empresas a usar inteligência artificial no dia a dia. Sem código, sem complicação.',
+    title: 'widia.io | Diagnóstico IA 48h',
+    description: 'Mapa de automação, protótipo simples e plano de implantação com IA para pequenas empresas.',
     url: 'https://widia.io',
     siteName: 'widia.io',
     locale: 'pt_BR',
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'widia.io | IA prática pro seu negócio',
-    description: 'Ajudamos empreendedores e pequenas empresas a usar inteligência artificial no dia a dia. Sem código, sem complicação.',
+    title: 'widia.io | Diagnóstico IA 48h',
+    description: 'Mapa de automação, protótipo simples e plano de implantação com IA para pequenas empresas.',
   },
 }
 
@@ -74,7 +74,7 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'widia.io',
               url: 'https://widia.io',
-              description: 'Ajudamos empreendedores e pequenas empresas a usar inteligência artificial no dia a dia.',
+              description: 'Diagnóstico IA 48h para pequenas empresas.',
               founder: { '@type': 'Person', name: 'Bruno Gonzaga' },
             }),
           }}

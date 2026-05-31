@@ -12,11 +12,11 @@ export default function OQueResolvemos() {
             <span className="section-kicker">você se reconhece?</span>
             <div className="space-y-4">
               <h2 className="font-display text-4xl leading-[0.98] text-[var(--graphite-ink)] sm:text-5xl">
-                Se algum desses problemas é seu, a IA resolve em dias.
+                Se algum desses problemas é seu, dá para validar IA em 48h.
               </h2>
               <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]">
                 Cada hora que você gasta em tarefa manual é dinheiro jogado fora.
-                Veja onde a maioria dos nossos clientes estava antes de automatizar.
+                O diagnóstico escolhe um desses gargalos e mostra se vale automatizar.
               </p>
             </div>
 

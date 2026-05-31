@@ -26,7 +26,7 @@ export default function Header() {
     { name: 'Sobre', href: '#sobre' },
   ]
 
-  const whatsAppLink = buildWhatsAppLink('Olá! Quero agendar minha sessão gratuita de 1h.')
+  const whatsAppLink = buildWhatsAppLink('Olá! Quero fazer o Diagnóstico IA 48h da Widia.')
 
   return (
     <header className="fixed left-0 right-0 top-4 z-50 px-4">
@@ -69,7 +69,7 @@ export default function Header() {
                 rel="noopener noreferrer"
                 className={`action-primary ${isScrolled ? 'px-5 py-2.5 text-sm' : 'px-6 py-3'}`}
               >
-                Sessão Gratuita
+                Diagnóstico 48h
               </a>
             </div>
 
@@ -108,7 +108,7 @@ export default function Header() {
                   className="action-primary flex w-full"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Sessão Gratuita
+                  Diagnóstico 48h
                 </a>
               </div>
             </div>

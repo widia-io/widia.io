@@ -4,9 +4,9 @@ import { buildWhatsAppLink } from '@/lib/whatsapp'
 import { CTA_MESSAGES } from '@/constants/cta-messages'
 
 const sessionOutputs = [
-  'mapa dos gargalos que mais custam tempo e dinheiro',
-  'plano claro de quais automações implementar primeiro',
-  'estimativa real de horas e custo que você vai economizar',
+  'mapa do processo que mais custa tempo e dinheiro',
+  'protótipo simples para validar a automação com IA',
+  'plano de implantação com valor abatido se avançar',
 ]
 
 export default function CTAFinal() {
@@ -22,17 +22,17 @@ export default function CTAFinal() {
           <div className="relative grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div className="space-y-6">
               <span className="inline-flex rounded-full border border-white/10 bg-white/7 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-white/60">
-                100% gratuita · sem compromisso
+                r$1.500 · entrega em 48h
               </span>
 
               <div className="space-y-4">
                 <h2 className="font-display text-4xl leading-[0.98] text-white sm:text-5xl">
-                  Cada dia sem IA é dinheiro que você está deixando na mesa.
+                  Pare de discutir IA no abstrato. Escolha um processo e valide em 48h.
                 </h2>
                 <p className="max-w-2xl text-lg leading-relaxed text-white/72">
-                  Em 1h a gente mostra exatamente onde sua operação está sangrando tempo
-                  e dinheiro com trabalho manual. Você sai com um plano claro para automatizar.
-                  Sem custo, sem compromisso, sem enrolação.
+                  A Widia entra em um gargalo real da sua operação, monta o mapa,
+                  entrega um protótipo simples e mostra o próximo passo. Se virar
+                  implantação, o diagnóstico abate do projeto.
                 </p>
               </div>
 
@@ -43,7 +43,7 @@ export default function CTAFinal() {
                   rel="noopener noreferrer"
                   className="action-secondary bg-white text-[var(--graphite-ink)]"
                 >
-                  Quero minha sessão gratuita agora
+                  Quero meu diagnóstico 48h
                   <ArrowRight size={18} />
                 </a>
               </div>

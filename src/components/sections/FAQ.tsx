@@ -9,7 +9,7 @@ import { buildWhatsAppLink } from '@/lib/whatsapp'
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
-  const whatsAppLink = buildWhatsAppLink(CTA_MESSAGES.SESSAO_GRATUITA)
+  const whatsAppLink = buildWhatsAppLink(CTA_MESSAGES.DIAGNOSTICO)
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
@@ -26,8 +26,8 @@ export default function FAQ() {
                 Ainda tem dúvida? A gente responde aqui.
               </h2>
               <p className="text-lg leading-relaxed text-[var(--ink-soft)]">
-                Se sua pergunta não estiver aqui, agenda a sessão gratuita. Em 1h a gente tira
-                todas as suas dúvidas e já mostra onde IA encaixa no seu negócio.
+                Se sua pergunta não estiver aqui, fale no WhatsApp. Em poucos minutos a gente
+                confirma se seu processo cabe no Diagnóstico IA 48h.
               </p>
             </div>
 

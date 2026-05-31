@@ -14,20 +14,20 @@ import { CTA_MESSAGES } from './cta-messages'
 export const steps: Step[] = [
   {
     number: 1,
-    title: 'Diagnóstico gratuito de 1h',
-    description: 'A gente entra na sua operação, identifica onde você está perdendo dinheiro e monta o plano de ataque.',
+    title: 'Diagnóstico em 48h',
+    description: 'Você mostra um processo manual. A gente mapeia gargalos, custo invisível e primeiro ponto de automação.',
     icon: Calendar,
   },
   {
     number: 2,
-    title: 'Implementação sob medida',
-    description: 'Construímos a automação que resolve seu problema real, conectada ao que você já usa. Sem enrolação.',
+    title: 'Protótipo simples',
+    description: 'Você recebe uma primeira automação navegável, conectada ao fluxo real, para validar sem projeto longo.',
     icon: Wrench,
   },
   {
     number: 3,
-    title: 'Resultado garantido',
-    description: 'Você começa a economizar horas e dinheiro desde a primeira semana. A gente acompanha até funcionar de verdade.',
+    title: 'Plano de implantação',
+    description: 'Se fizer sentido avançar, o valor do diagnóstico abate no sprint de implementação.',
     icon: Rocket,
   },
 ]
@@ -69,8 +69,8 @@ export const problemCards: ProblemCard[] = [
     icon: HelpCircle,
     tag: 'Perdido',
     problem: 'Todo mundo fala de IA mas eu não sei nem por onde começar',
-    solution: 'Diagnóstico personalizado para descobrir exatamente onde IA já pode gerar resultado no seu negócio.',
-    outcome: 'Em 1h você sai com clareza total do que fazer agora e o que pode esperar.',
+    solution: 'Diagnóstico personalizado para descobrir exatamente onde IA pode gerar resultado agora, sem comprar ferramenta errada.',
+    outcome: 'Em 48h você sai com clareza do que automatizar, protótipo simples e próximo passo.',
     ctaMessage: CTA_MESSAGES.PROBLEMA_INICIO,
   },
 ]
@@ -124,18 +124,18 @@ export const caseStudies: CaseStudy[] = [
 
 export const serviceItems: ServiceItem[] = [
   {
-    name: 'Sessão Diagnóstico',
-    description: '1h gratuita para encontrar onde seu negócio está sangrando tempo e dinheiro com processos manuais.',
-    format: 'Gratuita',
-    bestFor: 'Para quem quer parar de adivinhar e saber exatamente onde IA gera resultado.',
-    outcome: 'Você sai com um mapa claro: o que automatizar primeiro, quanto vai economizar e o próximo passo.',
-    ctaMessage: CTA_MESSAGES.SESSAO_GRATUITA,
+    name: 'Diagnóstico IA 48h',
+    description: 'Mapeamos um processo manual, estimamos o custo do gargalo e entregamos um protótipo simples com IA.',
+    format: 'R$1.500 · 48h',
+    bestFor: 'Para quem precisa decidir rápido onde IA gera caixa, economia de tempo ou redução de retrabalho.',
+    outcome: 'Mapa de automação, protótipo simples e plano de implantação. O valor abate se virar projeto.',
+    ctaMessage: CTA_MESSAGES.DIAGNOSTICO,
     highlight: true,
   },
   {
     name: 'Projeto Pontual',
-    description: 'Uma automação específica implementada e funcionando na sua operação. Entrega fechada, resultado concreto.',
-    format: 'Entrega em até 2 semanas',
+    description: 'Uma automação específica implementada e funcionando na sua operação. Escopo fechado, resultado concreto.',
+    format: 'Sprint 7-14 dias',
     bestFor: 'Para quem já sabe o problema e quer resolver de uma vez.',
     outcome: 'Solução pronta para uso, testada e ajustada ao seu contexto. Sem código, sem complicação.',
     ctaMessage: CTA_MESSAGES.PROJETO_PONTUAL,
@@ -157,19 +157,19 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: 'Quanto tempo até eu ver resultado?',
-    answer: 'A maioria dos clientes vê resultado na primeira semana. Projetos simples ficam prontos em 7 dias. Projetos maiores em 2-4 semanas.',
+    answer: 'O diagnóstico fica pronto em 48h. Projetos simples podem ficar prontos em 7 dias. Projetos maiores normalmente levam 2-4 semanas.',
   },
   {
     question: 'Funciona pro meu tipo de negócio?',
-    answer: 'Se você tem tarefas repetitivas, atendimento ao cliente ou processos manuais que tomam seu tempo, sim. Na sessão gratuita a gente avalia juntos em 1h.',
+    answer: 'Se você tem tarefas repetitivas, atendimento ao cliente ou processos manuais que tomam seu tempo, sim. No diagnóstico a gente escolhe um processo e valida o melhor primeiro passo.',
   },
   {
     question: 'E se não funcionar?',
-    answer: 'A gente acompanha até funcionar. Simples assim. Se a automação não resolver seu problema, você não paga. Sem risco para você.',
+    answer: 'O diagnóstico é feito para reduzir risco antes de implementar. Se o processo escolhido não for bom candidato para IA, você recebe essa conclusão e um caminho melhor.',
   },
   {
     question: 'Quanto custa?',
-    answer: 'A sessão diagnóstico é 100% gratuita. Projetos pontuais têm valor fixo combinado antes de começar. Acompanhamento mensal é por assinatura acessível. Sem surpresa.',
+    answer: 'O Diagnóstico IA 48h custa R$1.500 e é pago na entrada. Se virar implementação, esse valor abate do projeto.',
   },
 ]
 
