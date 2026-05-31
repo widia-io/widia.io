@@ -13,21 +13,21 @@ export default function Services() {
               <span className="section-kicker">comece agora</span>
               <div className="space-y-4">
                 <h2 className="font-display text-4xl leading-[0.98] text-[var(--graphite-ink)] sm:text-5xl">
-                  Escolha como você quer começar a economizar tempo e dinheiro.
+                  Comece pequeno, valide rápido e só depois implemente.
                 </h2>
                 <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)]">
                   Não importa o tamanho do seu negócio. Se você tem processos manuais,
-                  a IA pode resolver. E o primeiro passo é gratuito.
+                  a IA pode ajudar. O primeiro passo é provar isso em um gargalo real.
                 </p>
               </div>
 
               <div className="surface-card rounded-[28px] p-5">
                 <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--ink-soft)]">
-                  comece sem risco
+                  entrada enxuta
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--graphite-ink)]">
-                  A sessão diagnóstico é gratuita e sem compromisso. Em 1h você sai sabendo
-                  exatamente onde IA gera resultado no seu negócio. Sem enrolação.
+                  O Diagnóstico IA 48h custa R$1.500. Você recebe mapa, protótipo simples
+                  e plano. Se avançar para implantação, esse valor abate do projeto.
                 </p>
               </div>
             </div>

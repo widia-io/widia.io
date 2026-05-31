@@ -43,15 +43,15 @@ const intakeSignals = [
 ]
 
 const outcomeSignals = [
-  'até 20h/mês economizadas',
-  'resultado na primeira semana',
-  'zero código necessário',
+  'diagnóstico em 48h',
+  'protótipo simples incluso',
+  'valor abate no projeto',
 ]
 
 const proofPills = [
-  { label: 'Sessão gratuita de 1h', color: 'var(--signal-blue)' },
-  { label: 'Resultado em 7 dias', color: 'var(--proof-green)' },
-  { label: 'Sem risco pra você', color: 'var(--amber-note)' },
+  { label: 'R$1.500', color: 'var(--signal-blue)' },
+  { label: '48h de entrega', color: 'var(--proof-green)' },
+  { label: '3 vagas abertas', color: 'var(--amber-note)' },
 ]
 
 export default function Hero() {
@@ -64,17 +64,17 @@ export default function Hero() {
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/60 to-transparent" />
           <div className="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div className="max-w-2xl space-y-6">
-              <span className="section-kicker">para pequenas empresas que querem crescer com IA</span>
+              <span className="section-kicker">diagnóstico ia 48h para pequenas empresas</span>
 
               <div className="space-y-5">
                 <h1 className="font-display text-5xl leading-[0.96] text-[var(--graphite-ink)] sm:text-6xl lg:text-7xl">
-                  Pare de perder tempo e dinheiro com trabalho manual.
+                  Descubra onde IA já pode economizar dinheiro na sua operação.
                 </h1>
 
                 <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)] sm:text-xl">
-                  A Widia coloca <strong>IA trabalhando na sua operação</strong> — atendimento, orçamentos,
-                  conteúdo e cobrança no automático. Sem código, sem complicação,
-                  com resultado na primeira semana.
+                  Em 48h a Widia mapeia um processo manual, estima o gargalo e entrega
+                  um <strong>protótipo simples de automação com IA</strong>. Investimento de R$1.500,
+                  abatido se virar implantação.
                 </p>
               </div>
 
@@ -85,7 +85,7 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   className="action-primary group text-base sm:text-[15px]"
                 >
-                  Quero minha sessão gratuita
+                  Quero meu diagnóstico 48h
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </a>
                 <a href="#como-funciona" className="action-secondary text-base sm:text-[15px]">
@@ -108,8 +108,8 @@ export default function Hero() {
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--ink-soft)] sm:text-[15px]">
                   A gente não vende slide bonito nem ferramenta que você nunca vai usar.
-                  Entramos na sua operação, construímos a automação e acompanhamos até
-                  funcionar de verdade. Se não resolver, você não paga.
+                  Escolhemos um gargalo real, desenhamos o fluxo e mostramos a primeira
+                  versão funcionando antes de propor um projeto maior.
                 </p>
               </div>
             </div>
