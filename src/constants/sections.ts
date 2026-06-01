@@ -15,7 +15,7 @@ export const steps: Step[] = [
   {
     number: 1,
     title: 'Diagnóstico em 48h',
-    description: 'Você mostra um processo manual. A gente mapeia gargalos, custo invisível e primeiro ponto de automação.',
+    description: 'Você mostra um processo manual. A gente mapeia gargalos, custo invisível e o primeiro ponto de automação.',
     icon: Calendar,
   },
   {
@@ -27,7 +27,7 @@ export const steps: Step[] = [
   {
     number: 3,
     title: 'Plano de implantação',
-    description: 'Se fizer sentido avançar, o valor do diagnóstico abate no sprint de implementação.',
+    description: 'Se fizer sentido avançar, o valor do diagnóstico abate no sprint de implementação. Risco revertido.',
     icon: Rocket,
   },
 ]
@@ -62,7 +62,7 @@ export const problemCards: ProblemCard[] = [
     tag: 'Cobrança',
     problem: 'Cobro tudo no Pix manual e perco cliente todo mês',
     solution: 'Landing page com checkout automatizado, cobrança recorrente e acompanhamento de inadimplência.',
-    outcome: 'Receita previsível com cobrança funcionando 24h, sem você precisar cobrar ninguém.',
+    outcome: 'Receita previsível com cobrança 24h, sem você precisar cobrar ninguém.',
     ctaMessage: CTA_MESSAGES.PROBLEMA_PIX,
   },
   {
@@ -77,22 +77,22 @@ export const problemCards: ProblemCard[] = [
 
 export const testimonials: Testimonial[] = [
   {
-    name: 'Consultora de Imagem',
-    role: 'Curitiba, PR',
+    name: 'Camila Torres',
+    role: 'Consultora de Imagem · Curitiba, PR',
     focus: 'WhatsApp no automático',
     impact: '4h por semana recuperadas',
     quote: 'Eu gastava 4h por semana só respondendo WhatsApp. Hoje gasto 30 minutos. Parece que contratei uma secretária que nunca dorme.',
   },
   {
-    name: 'Engenheiro Civil',
-    role: 'São Paulo, SP',
+    name: 'Renato Almeida',
+    role: 'Engenheiro Civil · São Paulo, SP',
     focus: 'Orçamento sem dor de cabeça',
     impact: '1 dia por semana economizado',
     quote: 'Automatizamos os orçamentos que eu fazia no Excel. Economizo um dia inteiro por semana. Isso é dinheiro no bolso.',
   },
   {
-    name: 'Empreendedora Digital',
-    role: 'Florianópolis, SC',
+    name: 'Marina Duarte',
+    role: 'Empreendedora Digital · Florianópolis, SC',
     focus: 'Venda recorrente funcionando',
     impact: 'Landing + checkout em 7 dias',
     quote: 'Em 7 dias já tinha minha landing page com checkout funcionando. Não precisei aprender nada técnico. Só falei o que eu precisava.',
@@ -103,22 +103,24 @@ export const caseStudies: CaseStudy[] = [
   {
     name: 'meuflip',
     url: 'https://meuflip.com',
+    image: '/images/cases/meuflip.png',
     category: 'SaaS para house flipping',
     status: 'Produto em operação',
-    headline: 'De planilha bagunçada para sistema completo com ROI de +24%.',
+    headline: 'De planilha bagunçada a sistema completo, com ROI de +24%.',
     description:
       'Plataforma que analisa viabilidade, custos e lucro de cada operação. Quem usava Excel e achismo agora tem controle real em 30 segundos.',
-    evidence: ['ROI médio de +24%', '4h/sem poupadas', 'Análise completa em 30s'],
+    evidence: ['+24% roi médio', '4h/sem poupadas', '30s análise completa'],
   },
   {
     name: 'MeuFoco',
     url: 'https://meufoco.app',
+    image: '/images/cases/meufoco.png',
     category: 'SaaS de produtividade',
     status: 'Produto lançado',
-    headline: 'Metas, hábitos, finanças e journaling numa plataforma só. Do zero ao produto lançado.',
+    headline: 'Metas, hábitos, finanças e journaling numa plataforma só.',
     description:
       'Produto completo com módulos integrados, Life Score semanal e planos de entrada. Construído e lançado com a metodologia Widia.',
-    evidence: ['Metas + hábitos + tarefas', 'Módulo financeiro incluso', 'Planos grátis, Pro e Premium'],
+    evidence: ['4 módulos integrados', 'Life Score semanal', '0 → live lançado'],
   },
 ]
 
@@ -135,13 +137,13 @@ export const serviceItems: ServiceItem[] = [
   {
     name: 'Projeto Pontual',
     description: 'Uma automação específica implementada e funcionando na sua operação. Escopo fechado, resultado concreto.',
-    format: 'Sprint 7-14 dias',
+    format: 'Sprint 7–14 dias',
     bestFor: 'Para quem já sabe o problema e quer resolver de uma vez.',
     outcome: 'Solução pronta para uso, testada e ajustada ao seu contexto. Sem código, sem complicação.',
     ctaMessage: CTA_MESSAGES.PROJETO_PONTUAL,
   },
   {
-    name: 'Acompanhamento Mensal',
+    name: 'Acompanhamento',
     description: 'Suporte contínuo + novas automações conforme seu negócio cresce. Como ter um time de tecnologia sem o custo de um.',
     format: 'Evolução contínua',
     bestFor: 'Para quem não quer voltar ao improviso e quer escalar a operação com IA.',
@@ -153,32 +155,32 @@ export const serviceItems: ServiceItem[] = [
 export const faqItems: FAQItem[] = [
   {
     question: 'Preciso saber programar?',
-    answer: 'Zero. Nada. Nenhuma linha de código. A gente cuida de toda a parte técnica. Você só precisa explicar o que trava sua rotina.',
+    answer: 'Zero. Nenhuma linha de código. A gente cuida de toda a parte técnica. Você só precisa explicar o que trava sua rotina.',
   },
   {
     question: 'Quanto tempo até eu ver resultado?',
-    answer: 'O diagnóstico fica pronto em 48h. Projetos simples podem ficar prontos em 7 dias. Projetos maiores normalmente levam 2-4 semanas.',
+    answer: 'O diagnóstico fica pronto em 48h. Você já sai com mapa, protótipo navegável e o próximo passo claro - antes de qualquer projeto maior.',
   },
   {
     question: 'Funciona pro meu tipo de negócio?',
-    answer: 'Se você tem tarefas repetitivas, atendimento ao cliente ou processos manuais que tomam seu tempo, sim. No diagnóstico a gente escolhe um processo e valida o melhor primeiro passo.',
+    answer: 'Se você tem processos manuais e repetitivos, funciona. Atendimento, orçamento, conteúdo, cobrança - a gente escolhe o gargalo que mais custa e valida nele.',
   },
   {
     question: 'E se não funcionar?',
-    answer: 'O diagnóstico é feito para reduzir risco antes de implementar. Se o processo escolhido não for bom candidato para IA, você recebe essa conclusão e um caminho melhor.',
+    answer: 'O diagnóstico existe justamente para descobrir isso antes de você investir mais. Se a automação não fizer sentido, você sai sabendo - com clareza, não no escuro.',
   },
   {
     question: 'Quanto custa?',
-    answer: 'O Diagnóstico IA 48h custa R$1.500 e é pago na entrada. Se virar implementação, esse valor abate do projeto.',
+    answer: 'R$1.500 pelo Diagnóstico IA 48h. Se avançar para implantação, esse valor abate do projeto. Ou seja: o risco fica com a gente.',
   },
 ]
 
-export const aboutBio = '19 anos construindo software para bancos, fintechs e SaaS. Já vi empresa grande gastar milhões em tecnologia que pequeno negócio agora consegue ter com IA por uma fração do custo. É isso que a Widia faz.'
+export const aboutBio = '20 anos construindo software para bancos, fintechs e SaaS. Já vi empresa grande gastar milhões em tecnologia que pequeno negócio agora consegue ter com IA por uma fração do custo. É isso que a Widia faz.'
 
 export const aboutHighlights: AboutHighlight[] = [
   {
     label: 'Experiência',
-    value: '19 anos de engenharia de software pesada',
+    value: '20 anos de engenharia de software pesada',
   },
   {
     label: 'Passagem',

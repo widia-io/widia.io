@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import RevealRuntime from '@/components/RevealRuntime'
 
 export default function AppShell({
   children,
@@ -10,14 +11,18 @@ export default function AppShell({
   children: React.ReactNode
 }) {
   const pathname = usePathname()
-  const hideChrome = pathname === '/preview/alane-michele' || pathname.startsWith('/propostas') || pathname.startsWith('/cursos')
+  const hideChrome = pathname.startsWith('/preview') || pathname.startsWith('/propostas')
+  const mainClassName = hideChrome
+    ? ''
+    : pathname === '/'
+      ? 'relative overflow-hidden'
+      : 'relative overflow-hidden pt-20 lg:pt-24'
 
   return (
     <>
+      <RevealRuntime />
       {!hideChrome && <Header />}
-      <main className={hideChrome ? '' : 'relative overflow-hidden pt-20 lg:pt-24'}>
-        {children}
-      </main>
+      <main className={mainClassName}>{children}</main>
       {!hideChrome && <Footer />}
     </>
   )
