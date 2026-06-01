@@ -124,6 +124,6 @@ export const ecommerce1h: LabCase = {
   nextStep: {
     kicker: 'Vai construir algo parecido?',
     label: 'Conheça o curso IA Aplicada para Negócios',
-    href: '/cursos/ia-aplicada-para-negocios',
+    href: '/cursos/ia-aplicada-negocios',
   },
 }

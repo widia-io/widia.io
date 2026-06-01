@@ -27,6 +27,7 @@ export type Testimonial = {
 export type CaseStudy = {
   name: string
   url: string
+  image: string
   category: string
   status: string
   headline: string

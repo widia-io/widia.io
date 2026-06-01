@@ -1,27 +1,35 @@
 import type { Metadata, Viewport } from 'next'
-import { IBM_Plex_Mono, Manrope, Space_Grotesk } from 'next/font/google'
+import { Hanken_Grotesk, JetBrains_Mono, Schibsted_Grotesk } from 'next/font/google'
 import './globals.css'
 import AppShell from '@/components/layout/AppShell'
 import MetaPixel from '@/components/MetaPixel'
 
-const manrope = Manrope({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
 })
 
-const spaceGrotesk = Space_Grotesk({
+const schibstedGrotesk = Schibsted_Grotesk({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
 })
 
-const plexMono = IBM_Plex_Mono({
+const jetBrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
-  weight: ['400', '500', '600'],
   display: 'swap',
 })
+
+const themeScript = `
+  try {
+    var t = localStorage.getItem('widia-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+`
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://widia.io'),
@@ -64,8 +72,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
-      <body className={`${manrope.variable} ${spaceGrotesk.variable} ${plexMono.variable}`}>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className={`${hankenGrotesk.variable} ${schibstedGrotesk.variable} ${jetBrainsMono.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

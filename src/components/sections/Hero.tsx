@@ -1,215 +1,78 @@
-import {
-  ArrowRight,
-  CreditCard,
-  FileSpreadsheet,
-  Instagram,
-  MessageCircle,
-  Sparkles,
-} from 'lucide-react'
-
 import { buildWhatsAppLink } from '@/lib/whatsapp'
 import { CTA_MESSAGES } from '@/constants/cta-messages'
-import { steps } from '@/constants/sections'
-
-const intakeSignals = [
-  {
-    icon: MessageCircle,
-    title: 'WhatsApp',
-    detail: 'atendimento 24h sem você digitar',
-    accent: 'var(--proof-green)',
-    soft: 'var(--proof-green-soft)',
-  },
-  {
-    icon: FileSpreadsheet,
-    title: 'Orçamentos',
-    detail: 'de 1 dia para 3 minutos',
-    accent: 'var(--amber-note)',
-    soft: 'var(--amber-note-soft)',
-  },
-  {
-    icon: Instagram,
-    title: 'Conteúdo',
-    detail: 'posts toda semana no automático',
-    accent: 'var(--signal-blue)',
-    soft: 'var(--signal-blue-soft)',
-  },
-  {
-    icon: CreditCard,
-    title: 'Cobrança',
-    detail: 'recorrente funcionando sozinha',
-    accent: 'var(--graphite-ink)',
-    soft: 'rgba(23, 25, 30, 0.08)',
-  },
-]
-
-const outcomeSignals = [
-  'diagnóstico em 48h',
-  'protótipo simples incluso',
-  'valor abate no projeto',
-]
-
-const proofPills = [
-  { label: 'R$1.500', color: 'var(--signal-blue)' },
-  { label: '48h de entrega', color: 'var(--proof-green)' },
-  { label: '3 vagas abertas', color: 'var(--amber-note)' },
-]
 
 export default function Hero() {
   const whatsAppLink = buildWhatsAppLink(CTA_MESSAGES.HERO)
 
   return (
-    <section className="section pt-6 lg:pt-10">
-      <div className="container">
-        <div className="surface-panel trace-grid rounded-[34px] px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10 xl:px-12 xl:py-12">
-          <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/60 to-transparent" />
-          <div className="relative grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
-            <div className="max-w-2xl space-y-6">
-              <span className="section-kicker">diagnóstico ia 48h para pequenas empresas</span>
+    <header className="hero" id="top">
+      <div className="hero__glow" />
+      <div className="wrap hero__grid">
+        <div className="hero__copy">
+          <span className="eyebrow">diagnóstico ia 48h · para pequenas empresas</span>
+          <h1 className="h-hero">
+            Descubra onde a IA já <em>economiza dinheiro</em> na sua operação.
+          </h1>
+          <p className="lead">
+            Em 48h a Widia mapeia um processo manual, estima o gargalo e entrega um{' '}
+            <strong>protótipo simples de automação com IA</strong>. R$1.500 - abatido se virar implantação.
+          </p>
 
-              <div className="space-y-5">
-                <h1 className="font-display text-5xl leading-[0.96] text-[var(--graphite-ink)] sm:text-6xl lg:text-7xl">
-                  Descubra onde IA já pode economizar dinheiro na sua operação.
-                </h1>
+          <div className="hero__cta">
+            <a className="btn btn--primary" href={whatsAppLink} target="_blank" rel="noopener noreferrer">
+              <span className="wa-dot" />
+              Quero meu diagnóstico 48h
+            </a>
+            <a className="btn btn--ghost" href="#dores">
+              Ver onde a IA entra <span className="arr">→</span>
+            </a>
+          </div>
 
-                <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-soft)] sm:text-xl">
-                  Em 48h a Widia mapeia um processo manual, estima o gargalo e entrega
-                  um <strong>protótipo simples de automação com IA</strong>. Investimento de R$1.500,
-                  abatido se virar implantação.
-                </p>
-              </div>
-
-              <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-                <a
-                  href={whatsAppLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="action-primary group text-base sm:text-[15px]"
-                >
-                  Quero meu diagnóstico 48h
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </a>
-                <a href="#como-funciona" className="action-secondary text-base sm:text-[15px]">
-                  Ver como funciona
-                </a>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-3">
-                {proofPills.map((pill) => (
-                  <div key={pill.label} className="metric-pill justify-center sm:justify-start">
-                    <span className="signal-dot" style={{ backgroundColor: pill.color }} />
-                    <span>{pill.label}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="surface-card rounded-[28px] p-4 sm:p-5">
-                <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--ink-soft)]">
-                  por que a Widia é diferente
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--ink-soft)] sm:text-[15px]">
-                  A gente não vende slide bonito nem ferramenta que você nunca vai usar.
-                  Escolhemos um gargalo real, desenhamos o fluxo e mostramos a primeira
-                  versão funcionando antes de propor um projeto maior.
-                </p>
-              </div>
+          <div className="hero__trust">
+            <div className="metric">
+              <span className="v">R$1.500</span>
+              <span className="l">investimento único</span>
             </div>
-
-            <div className="relative">
-              <div className="surface-card-strong trace-grid rounded-[30px] p-5 sm:p-6 lg:p-7">
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--ink-soft)]">
-                      o que você automatiza
-                    </p>
-                    <h2 className="font-display mt-3 text-2xl leading-tight text-[var(--graphite-ink)] sm:text-3xl">
-                      Tudo isso funcionando sem você
-                    </h2>
-                  </div>
-                  <div className="rounded-full border border-[var(--ledger-line)] bg-white/70 p-3 text-[var(--signal-blue)]">
-                    <Sparkles size={18} />
-                  </div>
-                </div>
-
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {intakeSignals.map((signal) => {
-                    const Icon = signal.icon
-                    return (
-                      <div
-                        key={signal.title}
-                        className="surface-card rounded-[24px] p-4"
-                      >
-                        <div className="flex items-start gap-3">
-                          <div
-                            className="rounded-2xl p-3"
-                            style={{ backgroundColor: signal.soft, color: signal.accent }}
-                          >
-                            <Icon size={18} />
-                          </div>
-                          <div className="space-y-1">
-                            <p className="font-display text-lg text-[var(--graphite-ink)]">
-                              {signal.title}
-                            </p>
-                            <p className="text-sm leading-relaxed text-[var(--ink-soft)]">
-                              {signal.detail}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-
-                <div className="my-6 flex items-center gap-3">
-                  <div className="h-px flex-1 bg-[var(--ledger-line)]" />
-                  <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink-soft)]">
-                    como funciona
-                  </span>
-                  <div className="h-px flex-1 bg-[var(--ledger-line)]" />
-                </div>
-
-                <div className="surface-card rounded-[26px] p-4 sm:p-5">
-                  <div className="grid gap-3 sm:grid-cols-3">
-                    {steps.map((step) => {
-                      const Icon = step.icon
-                      return (
-                        <div key={step.number} className="space-y-3">
-                          <div className="flex items-center gap-3">
-                            <div className="rounded-2xl bg-[var(--signal-blue-soft)] p-2.5 text-[var(--signal-blue)]">
-                              <Icon size={16} />
-                            </div>
-                            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--ink-soft)]">
-                              {`0${step.number}`}
-                            </span>
-                          </div>
-                          <p className="font-display text-lg leading-tight text-[var(--graphite-ink)]">
-                            {step.title}
-                          </p>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                  {outcomeSignals.map((item, index) => (
-                    <div
-                      key={item}
-                      className="rounded-[22px] border border-[var(--ledger-line)] bg-white/70 px-4 py-3"
-                    >
-                      <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--ink-soft)]">
-                        {`resultado 0${index + 1}`}
-                      </p>
-                      <p className="mt-2 text-sm font-medium text-[var(--graphite-ink)]">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="metric">
+              <span className="v">48h</span>
+              <span className="l">do brief à entrega</span>
+            </div>
+            <div className="metric">
+              <span className="v accent">3 vagas</span>
+              <span className="l">abertas em junho</span>
             </div>
           </div>
         </div>
+
+        <div className="proof reveal">
+          <div className="proof__win">
+            <div className="proof__bar">
+              <div className="proof__dots"><i /><i /><i /></div>
+              <span className="proof__file">diagnostico-widia.pdf</span>
+            </div>
+            <div className="proof__body">
+              <div className="proof__head">
+                <span className="proof__title">Mapa de automação</span>
+                <span className="proof__badge">● entregue em 48h</span>
+              </div>
+              <div className="dl-row"><span className="dl-k">Processo mapeado</span><span className="dl-v">Orçamento manual no Excel</span></div>
+              <div className="dl-row"><span className="dl-k">Gargalo identificado</span><span className="dl-v warn">1 dia / semana</span></div>
+              <div className="dl-row"><span className="dl-k">Custo invisível / mês</span><span className="dl-v warn">~R$ 3.200</span></div>
+              <div className="dl-row"><span className="dl-k">Protótipo incluso</span><span className="dl-v ok">✓ navegável</span></div>
+              <div className="ba">
+                <div className="cell"><div className="t">hoje</div><div className="n">1 dia</div></div>
+                <div className="arrowc">→</div>
+                <div className="cell now"><div className="t">com IA</div><div className="n">3 min</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="proof__float">
+            <span className="big">↓94%</span>
+            <span className="sm">tempo no processo<br />após automação</span>
+          </div>
+        </div>
       </div>
-    </section>
+    </header>
   )
 }
